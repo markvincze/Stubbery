@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
+using System.Net.Sockets;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Http;
@@ -14,9 +16,6 @@ namespace Stubbery
 {
     public class ApiStub : IDisposable
     {
-        private const string hostingJsonFile = "hosting.json";
-        private const string configFileKey = "config";
-
         private readonly ICollection<EndpointStubConfig> configuredEndpoints = new List<EndpointStubConfig>();
 
         public void Get(string route, Func<HttpRequest, dynamic> func)
@@ -68,6 +67,7 @@ namespace Stubbery
 
             var hostBuilder = new WebHostBuilder()
                 .UseKestrel()
+                .UseUrls($"http://localhost:{PickFreeTcpPort()}/")
                 .Configure(startup.Configure);
 
             webHost = hostBuilder.Build();
@@ -86,6 +86,15 @@ namespace Stubbery
         public void Dispose()
         {
             this.Stop();
+        }
+
+        private int PickFreeTcpPort()
+        {
+            TcpListener l = new TcpListener(IPAddress.Loopback, 0);
+            l.Start();
+            int port = ((IPEndPoint)l.LocalEndpoint).Port;
+            l.Stop();
+            return port;
         }
     }
 }
