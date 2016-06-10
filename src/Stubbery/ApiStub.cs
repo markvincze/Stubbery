@@ -5,37 +5,41 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Sockets;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 
 namespace Stubbery
 {
+    //public delegate dynamic CreateStubResponse(HttpRequest request, dynamic args);
+
     public class ApiStub : IDisposable
     {
         private readonly ICollection<EndpointStubConfig> configuredEndpoints = new List<EndpointStubConfig>();
 
         public void Get(string route, Func<HttpRequest, dynamic> func)
         {
-            configuredEndpoints.Add(new EndpointStubConfig(HttpMethod.Get, route, func));
+            Setup(HttpMethod.Get, route, func);
         }
 
         public void Post(string route, Func<HttpRequest, dynamic> func)
         {
-            configuredEndpoints.Add(new EndpointStubConfig(HttpMethod.Post, route, func));
+            Setup(HttpMethod.Post, route, func);
         }
 
         public void Put(string route, Func<HttpRequest, dynamic> func)
         {
-            configuredEndpoints.Add(new EndpointStubConfig(HttpMethod.Put, route, func));
+            Setup(HttpMethod.Put, route, func);
         }
 
         public void Delete(string route, Func<HttpRequest, dynamic> func)
         {
-            configuredEndpoints.Add(new EndpointStubConfig(HttpMethod.Delete, route, func));
+            Setup(HttpMethod.Delete, route, func);
+        }
+
+        public void Setup(HttpMethod method, string route, Func<HttpRequest, dynamic> func)
+        {
+            configuredEndpoints.Add(new EndpointStubConfig(method, route, func));
         }
 
         public string Address
@@ -68,6 +72,7 @@ namespace Stubbery
             var hostBuilder = new WebHostBuilder()
                 .UseKestrel()
                 .UseUrls($"http://localhost:{PickFreeTcpPort()}/")
+                .ConfigureServices(startup.ConfigureServices)
                 .Configure(startup.Configure);
 
             webHost = hostBuilder.Build();
