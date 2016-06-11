@@ -13,8 +13,8 @@
     "JitterMagic": "1.0.5",
     "Microsoft.AspNetCore.Hosting": "1.0.0-rc2-final",
     "System.Diagnostics.TraceSource": "4.0.0-rc2-24027",
-    "System.Reflection": "4.1.0-rc3-24123-01",
-    "Stubbery": "1.*" 
+    "System.Reflection": "4.1.0-rc3-24127-00",
+    "Stubbery": "1.*"
   },
 
   "frameworks": {
