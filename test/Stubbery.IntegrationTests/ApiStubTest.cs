@@ -304,7 +304,7 @@ namespace Stubbery.IntegrationTests
                     sut.Start();
 
                     var result = await httpClient.GetAsync(
-                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?myArg=orange"}.Uri);
+                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?myArg=orange" }.Uri);
 
                     Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
@@ -326,7 +326,7 @@ namespace Stubbery.IntegrationTests
                     sut.Start();
 
                     var result = await httpClient.GetAsync(
-                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget/orange/part/apple", Query = "?qarg1=melon&qarg2=pear"}.Uri);
+                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget/orange/part/apple", Query = "?qarg1=melon&qarg2=pear" }.Uri);
 
                     Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
@@ -342,13 +342,13 @@ namespace Stubbery.IntegrationTests
                 using (var sut = new ApiStub())
                 {
                     sut.Post(
-                        "/testget",
+                        "/testpost",
                         (req, args) => $"testresponse body: {args.Body.ReadAsString()}");
 
                     sut.Start();
 
                     var result = await httpClient.PostAsync(
-                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri,
+                        new UriBuilder(new Uri(sut.Address)) { Path = "/testpost" }.Uri,
                         new StringContent("orange"));
 
                     Assert.Equal(HttpStatusCode.OK, result.StatusCode);
@@ -356,6 +356,39 @@ namespace Stubbery.IntegrationTests
                     var resultString = await result.Content.ReadAsStringAsync();
 
                     Assert.Equal("testresponse body: orange", resultString);
+                }
+            }
+        }
+
+        public class OtherVerbs
+        {
+            private readonly HttpClient httpClient = new HttpClient();
+
+
+            [Fact]
+            public async Task Get_CalledSetupOptions_ResponseReturned()
+            {
+                using (var sut = new ApiStub())
+                {
+                    sut.Setup(
+                        HttpMethod.Options,
+                        "/testoptions",
+                        (req, args) => "testresponse");
+
+                    sut.Start();
+
+                    var result = await httpClient.SendAsync(
+                        new HttpRequestMessage
+                        {
+                            RequestUri = new UriBuilder(new Uri(sut.Address)) { Path = "/testoptions" }.Uri,
+                            Method = HttpMethod.Options
+                        });
+
+                    Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+
+                    var resultString = await result.Content.ReadAsStringAsync();
+
+                    Assert.Equal("testresponse", resultString);
                 }
             }
         }
