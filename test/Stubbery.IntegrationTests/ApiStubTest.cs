@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Stubbery.IntegrationTests
 {
-    public class ApiStubTest
+    public partial class ApiStubTest
     {
         public class Get
         {
@@ -19,7 +19,7 @@ namespace Stubbery.IntegrationTests
                 {
                     sut.Get(
                         "/testget",
-                        req => "testresponse");
+                        (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -41,7 +41,7 @@ namespace Stubbery.IntegrationTests
                 {
                     sut.Get(
                         "/testget",
-                        req => "testresponse");
+                        (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -59,7 +59,7 @@ namespace Stubbery.IntegrationTests
                 {
                     sut.Get(
                         "/testget",
-                        req => "testresponse");
+                        (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -67,28 +67,6 @@ namespace Stubbery.IntegrationTests
                         new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
                     Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
-                }
-            }
-
-            [Fact]
-            public async Task Get_CalledSetupRoute_RouteDataAvailable()
-            {
-                using (var sut = new ApiStub())
-                {
-                    sut.Get(
-                        "/testget/{myArg}",
-                        req => "testresponse");
-
-                    sut.Start();
-
-                    var result = await httpClient.GetAsync(
-                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget/alma" }.Uri);
-
-                    Assert.Equal(HttpStatusCode.OK, result.StatusCode);
-
-                    var resultString = await result.Content.ReadAsStringAsync();
-
-                    Assert.Equal("testresponse", resultString);
                 }
             }
         }
@@ -104,7 +82,7 @@ namespace Stubbery.IntegrationTests
                 {
                     sut.Delete(
                         "/testdelete",
-                        req => "testresponse");
+                        (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -126,7 +104,7 @@ namespace Stubbery.IntegrationTests
                 {
                     sut.Delete(
                         "/testdelete",
-                        req => "testresponse");
+                        (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -144,7 +122,7 @@ namespace Stubbery.IntegrationTests
                 {
                     sut.Delete(
                         "/testdelete",
-                        req => "testresponse");
+                        (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -167,7 +145,7 @@ namespace Stubbery.IntegrationTests
                 {
                     sut.Post(
                         "/testpost",
-                        req => "testresponse");
+                        (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -190,7 +168,7 @@ namespace Stubbery.IntegrationTests
                 {
                     sut.Post(
                         "/testpost",
-                        req => "testresponse");
+                        (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -209,7 +187,7 @@ namespace Stubbery.IntegrationTests
                 {
                     sut.Post(
                         "/testpost",
-                        req => "testresponse");
+                        (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -233,7 +211,7 @@ namespace Stubbery.IntegrationTests
                 {
                     sut.Put(
                         "/testput",
-                        req => "testresponse");
+                        (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -256,7 +234,7 @@ namespace Stubbery.IntegrationTests
                 {
                     sut.Put(
                         "/testput",
-                        req => "testresponse");
+                        (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -275,7 +253,7 @@ namespace Stubbery.IntegrationTests
                 {
                     sut.Put(
                         "/testput",
-                        req => "testresponse");
+                        (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -284,6 +262,100 @@ namespace Stubbery.IntegrationTests
                         new StringContent(""));
 
                     Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
+                }
+            }
+        }
+
+        public class Arguments
+        {
+            private readonly HttpClient httpClient = new HttpClient();
+
+            [Fact]
+            public async Task Get_CalledSetupRoute_RouteDataAvailable()
+            {
+                using (var sut = new ApiStub())
+                {
+                    sut.Get(
+                        "/testget/{myArg}",
+                        (req, args) => $"testresponse arg: {args.Route.myArg}");
+
+                    sut.Start();
+
+                    var result = await httpClient.GetAsync(
+                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget/orange" }.Uri);
+
+                    Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+
+                    var resultString = await result.Content.ReadAsStringAsync();
+
+                    Assert.Equal("testresponse arg: orange", resultString);
+                }
+            }
+
+            [Fact]
+            public async Task Get_CalledQueryString_QueryParameterAvailable()
+            {
+                using (var sut = new ApiStub())
+                {
+                    sut.Get(
+                        "/testget",
+                        (req, args) => $"testresponse arg: {args.Query.myArg}");
+
+                    sut.Start();
+
+                    var result = await httpClient.GetAsync(
+                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?myArg=orange"}.Uri);
+
+                    Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+
+                    var resultString = await result.Content.ReadAsStringAsync();
+
+                    Assert.Equal("testresponse arg: orange", resultString);
+                }
+            }
+
+            [Fact]
+            public async Task Get_MultipleRouteAndQueryParameters_AllParameterAvailable()
+            {
+                using (var sut = new ApiStub())
+                {
+                    sut.Get(
+                        "/testget/{arg1}/part/{arg2}",
+                        (req, args) => $"testresponse arg1: {args.Route.arg1} arg2: {args.Route.arg2} qarg1: {args.Query.qarg1} qarg2: {args.Query.qarg2}");
+
+                    sut.Start();
+
+                    var result = await httpClient.GetAsync(
+                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget/orange/part/apple", Query = "?qarg1=melon&qarg2=pear"}.Uri);
+
+                    Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+
+                    var resultString = await result.Content.ReadAsStringAsync();
+
+                    Assert.Equal("testresponse arg1: orange arg2: apple qarg1: melon qarg2: pear", resultString);
+                }
+            }
+
+            [Fact]
+            public async Task Post_BodyPassed_BodyAvailable()
+            {
+                using (var sut = new ApiStub())
+                {
+                    sut.Post(
+                        "/testget",
+                        (req, args) => $"testresponse body: {args.Body.ReadAsString()}");
+
+                    sut.Start();
+
+                    var result = await httpClient.PostAsync(
+                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri,
+                        new StringContent("orange"));
+
+                    Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+
+                    var resultString = await result.Content.ReadAsStringAsync();
+
+                    Assert.Equal("testresponse body: orange", resultString);
                 }
             }
         }

@@ -12,24 +12,25 @@
   "description": "Library for creating Api stubs in .NET.",
 
   "dependencies": {
-    "Microsoft.NETCore.App": {
-      "version": "1.0.0-rc2-3002702",
-      "type": "platform"
-    },
     "Microsoft.AspNetCore.Hosting": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.TestHost": "1.0.0-rc2-final",
     "Microsoft.AspNetCore.Hosting.Server.Abstractions": "1.0.0-rc2-final",
-    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Http.Abstractions": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Routing": "1.0.0-rc2-final",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-final",
+    "Microsoft.CSharp": "4.0.1-rc2-24027",
     "Microsoft.Extensions.Configuration.CommandLine": "1.0.0-rc2-final",
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.Http.Abstractions": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0-rc2-final",
-    "Microsoft.AspNetCore.Routing": "1.0.0-rc2-final" 
+    "Microsoft.Extensions.Configuration.Json": "1.0.0-rc2-final",
+    "System.Net.Http": "4.0.1-rc2-24027"
   },
 
   "frameworks": {
-    "netcoreapp1.0": {
-      "imports": [ "dnxcore50", "portable-net45+win8" ]
-    }
+    "netstandard1.3": {
+      "imports": [ "portable-net45+win8" ],
+      "dependencies": {
+        "System.Net.Sockets": "4.1.0-rc2-24027"
+      }
+    },
+    "net451": {}
   }
 }

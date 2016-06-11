@@ -1,6 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using Microsoft.AspNetCore.Http;
+﻿using System.Net.Http;
 
 namespace Stubbery
 {
@@ -10,13 +8,13 @@ namespace Stubbery
 
         public string Route { get; }
 
-        public Func<HttpRequest, dynamic> Response { get; }
+        public CreateStubResponse Response { get; }
 
-        public EndpointStubConfig(HttpMethod method, string route, Func<HttpRequest, dynamic> response)
+        public EndpointStubConfig(HttpMethod method, string route, CreateStubResponse responder)
         {
             Method = method;
             Route = route;
-            Response = response;
+            Response = responder;
         }
     }
 }
