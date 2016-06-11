@@ -64,6 +64,8 @@ namespace Stubbery.Samples.BasicSample.IntegrationTests
                     services =>
                     {
                         startup.ConfigureServices(services);
+
+                        // Replace the real api URL with the stub.
                         startup.Configuration["PostCodeApiUrl"] = postcodeApiStub.Address;
                     }));
         }
