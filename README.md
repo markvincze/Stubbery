@@ -51,7 +51,7 @@ using (var sut = new ApiStub())
     sut.Start();
 
     var result = await httpClient.GetAsync(
-        new UriBuilder(new Uri(sut.Address)) { Path = "/testget/orange", Query = "?queryArg1=melon"}.Uri);
+        new UriBuilder(new Uri(sut.Address)) { Path = "/testget/orange", Query = "?queryArg1=melon" }.Uri);
 
     // resultString will contain "testresponse arg1: orange queryArg1: melon"
     var resultString = await result.Content.ReadAsStringAsync();
