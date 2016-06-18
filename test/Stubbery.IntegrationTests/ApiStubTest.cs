@@ -69,6 +69,29 @@ namespace Stubbery.IntegrationTests
                     Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
                 }
             }
+
+
+            [Fact]
+            public async Task Get_SetupAfterStart_Works()
+            {
+                using (var sut = new ApiStub())
+                {
+                    sut.Start();
+
+                    sut.Get(
+                        "/testget",
+                        (req, args) => "testresponse");
+
+                    var result = await httpClient.GetAsync(
+                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+
+                    Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+
+                    var resultString = await result.Content.ReadAsStringAsync();
+
+                    Assert.Equal("testresponse", resultString);
+                }
+            }
         }
 
         public class Delete
