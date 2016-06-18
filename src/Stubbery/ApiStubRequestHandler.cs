@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.AspNetCore.Routing.Template;
 
 namespace Stubbery
 {
-    class ApiStubRequestHandler : IApiStubRequestHandler
+    internal class ApiStubRequestHandler : IApiStubRequestHandler
     {
         private readonly ICollection<EndpointStubConfig> configuredEndpoints;
 
