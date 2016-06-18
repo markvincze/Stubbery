@@ -336,6 +336,51 @@ namespace Stubbery.IntegrationTests
                 }
             }
 
+
+            [Fact]
+            public async Task Get_OptionalRouteParameter_ItCanBeOmitted()
+            {
+                using (var sut = new ApiStub())
+                {
+                    sut.Get(
+                        "/testget/{arg:string?}",
+                        (req, args) => "testresponse");
+
+                    sut.Start();
+
+                    var result = await httpClient.GetAsync(
+                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+
+                    Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+
+                    var resultString = await result.Content.ReadAsStringAsync();
+
+                    Assert.Equal("testresponse", resultString);
+                }
+            }
+
+            [Fact]
+            public async Task Get_RouteParameterWithDefaultValue_DefaultValueReturned()
+            {
+                using (var sut = new ApiStub())
+                {
+                    sut.Get(
+                        "/testget/{arg:string=apple}",
+                        (req, args) => $"testresponse arg: {args.Route.arg}");
+
+                    sut.Start();
+
+                    var result = await httpClient.GetAsync(
+                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+
+                    Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+
+                    var resultString = await result.Content.ReadAsStringAsync();
+
+                    Assert.Equal("testresponse arg: apple", resultString);
+                }
+            }
+
             [Fact]
             public async Task Post_BodyPassed_BodyAvailable()
             {

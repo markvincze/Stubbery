@@ -42,7 +42,8 @@ namespace Stubbery
                 throw new InvalidOperationException("The api stub is already started.");
             }
 
-            var startup = new ApiStubWebAppStartup(configuredEndpoints);
+            var startup = new ApiStubWebAppStartup(
+                new ApiStubRequestHandler(configuredEndpoints, new RouteMatcher()));
 
             Run(startup);
 

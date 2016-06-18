@@ -13,7 +13,7 @@ namespace Stubbery
         public EndpointStubConfig(HttpMethod method, string route, CreateStubResponse responder)
         {
             Method = method;
-            Route = route;
+            Route = route.TrimStart('/');
             Response = responder;
         }
     }
