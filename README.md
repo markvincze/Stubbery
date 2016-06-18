@@ -2,6 +2,8 @@
 
 Simple library for creating and running Api stubs in .NET.
 
+[![Build status](https://ci.appveyor.com/api/projects/status/lv48y6utx9ulcwdh?svg=true)](https://ci.appveyor.com/project/markvincze/stubbery)
+
 ## Introduction
 
 In many situations it comes handy if we're able to start a simple service that responds on certain routes with preconfigured static responses.
