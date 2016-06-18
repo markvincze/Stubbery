@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Stubbery
 {
-    public interface IApiStartup
+    internal interface IApiStartup
     {
         void Configure(IApplicationBuilder app);
 

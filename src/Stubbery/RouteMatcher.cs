@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Routing.Template;
 
 namespace Stubbery
 {
-    public class RouteMatcher : IRouteMatcher
+    internal class RouteMatcher : IRouteMatcher
     {
         public RouteValueDictionary Match(string routeTemplate, string requestPath)
         {

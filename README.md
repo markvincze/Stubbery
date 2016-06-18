@@ -24,15 +24,15 @@ After usage the server should be stopped to free up the TCP port. This can be do
 ### Basic usage
 
 ```csharp
-using (var sut = new ApiStub())
+using (var stub = new ApiStub())
 {
-    sut.Get(
+    stub.Get(
         "/testget",
         (req, args) => "testresponse");
 
-    sut.Start();
+    stub.Start();
 
-    var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+    var result = await httpClient.GetAsync(new UriBuilder(new Uri(stub.Address)) { Path = "/testget" }.Uri);
 
     // resultString will contain "testresponse"
     var resultString = await result.Content.ReadAsStringAsync();
@@ -44,16 +44,16 @@ using (var sut = new ApiStub())
 Parameters of the request can be accessed through the second argument of the lambda setting up the response. The following code sample shows how the route and the query string parameters can be accessed.
 
 ```csharp
-using (var sut = new ApiStub())
+using (var stub = new ApiStub())
 {
-    sut.Get(
+    stub.Get(
         "/testget/{arg1}",
         (req, args) => $"testresponse arg1: {args.Route.arg1} queryArg1: {args.Query.queryArg1}");
 
-    sut.Start();
+    stub.Start();
 
     var result = await httpClient.GetAsync(
-        new UriBuilder(new Uri(sut.Address)) { Path = "/testget/orange", Query = "?queryArg1=melon" }.Uri);
+        new UriBuilder(new Uri(stub.Address)) { Path = "/testget/orange", Query = "?queryArg1=melon" }.Uri);
 
     // resultString will contain "testresponse arg1: orange queryArg1: melon"
     var resultString = await result.Content.ReadAsStringAsync();
@@ -63,16 +63,16 @@ using (var sut = new ApiStub())
 The following example shows how the HTTP body can be accessed.
 
 ```csharp
-using (var sut = new ApiStub())
+using (var stub = new ApiStub())
 {
-    sut.Post(
+    stub.Post(
         "/testpost",
         (req, args) => $"testresponse body: {args.Body.ReadAsString()}");
 
-    sut.Start();
+    stub.Start();
 
     var result = await httpClient.PostAsync(
-        new UriBuilder(new Uri(sut.Address)) { Path = "/testpost" }.Uri,
+        new UriBuilder(new Uri(stub.Address)) { Path = "/testpost" }.Uri,
         new StringContent("orange"));
 
     // resultString will contain "testresponse body: orange"
@@ -85,19 +85,19 @@ using (var sut = new ApiStub())
 If we want to use a different HTTP verb, the `Setup` method can be used.
 
 ```csharp
-using (var sut = new ApiStub())
+using (var stub = new ApiStub())
 {
-    sut.Setup(
+    stub.Setup(
         HttpMethod.Options,
         "/testoptions",
         (req, args) => "testresponse");
 
-    sut.Start();
+    stub.Start();
 
     var result = await httpClient.SendAsync(
         new HttpRequestMessage
         {
-            RequestUri = new UriBuilder(new Uri(sut.Address)) { Path = "/testoptions" }.Uri,
+            RequestUri = new UriBuilder(new Uri(stub.Address)) { Path = "/testoptions" }.Uri,
             Method = HttpMethod.Options
         });
 
