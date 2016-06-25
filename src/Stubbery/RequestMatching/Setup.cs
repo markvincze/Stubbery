@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -23,7 +24,10 @@ namespace Stubbery.RequestMatching
             orConditions = new Dictionary<ConditionGroup, List<IPrecondition>>
             {
                 [ConditionGroup.Method] = new List<IPrecondition>(),
-                [ConditionGroup.Route] = new List<IPrecondition>()
+                [ConditionGroup.Route] = new List<IPrecondition>(),
+                [ConditionGroup.ContentType] = new List<IPrecondition>(),
+                [ConditionGroup.Accept] = new List<IPrecondition>(),
+                [ConditionGroup.Body] = new List<IPrecondition>()
             };
 
             orConditions[ConditionGroup.Method].AddRange(methods.Select(m => new MethodCondition(m.Method)));
@@ -47,35 +51,42 @@ namespace Stubbery.RequestMatching
 
         public ISetup IfContentType(string contentType)
         {
-            andConditions.Add(new ContentTypeCondition(c => c == contentType));
+            orConditions[ConditionGroup.ContentType].Add(new ContentTypeCondition(c => c != null && c.Contains(contentType)));
 
             return this;
         }
 
         public ISetup IfContentType(Func<string, bool> check)
         {
-            andConditions.Add(new ContentTypeCondition(check));
+            orConditions[ConditionGroup.ContentType].Add(new ContentTypeCondition(check));
 
             return this;
         }
 
         public ISetup IfAccept(string accept)
         {
-            andConditions.Add(new AcceptCondition(a => a == accept));
+            orConditions[ConditionGroup.Accept].Add(new AcceptCondition(a => a == accept));
 
             return this;
         }
 
         public ISetup IfAccept(Func<string, bool> check)
         {
-            andConditions.Add(new AcceptCondition(check));
+            orConditions[ConditionGroup.Accept].Add(new AcceptCondition(check));
 
             return this;
         }
 
-        public ISetup Route(string routeTemplate)
+        public ISetup IfRoute(string routeTemplate)
         {
             orConditions[ConditionGroup.Route].Add(new RouteCondition(routeTemplate));
+
+            return this;
+        }
+
+        public ISetup IfBody(Func<Stream, bool> check)
+        {
+            orConditions[ConditionGroup.Body].Add(new BodyCondition(check));
 
             return this;
         }
@@ -111,11 +122,22 @@ namespace Stubbery.RequestMatching
             return this;
         }
 
+        public ISetup Header(string header, string value)
+        {
+            setupResponse.Headers.Add(new KeyValuePair<string, string>(header, value));
+
+            return this;
+        }
+
         public bool IsMatch(HttpContext httpContext)
         {
-            return orConditions.All(
-                       conditionGroup => conditionGroup.Value.Any(condition => condition.Match(httpContext))) &&
-                   andConditions.All(condition => condition.Match(httpContext));
+            var orConditionsMatch = orConditions
+                .Where(g => g.Value.Count > 0)
+                .All(conditionGroup => conditionGroup.Value.Any(condition => condition.Match(httpContext)));
+
+            var andConditionsMatch = andConditions.All(condition => condition.Match(httpContext));
+
+            return orConditionsMatch && andConditionsMatch;
         }
 
         public async Task SendResponseAsync(HttpContext httpContext)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Microsoft.AspNetCore.Http;
 
 namespace Stubbery.RequestMatching
@@ -15,8 +16,10 @@ namespace Stubbery.RequestMatching
 
         ISetup IfAccept(string accept);
 
-        ISetup IfAccept(Func<string, bool> accept);
+        ISetup IfAccept(Func<string, bool> check);
 
-        ISetup Route(string routeTemplate);
+        ISetup IfRoute(string routeTemplate);
+
+        ISetup IfBody(Func<Stream, bool> check);
     }
 }

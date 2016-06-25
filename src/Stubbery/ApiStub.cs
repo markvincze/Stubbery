@@ -62,14 +62,14 @@ namespace Stubbery
         public ISetup Get(string route, CreateStubResponse responder)
         {
             return Request(HttpMethod.Get)
-                .Route(route)
+                .IfRoute(route)
                 .Response(responder);
         }
 
         public ISetup Post(string route, CreateStubResponse responder)
         {
             return Request(HttpMethod.Post)
-                .Route(route)
+                .IfRoute(route)
                 .Response(responder);
         }
 
@@ -81,7 +81,7 @@ namespace Stubbery
         public ISetup Put(string route, CreateStubResponse responder)
         {
             return Request(HttpMethod.Put)
-                .Route(route)
+                .IfRoute(route)
                 .Response(responder);
         }
 
@@ -93,7 +93,7 @@ namespace Stubbery
         public ISetup Delete(string route, CreateStubResponse responder)
         {
             return Request(HttpMethod.Delete)
-                .Route(route)
+                .IfRoute(route)
                 .Response(responder);
         }
 

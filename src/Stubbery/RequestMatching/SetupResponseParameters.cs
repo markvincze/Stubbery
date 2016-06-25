@@ -17,6 +17,18 @@ namespace Stubbery.RequestMatching
         {
             httpContext.Response.StatusCode = StatusCode;
 
+            foreach (var header in Headers)
+            {
+                if (httpContext.Response.Headers.ContainsKey(header.Key))
+                {
+                    httpContext.Response.Headers[header.Key] = header.Value;
+                }
+                else
+                {
+                    httpContext.Response.Headers.Add(header.Key, header.Value);
+                }
+            }
+
             var routeValues = httpContext.GetRouteValues();
 
             var arguments = new RequestArguments(
@@ -25,11 +37,6 @@ namespace Stubbery.RequestMatching
                 httpContext.Request.Body);
 
             await httpContext.Response.WriteAsync((string)Responder(httpContext.Request, arguments));
-
-            foreach (var header in Headers)
-            {
-                httpContext.Response.Headers[header.Key] = header.Value;
-            }
         }
     }
 }

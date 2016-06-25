@@ -8,6 +8,8 @@ namespace Stubbery.RequestMatching
 
         ISetup StatusCode(int statusCode);
 
+        ISetup Header(string header, string value);
+
         ISetup Headers(params KeyValuePair<string, string>[] headers);
     }
 }

@@ -3,6 +3,9 @@
     internal enum ConditionGroup
     {
         Method,
-        Route
+        Route,
+        ContentType,
+        Accept,
+        Body
     }
 }
