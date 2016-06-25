@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Routing;
 
-namespace Stubbery
+namespace Stubbery.RequestMatching
 {
     internal interface IRouteMatcher
     {

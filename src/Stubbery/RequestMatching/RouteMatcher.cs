@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Routing.Template;
 
-namespace Stubbery
+namespace Stubbery.RequestMatching
 {
     internal class RouteMatcher : IRouteMatcher
     {

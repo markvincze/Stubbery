@@ -2,11 +2,11 @@
 
 namespace Stubbery.RequestMatching.Preconditions
 {
-    public class MethodPrecondition : IPrecondition
+    public class MethodCondition : IPrecondition
     {
         private readonly string method;
 
-        public MethodPrecondition(string method)
+        public MethodCondition(string method)
         {
             this.method = method;
         }

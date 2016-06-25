@@ -20,11 +20,13 @@ namespace Stubbery.RequestMatching
         {
             andConditions = new List<IPrecondition>();
 
-            orConditions = new Dictionary<ConditionGroup, List<IPrecondition>>();
-            orConditions[ConditionGroup.Method] = new List<IPrecondition>();
-            orConditions[ConditionGroup.Route] = new List<IPrecondition>();
+            orConditions = new Dictionary<ConditionGroup, List<IPrecondition>>
+            {
+                [ConditionGroup.Method] = new List<IPrecondition>(),
+                [ConditionGroup.Route] = new List<IPrecondition>()
+            };
 
-            orConditions[ConditionGroup.Method].AddRange(methods.Select(m => new MethodPrecondition(m.Method)));
+            orConditions[ConditionGroup.Method].AddRange(methods.Select(m => new MethodCondition(m.Method)));
 
             setupResponse = new SetupResponseParameters();
         }

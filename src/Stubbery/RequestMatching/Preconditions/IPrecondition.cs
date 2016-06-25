@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace Stubbery.RequestMatching
+namespace Stubbery.RequestMatching.Preconditions
 {
     public interface IPrecondition
     {
