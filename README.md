@@ -88,8 +88,8 @@ If we want to use a different HTTP verb, the `Setup` method can be used.
 using (var stub = new ApiStub())
 {
     sut.Request(HttpMethod.Options)
-	.IfRoute("/testoptions")
-	.Response((req, args) => "testresponse");
+        .IfRoute("/testoptions")
+        .Response((req, args) => "testresponse");
 
     stub.Start();
 
