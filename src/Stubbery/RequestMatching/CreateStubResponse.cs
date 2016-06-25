@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace Stubbery
+namespace Stubbery.RequestMatching
 {
     public delegate dynamic CreateStubResponse(HttpRequest request, RequestArguments args);
 }

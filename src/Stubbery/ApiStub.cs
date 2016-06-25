@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using Stubbery.RequestMatching;
 
 namespace Stubbery
 {
     public class ApiStub : IDisposable
     {
-        private readonly ICollection<EndpointStubConfig> configuredEndpoints = new List<EndpointStubConfig>();
+        private readonly ICollection<Setup> configuredEndpoints = new List<Setup>();
 
         private readonly ApiHost apiHost;
 
@@ -16,7 +17,7 @@ namespace Stubbery
 
         public ApiStub()
         {
-            var startup = new ApiStubWebAppStartup(new ApiStubRequestHandler(configuredEndpoints, new RouteMatcher()));
+            var startup = new ApiStubWebAppStartup(new ApiStubRequestHandler(configuredEndpoints));
 
             apiHost = new ApiHost(startup);
         }
@@ -53,29 +54,61 @@ namespace Stubbery
             state = ApiStubState.Stopped;
         }
 
-        public void Get(string route, CreateStubResponse responder)
+        public ISetup Get()
         {
-            Setup(HttpMethod.Get, route, responder);
+            return Request(HttpMethod.Get);
         }
 
-        public void Post(string route, CreateStubResponse responder)
+        public ISetup Get(string route, CreateStubResponse responder)
         {
-            Setup(HttpMethod.Post, route, responder);
+            return Request(HttpMethod.Get)
+                .Route(route)
+                .Response(responder);
         }
 
-        public void Put(string route, CreateStubResponse responder)
+        public ISetup Post(string route, CreateStubResponse responder)
         {
-            Setup(HttpMethod.Put, route, responder);
+            return Request(HttpMethod.Post)
+                .Route(route)
+                .Response(responder);
         }
 
-        public void Delete(string route, CreateStubResponse responder)
+        public ISetup Post()
         {
-            Setup(HttpMethod.Delete, route, responder);
+            return Request(HttpMethod.Post);
         }
 
-        public void Setup(HttpMethod method, string route, CreateStubResponse responder)
+        public ISetup Put(string route, CreateStubResponse responder)
         {
-            configuredEndpoints.Add(new EndpointStubConfig(method, route, responder));
+            return Request(HttpMethod.Put)
+                .Route(route)
+                .Response(responder);
+        }
+
+        public ISetup Put()
+        {
+            return Request(HttpMethod.Put);
+        }
+
+        public ISetup Delete(string route, CreateStubResponse responder)
+        {
+            return Request(HttpMethod.Delete)
+                .Route(route)
+                .Response(responder);
+        }
+
+        public ISetup Delete()
+        {
+            return Request(HttpMethod.Delete);
+        }
+
+        public ISetup Request(params HttpMethod[] methods)
+        {
+            var setup = new Setup(methods);
+
+            configuredEndpoints.Add(setup);
+
+            return setup;
         }
     }
 }

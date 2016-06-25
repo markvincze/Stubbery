@@ -12,12 +12,26 @@ namespace Stubbery
 
         internal DynamicValues(IEnumerable<KeyValuePair<string, StringValues>> values)
         {
-            this.values = values.ToDictionary(v => v.Key, v => v.Value.ToString());
+            if (values == null)
+            {
+                this.values = new Dictionary<string, string>();
+            }
+            else
+            {
+                this.values = values.ToDictionary(v => v.Key, v => v.Value.ToString());
+            }
         }
 
         internal DynamicValues(IEnumerable<KeyValuePair<string, object>> values)
         {
-            this.values = values.ToDictionary(v => v.Key, v => v.Value.ToString());
+            if (values == null)
+            {
+                this.values = new Dictionary<string, string>();
+            }
+            else
+            {
+                this.values = values.ToDictionary(v => v.Key, v => v.Value.ToString());
+            }
         }
 
         public override bool TrySetMember(SetMemberBinder binder, object value)

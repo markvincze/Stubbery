@@ -438,10 +438,9 @@ namespace Stubbery.IntegrationTests
             {
                 using (var sut = new ApiStub())
                 {
-                    sut.Setup(
-                        HttpMethod.Options,
-                        "/testoptions",
-                        (req, args) => "testresponse");
+                    sut.Request(HttpMethod.Options)
+                        .Route("/testoptions")
+                        .Response((req, args) => "testresponse");
 
                     sut.Start();
 
