@@ -16,14 +16,6 @@ namespace Stubbery.IntegrationTests
         }
 
         [Fact]
-        public void Stop_NotStarted_Exception()
-        {
-            var sut = new ApiStub();
-
-            Assert.Throws<InvalidOperationException>(() => sut.Stop());
-        }
-
-        [Fact]
         public void Address_NotStarted_Exception()
         {
             var sut = new ApiStub();

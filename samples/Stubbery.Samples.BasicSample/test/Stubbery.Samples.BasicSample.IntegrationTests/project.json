@@ -10,7 +10,7 @@
     "xunit": "2.1.0",
     "dotnet-test-xunit": "1.0.0-rc2-build10015",
     "moq.netcore": "4.4.0-beta8",
-    "Stubbery": "1.0.2",
+    "Stubbery": "",
     "Microsoft.AspNetCore.Hosting": "1.0.0-rc2-final",
     "Microsoft.AspNetCore.TestHost": "1.0.0-rc2-final",
     "System.Diagnostics.TraceSource": "4.0.0-rc2-24027",

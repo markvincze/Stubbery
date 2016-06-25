@@ -6,7 +6,7 @@ using Microsoft.Extensions.Primitives;
 
 namespace Stubbery
 {
-    public class DynamicValues : DynamicObject
+    internal class DynamicValues : DynamicObject
     {
         private readonly Dictionary<string, string> values;
 
