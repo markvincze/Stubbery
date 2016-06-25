@@ -82,7 +82,7 @@ using (var stub = new ApiStub())
 
 ### Other verbs
 
-If we want to use a different HTTP verb, the `Setup` method can be used.
+If we want to use a different HTTP verb, the `Request` method can be used.
 
 ```csharp
 using (var stub = new ApiStub())
