@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Stubbery.IntegrationTests
 {
-    public partial class ApiStubTest
+    public class BasicTest
     {
         public class Get
         {
@@ -17,14 +17,11 @@ namespace Stubbery.IntegrationTests
             {
                 using (var sut = new ApiStub())
                 {
-                    sut.Get(
-                        "/testget",
-                        (req, args) => "testresponse");
+                    sut.Get("/testget", (req, args) => "testresponse");
 
                     sut.Start();
 
-                    var result = await httpClient.GetAsync(
-                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+                    var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
                     Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
@@ -39,14 +36,11 @@ namespace Stubbery.IntegrationTests
             {
                 using (var sut = new ApiStub())
                 {
-                    sut.Get(
-                        "/testget",
-                        (req, args) => "testresponse");
+                    sut.Get("/testget", (req, args) => "testresponse");
 
                     sut.Start();
 
-                    var result = await httpClient.GetAsync(
-                        new UriBuilder(new Uri(sut.Address)) { Path = "/differentroute" }.Uri);
+                    var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/differentroute" }.Uri);
 
                     Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
                 }
@@ -57,14 +51,11 @@ namespace Stubbery.IntegrationTests
             {
                 using (var sut = new ApiStub())
                 {
-                    sut.Get(
-                        "/testget",
-                        (req, args) => "testresponse");
+                    sut.Get("/testget", (req, args) => "testresponse");
 
                     sut.Start();
 
-                    var result = await httpClient.DeleteAsync(
-                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+                    var result = await httpClient.DeleteAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
                     Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
                 }
@@ -78,12 +69,9 @@ namespace Stubbery.IntegrationTests
                 {
                     sut.Start();
 
-                    sut.Get(
-                        "/testget",
-                        (req, args) => "testresponse");
+                    sut.Get("/testget", (req, args) => "testresponse");
 
-                    var result = await httpClient.GetAsync(
-                        new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+                    var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
                     Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
@@ -103,14 +91,11 @@ namespace Stubbery.IntegrationTests
             {
                 using (var sut = new ApiStub())
                 {
-                    sut.Delete(
-                        "/testdelete",
-                        (req, args) => "testresponse");
+                    sut.Delete("/testdelete", (req, args) => "testresponse");
 
                     sut.Start();
 
-                    var result = await httpClient.DeleteAsync(
-                        new UriBuilder(new Uri(sut.Address)) { Path = "/testdelete" }.Uri);
+                    var result = await httpClient.DeleteAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testdelete" }.Uri);
 
                     Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
@@ -125,14 +110,11 @@ namespace Stubbery.IntegrationTests
             {
                 using (var sut = new ApiStub())
                 {
-                    sut.Delete(
-                        "/testdelete",
-                        (req, args) => "testresponse");
+                    sut.Delete("/testdelete", (req, args) => "testresponse");
 
                     sut.Start();
 
-                    var result = await httpClient.DeleteAsync(
-                        new UriBuilder(new Uri(sut.Address)) { Path = "/differentroute" }.Uri);
+                    var result = await httpClient.DeleteAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/differentroute" }.Uri);
 
                     Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
                 }
@@ -143,14 +125,11 @@ namespace Stubbery.IntegrationTests
             {
                 using (var sut = new ApiStub())
                 {
-                    sut.Delete(
-                        "/testdelete",
-                        (req, args) => "testresponse");
+                    sut.Delete("/testdelete", (req, args) => "testresponse");
 
                     sut.Start();
 
-                    var result = await httpClient.GetAsync(
-                        new UriBuilder(new Uri(sut.Address)) { Path = "/testdelete" }.Uri);
+                    var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testdelete" }.Uri);
 
                     Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
                 }
@@ -166,9 +145,7 @@ namespace Stubbery.IntegrationTests
             {
                 using (var sut = new ApiStub())
                 {
-                    sut.Post(
-                        "/testpost",
-                        (req, args) => "testresponse");
+                    sut.Post("/testpost", (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -189,9 +166,7 @@ namespace Stubbery.IntegrationTests
             {
                 using (var sut = new ApiStub())
                 {
-                    sut.Post(
-                        "/testpost",
-                        (req, args) => "testresponse");
+                    sut.Post("/testpost", (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -208,9 +183,7 @@ namespace Stubbery.IntegrationTests
             {
                 using (var sut = new ApiStub())
                 {
-                    sut.Post(
-                        "/testpost",
-                        (req, args) => "testresponse");
+                    sut.Post("/testpost", (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -232,9 +205,7 @@ namespace Stubbery.IntegrationTests
             {
                 using (var sut = new ApiStub())
                 {
-                    sut.Put(
-                        "/testput",
-                        (req, args) => "testresponse");
+                    sut.Put("/testput", (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -255,9 +226,7 @@ namespace Stubbery.IntegrationTests
             {
                 using (var sut = new ApiStub())
                 {
-                    sut.Put(
-                        "/testput",
-                        (req, args) => "testresponse");
+                    sut.Put("/testput", (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -274,9 +243,7 @@ namespace Stubbery.IntegrationTests
             {
                 using (var sut = new ApiStub())
                 {
-                    sut.Put(
-                        "/testput",
-                        (req, args) => "testresponse");
+                    sut.Put("/testput", (req, args) => "testresponse");
 
                     sut.Start();
 
@@ -299,7 +266,7 @@ namespace Stubbery.IntegrationTests
                 using (var sut = new ApiStub())
                 {
                     sut.Request(HttpMethod.Options)
-                        .Route("/testoptions")
+                        .IfRoute("/testoptions")
                         .Response((req, args) => "testresponse");
 
                     sut.Start();

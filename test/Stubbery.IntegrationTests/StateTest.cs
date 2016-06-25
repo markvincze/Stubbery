@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Stubbery.IntegrationTests
 {
-    public partial class ApiStubTest
+    public class StateTest
     {
         [Fact]
         public void Start_StartTwice_Exception()

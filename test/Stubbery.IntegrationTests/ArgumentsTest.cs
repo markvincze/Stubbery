@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Stubbery.IntegrationTests
 {
-    public class ApiStubArgumentsTest
+    public class ArgumentsTest
     {
         private readonly HttpClient httpClient = new HttpClient();
 
