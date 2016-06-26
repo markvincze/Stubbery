@@ -1,16 +1,15 @@
 {
-  "version": "1.0.2",
+  "version": "1.1.0",
   "authors": [ "Mark Vincze" ],
   "packOptions": {
     "owners": [ "mark.vincze" ],
-    "tags": [ "ASP.NET", "Stub" ],
-    "releaseNotes": "First release",
+    "tags": [ "ASP.NET", "Stub", "Testing" ],
+    "releaseNotes": "Reworked condition api. Added comments and documentation.",
     "licenseUrl": "https://raw.githubusercontent.com/markvincze/Stubbery/master/LICENSE",
-    "projectUrl": "https://github.com/markvincze/stubbery"
+    "projectUrl": "http://markvincze.github.io/Stubbery/"
   },
   "copyright": "Copyright © Mark Vincze 2016",
   "description": "Library for creating Api stubs in .NET.",
-
   "dependencies": {
     "Microsoft.AspNetCore.Hosting": "1.0.0-rc2-final",
     "Microsoft.AspNetCore.Hosting.Server.Abstractions": "1.0.0-rc2-final",
