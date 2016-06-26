@@ -19,11 +19,13 @@ Write-Output "Copy documentation into the repository"
 Get-ChildItem -Path $tempRepoDir -Recurse |
 Select -ExpandProperty FullName |
 Where {$_ -notlike $tempRepoDir + "\.git"} |
-Remove-Item -Force 
+Remove-Item -Force -Recurse
 
 Copy-Item -Force -Recurse ./docs/_site/* -Destination $tempRepoDir
 
 Write-Output "Push the new documentation to the remote"
+#$gitDir = $tempRepoDir + "\.git"
+cd $tempRepoDir
 git add . -A
 git commit -m "Update generated documentation"
 git push origin gh-pages
