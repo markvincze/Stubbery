@@ -10,7 +10,7 @@ namespace Stubbery.RequestMatching
     public static class RoutingHttpContextExtensions
     {
         /// <summary>
-        /// Returns the route arguments extracted during matching a <see cref="RouteCondition" />.
+        /// Returns the route arguments extracted during matching a <see cref="Stubbery.RequestMatching.Preconditions.RouteCondition" />.
         /// </summary>
         /// <param name="httpContext">The HTTP context to extract the arguments from.</param>
         /// <returns>The extracted route arguments.</returns>

@@ -26,7 +26,7 @@ namespace Stubbery
         /// </summary>
         /// <remarks>
         /// The arguments are accessible with their names specified in the query string.
-        /// For example, if the query string is "?arg1=value1&arg2=value2", we can access the two arguments by retrieving the properties arg1 and arg2.
+        /// For example, if the query string is "?arg1=value1&amp;arg2=value2", we can access the two arguments by retrieving the properties arg1 and arg2.
         /// <code>
         /// var arg1 = args.Query.arg1;
         /// var arg2 = args.Query.arg2;

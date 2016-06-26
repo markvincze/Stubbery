@@ -38,3 +38,5 @@ using (var stub = new ApiStub())
     var resultString = await result.Content.ReadAsStringAsync();
 }
 ```
+
+Find the details of the api in the [Api Reference](api/index.md).
