@@ -9,7 +9,7 @@ using Stubbery.RequestMatching.Preconditions;
 
 namespace Stubbery.RequestMatching
 {
-    public class Setup : ISetup
+    internal class Setup : ISetup
     {
         private readonly List<IPrecondition> andConditions;
 

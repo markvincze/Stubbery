@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Stubbery.RequestMatching.Preconditions
 {
-    public class BodyCondition : IPrecondition
+    internal class BodyCondition : IPrecondition
     {
         private readonly Func<Stream, bool> condition;
 

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Stubbery.RequestMatching.Preconditions
 {
-    public class AcceptCondition : IPrecondition
+    internal class AcceptCondition : IPrecondition
     {
         private readonly Func<string, bool> condition;
 

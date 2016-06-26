@@ -2,7 +2,7 @@
 
 namespace Stubbery.RequestMatching.Preconditions
 {
-    public interface IPrecondition
+    internal interface IPrecondition
     {
         bool Match(HttpContext context);
     }

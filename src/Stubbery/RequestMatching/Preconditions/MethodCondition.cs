@@ -2,7 +2,7 @@
 
 namespace Stubbery.RequestMatching.Preconditions
 {
-    public class MethodCondition : IPrecondition
+    internal class MethodCondition : IPrecondition
     {
         private readonly string method;
 

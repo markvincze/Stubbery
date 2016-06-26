@@ -6,6 +6,9 @@ using Microsoft.Extensions.Primitives;
 
 namespace Stubbery
 {
+    /// <summary>
+    /// Provides a convenient collection of request arguments, which are either coming from the route or the query string.
+    /// </summary>
     internal class DynamicValues : DynamicObject
     {
         private readonly Dictionary<string, string> values;

@@ -1,10 +1,9 @@
-﻿using System;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 
 namespace Stubbery.RequestMatching.Preconditions
 {
-    public class RouteCondition : IPrecondition
+    internal class RouteCondition : IPrecondition
     {
         private readonly string route;
 
