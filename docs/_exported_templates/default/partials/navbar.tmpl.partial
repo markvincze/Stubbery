@@ -11,13 +11,9 @@
       </button>
       <ul class="nav level1 navbar-nav">
         <li>
-          <a href="{{_rel}}index.html" title="Index">Index</a>
+          <a href="{{_rel}}index.html" title="Home">Home</a>
         </li>
       </ul>
-      <!--<a class="navbar-brand" href="{{_rel}}index.html">
-        <img id="logo" class="svg" src="{{_rel}}logo.svg" alt="{{_appName}}" >
-        <span>Index</span>
-      </a>-->
     </div>
     <div class="collapse navbar-collapse" id="navbar">
       <form class="navbar-form navbar-right" role="search" id="search">

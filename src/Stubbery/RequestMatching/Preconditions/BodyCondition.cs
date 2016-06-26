@@ -15,7 +15,7 @@ namespace Stubbery.RequestMatching.Preconditions
 
         public bool Match(HttpContext context)
         {
-            return condition(context.Request.Body);
+            return condition(context.Request.GetCopyOfBodyStream());
         }
     }
 }

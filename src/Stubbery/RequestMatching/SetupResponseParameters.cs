@@ -34,7 +34,7 @@ namespace Stubbery.RequestMatching
             var arguments = new RequestArguments(
                 new DynamicValues(routeValues),
                 new DynamicValues(httpContext.Request.Query),
-                httpContext.Request.Body);
+                httpContext.Request.GetCopyOfBodyStream());
 
             await httpContext.Response.WriteAsync((string)Responder(httpContext.Request, arguments));
         }

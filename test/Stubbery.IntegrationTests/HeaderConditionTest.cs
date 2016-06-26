@@ -15,9 +15,7 @@ namespace Stubbery.IntegrationTests
         {
             using (var sut = new ApiStub())
             {
-                sut.Get(
-                    "/testget",
-                    (req, args) => "testresponse")
+                sut.Get("/testget", (req, args) => "testresponse")
                     .IfHeader("HeaderTest", "headerValue");
 
                 sut.Start();

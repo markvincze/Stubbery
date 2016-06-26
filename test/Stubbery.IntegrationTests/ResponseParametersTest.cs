@@ -52,15 +52,15 @@ namespace Stubbery.IntegrationTests
             using (var sut = new ApiStub())
             {
                 sut.Get("/testget", (req, args) => "testresponse")
-                    .Header("header1", "headerValue1")
-                    .Header("header2", "headerValue2");
+                    .Header("Header1", "HeaderValue1")
+                    .Header("Header2", "HeaderValue2");
 
                 sut.Start();
 
                 var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
-                Assert.Equal("headerValue1", result.Headers.GetValues("header1").First());
-                Assert.Equal("headerValue2", result.Headers.GetValues("header2").First());
+                Assert.Equal("HeaderValue1", result.Headers.GetValues("Header1").First());
+                Assert.Equal("HeaderValue2", result.Headers.GetValues("Header2").First());
             }
         }
 
@@ -70,14 +70,14 @@ namespace Stubbery.IntegrationTests
             using (var sut = new ApiStub())
             {
                 sut.Get("/testget", (req, args) => "testresponse")
-                    .Headers(new KeyValuePair<string, string>("header1", "headerValue1"), new KeyValuePair<string, string>("header2", "headerValue2"));
+                    .Headers(new KeyValuePair<string, string>("Header1", "HeaderValue1"), new KeyValuePair<string, string>("Header2", "HeaderValue2"));
 
                 sut.Start();
 
                 var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
-                Assert.Equal("headerValue1", result.Headers.GetValues("header1").First());
-                Assert.Equal("headerValue2", result.Headers.GetValues("header2").First());
+                Assert.Equal("HeaderValue1", result.Headers.GetValues("Header1").First());
+                Assert.Equal("HeaderValue2", result.Headers.GetValues("Header2").First());
             }
         }
     }

@@ -13,15 +13,11 @@ This is particularly important in integration testing, when we might want to rep
 **Stubbery** is a library with which we can simply configure and start a web server that responds on particular routes with the configured results.
 It supports .NET Core and the full .NET Framework up from .NET 4.5.1.
 
-## How to use
+The binaries are published on [NuGet](https://www.nuget.org/packages/Stubbery/) and you can find the source code on [GitHub](https://github.com/markvincze/Stubbery).
 
-The central class of the library is `ApiStub`. In order to start a new server we have to create an instance of `ApiStub`, set up some routes using the methods `Get`, `Post`, `Put` and `Delete`, and start the server by calling `Start`.
+## Basic usage
 
-The server listens on `localhost` on a randomly picked free port. The full address is returned by the `Address` property.
-
-After usage the server should be stopped to free up the TCP port. This can be done by calling `Dispose` (or use the stub in a `using` block).
-
-### Basic usage
+The following code sample shows how a simple stub can be started that responds on the route `/testget` with the string `testresponse`.
 
 ```csharp
 using (var stub = new ApiStub())
@@ -39,4 +35,4 @@ using (var stub = new ApiStub())
 }
 ```
 
-Find the details of the api in the [Api Reference](api/index.md).
+More details can be found in the [Documentation](documentation/intro.md) and in the [Api Reference](api/index.md).

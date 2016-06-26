@@ -1,4 +1,7 @@
 
+- name: Documentation
+  href: documentation/
+  homepage: documentation/intro.md
 - name: Api Reference
   href: api/
   homepage: api/index.md

@@ -52,5 +52,27 @@ namespace Stubbery.IntegrationTests
                 Assert.Equal("testresponse", resultString);
             }
         }
+
+        [Fact]
+        public async Task IfBody_BodyEqual_BodyCanBeUsedInTheResponderToo()
+        {
+            using (var sut = new ApiStub())
+            {
+                sut.Post("/testget", (req, args) => "testresponse" + args.Body.ReadAsString())
+                    .IfBody(s => s.ReadAsString().Contains("bodyContent"));
+
+                sut.Start();
+
+                var result = await httpClient.PostAsync(
+                    new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri,
+                    new StringContent("bodyContent"));
+
+                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+
+                var resultString = await result.Content.ReadAsStringAsync();
+
+                Assert.Equal("testresponsebodyContent", resultString);
+            }
+        }
     }
 }
