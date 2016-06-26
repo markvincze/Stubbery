@@ -105,8 +105,4 @@ using (var stub = new ApiStub())
 }
 ```
 
-## Upcoming features
-
- - [ ] Methods for verifying that certain endpoints have been called.
- - [ ] Returning objects as responses which will be serialized by a formatter.
- - [ ] Setting additional properties of the response, for instance the HTTP headers.
+More details can be found in the [Documentation](http://markvincze.github.io/Stubbery/).
