@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How to use </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How to use ">
+    <meta name="generator" content="docfx 2.1.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <ul class="nav level1 navbar-nav">
+                <li>
+                  <a href="../index.html" title="Home">Home</a>
+                </li>
+              </ul>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+              <a href="https://github.com/markvincze/Stubbery/blob/docs/docs/documentation/intro.md/#L1" class="btn btn-primary pull-right mobile-hide">Improve this Doc</a>
+              <h2 id="how-to-use">How to use</h2>
+              
+<p>The central class of the library is <code>ApiStub</code>. In order to start a new server we have to create an instance of <code>ApiStub</code>, set up some routes using the methods <code>Get</code>, <code>Post</code>, <code>Put</code> and <code>Delete</code>, and start the server by calling <code>Start</code>.</p>
+<p>The server listens on <code>localhost</code> on a randomly picked free port. The full address is returned by the <code>Address</code> property.</p>
+<p>After usage the server should be stopped to free up the TCP port. This can be done by calling <code>Dispose</code> (or using the stub in a <code>using</code> block).</p>
+<h3 id="basic-usage">Basic usage</h3>
+<p>The following code sample shows how a simple stub can be started that responds on the route <code>/testget</code> with the string <code>testresponse</code>.</p>
+<pre><code class="lang-csharp">using (var stub = new ApiStub())
+{
+    stub.Get(
+        &quot;/testget&quot;,
+        (req, args) =&gt; &quot;testresponse&quot;);
+
+    stub.Start();
+
+    var result = await httpClient.GetAsync(new UriBuilder(new Uri(stub.Address)) { Path = &quot;/testget&quot; }.Uri);
+
+    // resultString will contain &quot;testresponse&quot;
+    var resultString = await result.Content.ReadAsStringAsync();
+}
+</code></pre>
+<h3 id="accessing-the-request-parameters">Accessing the request parameters</h3>
+<p>Parameters of the request can be accessed through the second argument of the lambda setting up the response. The following code sample shows how the route and the query string parameters can be accessed.</p>
+<pre><code class="lang-csharp">using (var stub = new ApiStub())
+{
+    stub.Get(
+        &quot;/testget/{arg1}&quot;,
+        (req, args) =&gt; $&quot;testresponse arg1: {args.Route.arg1} queryArg1: {args.Query.queryArg1}&quot;);
+
+    stub.Start();
+
+    var result = await httpClient.GetAsync(
+        new UriBuilder(new Uri(stub.Address)) { Path = &quot;/testget/orange&quot;, Query = &quot;?queryArg1=melon&quot; }.Uri);
+
+    // resultString will contain &quot;testresponse arg1: orange queryArg1: melon&quot;
+    var resultString = await result.Content.ReadAsStringAsync();
+}
+</code></pre>
+<p>The following example shows how the HTTP body can be accessed.</p>
+<pre><code class="lang-csharp">using (var stub = new ApiStub())
+{
+    stub.Post(
+        &quot;/testpost&quot;,
+        (req, args) =&gt; $&quot;testresponse body: {args.Body.ReadAsString()}&quot;);
+
+    stub.Start();
+
+    var result = await httpClient.PostAsync(
+        new UriBuilder(new Uri(stub.Address)) { Path = &quot;/testpost&quot; }.Uri,
+        new StringContent(&quot;orange&quot;));
+
+    // resultString will contain &quot;testresponse body: orange&quot;
+    var resultString = await result.Content.ReadAsStringAsync();
+}
+</code></pre>
+<p><a href="response.html">More details</a> about setting response properties.</p>
+<h3 id="other-verbs">Other verbs</h3>
+<p>If we want to use a different HTTP verb, the <code>Request</code> method can be used.</p>
+<pre><code class="lang-csharp">using (var stub = new ApiStub())
+{
+    sut.Request(HttpMethod.Options)
+        .IfRoute(&quot;/testoptions&quot;)
+        .Response((req, args) =&gt; &quot;testresponse&quot;);
+
+    stub.Start();
+
+    var result = await httpClient.SendAsync(
+        new HttpRequestMessage
+        {
+            RequestUri = new UriBuilder(new Uri(stub.Address)) { Path = &quot;/testoptions&quot; }.Uri,
+            Method = HttpMethod.Options
+        });
+
+    // resultString will contain &quot;testresponse&quot;
+    var resultString = await result.Content.ReadAsStringAsync();
+}
+</code></pre>
+<p><a href="preconditions.html">More details</a> about setting up preconditions.</p>
+
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+            <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+            </nav>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2016 Mark Vincze<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

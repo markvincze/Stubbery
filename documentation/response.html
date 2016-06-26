@@ -5,11 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace Stubbery
-   </title>
+    <title>Configure the response </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace Stubbery
-   ">
+    <meta name="title" content="Configure the response ">
     <meta name="generator" content="docfx 2.1.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -67,32 +65,48 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
+            <article class="content wrap" id="_content" data-uid="">
+              <a href="https://github.com/markvincze/Stubbery/blob/docs/docs/documentation/response.md/#L1" class="btn btn-primary pull-right mobile-hide">Improve this Doc</a>
+              <h1 id="configure-the-response">Configure the response</h1>
               
-              <a href="https://github.com/markvincze/Stubbery/new/docs/docs/apispec/new?filename=Stubbery.md&amp;value=---%0Auid%3A%20Stubbery%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="btn btn-primary pull-right mobile-hide">Improve this Doc</a>
-              <h1 id="Stubbery" data-uid="Stubbery">Namespace Stubbery
-              </h1>
-              <div class="markdown level0 summary"></div>
-              <div class="markdown level0 conceptual"></div>
-              <div class="markdown level0 remarks"></div>
-                <h3 id="classes">Classes
-              </h3>
-                  <h4><a class="xref" href="Stubbery.ApiStub.html#Stubbery_ApiStub">ApiStub</a></h4>
-                  <section><p>Represents an Api stub that responds to certain requests with preconfigured responses.</p>
-</section>
-                  <h4><a class="xref" href="Stubbery.HttpRequestBodyExtensions.html#Stubbery_HttpRequestBodyExtensions">HttpRequestBodyExtensions</a></h4>
-                  <section></section>
-                  <h4><a class="xref" href="Stubbery.RequestArguments.html#Stubbery_RequestArguments">RequestArguments</a></h4>
-                  <section><p>Represents the most important arguments of an HTTP request.</p>
-</section>
-                  <h4><a class="xref" href="Stubbery.StreamExtensions.html#Stubbery_StreamExtensions">StreamExtensions</a></h4>
-                  <section><p>Provides some convenience methods to use with <span class="xref">Stream</span> objects.</p>
-</section>
-                <h3 id="interfaces">Interfaces
-              </h3>
-                  <h4><a class="xref" href="Stubbery.ISetup.html#Stubbery_ISetup">ISetup</a></h4>
-                  <section><p>Represents a stubbed endpoint on which further conditions or result parameters can be set.</p>
-</section>
+<p>Variouse properties of the stub response can be customized.</p>
+<h2 id="response-body">Response body</h2>
+<p>If we&#39;re using the <code>Get</code>, <code>Post</code>, <code>Put</code> and <code>Delete</code> methods, the response body can be specified with the delegate passed as the second argument.</p>
+<pre><code class="lang-csharp">sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;);
+</code></pre>
+<p>It can also be specified by calling the <code>Response</code> method.</p>
+<pre><code class="lang-csharp">sut.Request(HttpMethod.Get)
+    .IfRoute(&quot;/testget&quot;)
+    .Response((req, args) =&gt; &quot;testresponse&quot;);
+</code></pre>
+<h3 id="return-type">Return type</h3>
+<p>The <code>CreateStubResponse</code> delegate must return a string, which will be directly written to the response body.</p>
+<h3 id="request-arguments">Request arguments</h3>
+<p>Arguments of the request are accessible through the <code>RequestArguments</code> object passed to the delegate.</p>
+<pre><code class="lang-csharp">sut.Get(
+    &quot;/testget/{arg1}/part/{arg2}&quot;,
+    (req, args) =&gt; $&quot;testresponse arg1: {args.Route.arg1} arg2: {args.Route.arg2} qarg1: {args.Query.qarg1} qarg2: {args.Query.qarg2}&quot;);
+
+sut.Start();
+
+var result = await httpClient.GetAsync(
+    new UriBuilder(new Uri(sut.Address)) { Path = &quot;/testget/orange/part/apple&quot;, Query = &quot;?qarg1=melon&amp;qarg2=pear&quot; }.Uri);
+
+// The resultString will be &quot;testresponse arg1: orange arg2: apple qarg1: melon qarg2: pear&quot;.
+var resultString = await result.Content.ReadAsStringAsync();
+</code></pre>
+<h2 id="status-code">Status code</h2>
+<p>The status code of the response can be specified with the <code>StatusCode</code> method.</p>
+<pre><code class="lang-csharp">sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;)
+    .StatusCode(StatusCodes.Status206PartialContent);
+</code></pre>
+<h2 id="headers">Headers</h2>
+<p>Headers of the response can be specified with the <code>Header</code> method.</p>
+<pre><code class="lang-csharp">sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;)
+    .Header(&quot;Header1&quot;, &quot;HeaderValue1&quot;)
+    .Header(&quot;Header2&quot;, &quot;HeaderValue2&quot;);
+</code></pre>
+
             </article>
           </div>
           

@@ -77,6 +77,16 @@ references:
   href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Start
   commentId: M:Stubbery.ApiStub.Start
   fullName: Stubbery.ApiStub.Start()
+- uid: Stubbery.HttpRequestBodyExtensions
+  name: HttpRequestBodyExtensions
+  href: api/Stubbery.HttpRequestBodyExtensions.html#Stubbery_HttpRequestBodyExtensions
+  commentId: T:Stubbery.HttpRequestBodyExtensions
+  fullName: Stubbery.HttpRequestBodyExtensions
+- uid: Stubbery.HttpRequestBodyExtensions.GetCopyOfBodyStream(Microsoft.AspNetCore.Http.HttpRequest)
+  name: GetCopyOfBodyStream(HttpRequest)
+  href: api/Stubbery.HttpRequestBodyExtensions.html#Stubbery_HttpRequestBodyExtensions_GetCopyOfBodyStream_Microsoft_AspNetCore_Http_HttpRequest_
+  commentId: M:Stubbery.HttpRequestBodyExtensions.GetCopyOfBodyStream(Microsoft.AspNetCore.Http.HttpRequest)
+  fullName: Stubbery.HttpRequestBodyExtensions.GetCopyOfBodyStream(Microsoft.AspNetCore.Http.HttpRequest)
 - uid: Stubbery.ISetup
   name: ISetup
   href: api/Stubbery.ISetup.html#Stubbery_ISetup

@@ -69,11 +69,9 @@
 <p>This is particularly important in integration testing, when we might want to replace some of our dependencies with a stub that can reliably provide the expected responses.</p>
 <p><strong>Stubbery</strong> is a library with which we can simply configure and start a web server that responds on particular routes with the configured results.
 It supports .NET Core and the full .NET Framework up from .NET 4.5.1.</p>
-<h2 id="how-to-use">How to use</h2>
-<p>The central class of the library is <code>ApiStub</code>. In order to start a new server we have to create an instance of <code>ApiStub</code>, set up some routes using the methods <code>Get</code>, <code>Post</code>, <code>Put</code> and <code>Delete</code>, and start the server by calling <code>Start</code>.</p>
-<p>The server listens on <code>localhost</code> on a randomly picked free port. The full address is returned by the <code>Address</code> property.</p>
-<p>After usage the server should be stopped to free up the TCP port. This can be done by calling <code>Dispose</code> (or use the stub in a <code>using</code> block).</p>
-<h3 id="basic-usage">Basic usage</h3>
+<p>The binaries are published on <a href="https://www.nuget.org/packages/Stubbery/">NuGet</a> and you can find the source code on <a href="https://github.com/markvincze/Stubbery">GitHub</a>.</p>
+<h2 id="basic-usage">Basic usage</h2>
+<p>The following code sample shows how a simple stub can be started that responds on the route <code>/testget</code> with the string <code>testresponse</code>.</p>
 <pre><code class="lang-csharp">using (var stub = new ApiStub())
 {
     stub.Get(
@@ -88,7 +86,7 @@ It supports .NET Core and the full .NET Framework up from .NET 4.5.1.</p>
     var resultString = await result.Content.ReadAsStringAsync();
 }
 </code></pre>
-<p>Find the details of the api in the <a href="api/index.html">Api Reference</a>.</p>
+<p>More details can be found in the <a href="documentation/intro.html">Documentation</a> and in the <a href="api/index.html">Api Reference</a>.</p>
 
             </article>
           </div>
