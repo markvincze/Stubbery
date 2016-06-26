@@ -19,7 +19,7 @@ Write-Output "Copy documentation into the repository"
 Get-ChildItem -Path $tempRepoDir -Recurse |
 Select -ExpandProperty FullName |
 Where {$_ -notlike $tempRepoDir + "\.git"} |
-Remove-Item -Force -Recurse
+Remove-Item -Force
 
 Copy-Item -Force -Recurse ./docs/_site/* -Destination $tempRepoDir
 
