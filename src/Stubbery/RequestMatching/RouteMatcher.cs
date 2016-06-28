@@ -11,9 +11,15 @@ namespace Stubbery.RequestMatching
 
             var matcher = new TemplateMatcher(template, GetDefaults(template));
 
-            var values = matcher.Match(requestPath);
-
-            return values;
+	    var values = new RouteValueDictionary();
+	    if(matcher.TryMatch(requestPath, values))
+	    {
+		return values;
+	    }
+	    else
+	    {
+		return null;
+	    }
         }
 
         private RouteValueDictionary GetDefaults(RouteTemplate parsedTemplate)
