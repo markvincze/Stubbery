@@ -1,0 +1,59 @@
+#---------------------------------#
+#      general configuration      #
+#---------------------------------#
+
+version: 1.2.1.{build}-{branch}
+
+branches:
+  only:
+    - master
+
+skip_tags: true
+
+#---------------------------------#
+#    environment configuration    #
+#---------------------------------#
+
+image: Visual Studio 2015
+
+clone_depth: 1
+
+nuget:  
+  disable_publish_on_pr: true
+
+#---------------------------------#
+#       build configuration       #
+#---------------------------------#
+
+configuration: Release
+
+build_script:
+- dotnet --info
+- dotnet restore --no-cache
+- dotnet build **/project.json --configuration Release --version-suffix %APPVEYOR_BUILD_NUMBER%
+- dotnet pack src/Stubbery/project.json --configuration Release --no-build
+
+#---------------------------------#
+#       tests configuration       #
+#---------------------------------#
+
+test_script:
+- dotnet test test/Stubbery.IntegrationTests/project.json --configuration Release --no-build
+
+#---------------------------------#
+#      artifacts configuration    #
+#---------------------------------#
+
+artifacts:
+- path: src/**/*.nupkg
+
+#---------------------------------#
+#     deployment configuration    #
+#---------------------------------#
+
+deploy:
+  provider: NuGet
+  api_key:
+    secure: UrYYF7dW4tZvlgTcihdNHoURAdjBRAFUvbXO+Pt+772aQLVNtbjlDBY4BqvHBxcz
+  skip_symbols: false
+  artifact: /.*\.nupkg/
