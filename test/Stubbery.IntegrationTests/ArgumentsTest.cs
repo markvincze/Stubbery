@@ -143,5 +143,35 @@ namespace Stubbery.IntegrationTests
                 Assert.Equal("testresponse body: orange", resultString);
             }
         }
+
+        [Fact]
+        public async Task Post_TwoRequestsWithDifferentBodies_BodiesAreDifferent()
+        {
+            using (var sut = new ApiStub())
+            {
+                sut.Post(
+                    "/testpost",
+                    (req, args) => $"testresponse body: {args.Body.ReadAsString()}");
+
+                sut.Start();
+
+                var result1 = await httpClient.PostAsync(
+                    new UriBuilder(new Uri(sut.Address)) { Path = "/testpost" }.Uri,
+                    new StringContent("orange"));
+
+                var result2 = await httpClient.PostAsync(
+                    new UriBuilder(new Uri(sut.Address)) { Path = "/testpost" }.Uri,
+                    new StringContent("pear"));
+
+                Assert.Equal(HttpStatusCode.OK, result1.StatusCode);
+                Assert.Equal(HttpStatusCode.OK, result2.StatusCode);
+
+                var resultString1 = await result1.Content.ReadAsStringAsync();
+                var resultString2 = await result2.Content.ReadAsStringAsync();
+
+                Assert.Equal("testresponse body: orange", resultString1);
+                Assert.Equal("testresponse body: pear", resultString2);
+            }
+        }
     }
 }

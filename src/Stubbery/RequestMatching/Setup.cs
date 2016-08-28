@@ -84,13 +84,6 @@ namespace Stubbery.RequestMatching
             return this;
         }
 
-        public ISetup IfBody(Func<Stream, bool> check)
-        {
-            orConditions[ConditionGroup.Body].Add(new BodyCondition(check));
-
-            return this;
-        }
-
         public ISetup Response(CreateStubResponse responder)
         {
             if (responder == null)

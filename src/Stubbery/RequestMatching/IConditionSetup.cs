@@ -68,12 +68,5 @@ namespace Stubbery.RequestMatching
         /// </para>
         /// </remarks>
         ISetup IfRoute(string routeTemplate);
-
-        /// <summary>
-        /// Sets up a condition so that the stub only responds if the request body satisfies the <paramref name="check" /> condition.
-        /// </summary>
-        /// <param name="check">The condition the body has to satisfy.</param>
-        /// <returns>The same <see cref="ISetup"/>-instance, so that more conditions can be set fluently.</returns>
-        ISetup IfBody(Func<Stream, bool> check);
     }
 }
