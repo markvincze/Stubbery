@@ -32,12 +32,12 @@ namespace Stubbery.IntegrationTests
         {
             using (var sut = new ApiStub())
             {
-                sut.Get("/testget", (req, args) => "testresponse")
+                sut.Post("/testget", (req, args) => "testresponse")
                     .IfContentType("custom/stubbery");
 
                 sut.Start();
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri)
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri)
                 {
                     Content = new StringContent("", Encoding.UTF8, "custom/stubbery")
                 };
@@ -56,13 +56,13 @@ namespace Stubbery.IntegrationTests
         {
             using (var sut = new ApiStub())
             {
-                sut.Get("/testget", (req, args) => "testresponse")
+                sut.Post("/testget", (req, args) => "testresponse")
                     .IfContentType("custom/stubbery")
                     .IfContentType("custom/stubbery2");
 
                 sut.Start();
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri)
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri)
                 {
                     Content = new StringContent("", Encoding.UTF8, "custom/stubbery")
                 };

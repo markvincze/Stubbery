@@ -21,7 +21,7 @@ namespace Stubbery
             }
             else
             {
-                this.values = values.ToDictionary(v => v.Key, v => v.Value.ToString());
+                this.values = values.ToDictionary(v => v.Key.TrimStart('?'), v => v.Value.ToString());
             }
         }
 
