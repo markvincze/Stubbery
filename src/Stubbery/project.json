@@ -1,5 +1,5 @@
 {
-  "version": "1.2.1",
+  "version": "1.2.2",
   "authors": [ "Mark Vincze" ],
   "packOptions": {
     "owners": [ "mark.vincze" ],
@@ -8,7 +8,7 @@
     "licenseUrl": "https://raw.githubusercontent.com/markvincze/Stubbery/master/LICENSE",
     "projectUrl": "http://markvincze.github.io/Stubbery/"
   },
-  "copyright": "Copyright © Mark Vincze 2016",
+  "copyright": "Copyright ï¿½ Mark Vincze 2016",
   "description": "Library for creating Api stubs in .NET.",
   "dependencies": {
     "Microsoft.AspNetCore.Hosting": "1.0.0",
