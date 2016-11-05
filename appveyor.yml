@@ -21,6 +21,10 @@ clone_depth: 1
 nuget:  
   disable_publish_on_pr: true
 
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: l3nZXQA47cVHWucS5LK20u28aer1QZT4zcgFo2LZAOn4v1CtRjrXOomdhvJG95bD
+
 #---------------------------------#
 #       build configuration       #
 #---------------------------------#
@@ -39,6 +43,8 @@ build_script:
 
 test_script:
 - dotnet test test/Stubbery.IntegrationTests/project.json --configuration Release --no-build
+- bash coverage.sh
+- bash coveralls.sh
 
 #---------------------------------#
 #      artifacts configuration    #

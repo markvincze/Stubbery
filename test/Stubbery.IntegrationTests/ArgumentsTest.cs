@@ -76,7 +76,6 @@ namespace Stubbery.IntegrationTests
             }
         }
 
-
         [Fact]
         public async Task Get_OptionalRouteParameter_ItCanBeOmitted()
         {

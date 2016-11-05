@@ -18,7 +18,7 @@ namespace Stubbery.IntegrationTests
         {
             using (var sut = new ApiStub())
             {
-                sut.Get("/testget1/{arg1}", (req, args) => $"testresponse,{args.Route.arg2}")
+                sut.Post("/testget1/{arg1}", (req, args) => $"testresponse,{args.Route.arg2}")
                     .IfHeader("Header1", "TestValue1")
                     .IfHeader("Header2", "TestValue2")
                     .IfContentType("custom/stubbery")
@@ -30,7 +30,7 @@ namespace Stubbery.IntegrationTests
 
                 sut.Start();
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget2/argValue"}.Uri);
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(new Uri(sut.Address)) {Path = "/testget2/argValue"}.Uri);
                 requestMessage.Headers.Add("Header1", "TestValue1");
                 requestMessage.Headers.Add("Header2", "TestValue2");
                 requestMessage.Content = new StringContent("", Encoding.UTF8, "custom/stubbery");
