@@ -2,19 +2,17 @@
 
 set -e
 
+# Install OpenCover and ReportGenerator, and save the path to their executables.
 nuget install -Verbosity quiet -OutputDirectory packages -Version 4.6.519 OpenCover
 nuget install -Verbosity quiet -OutputDirectory packages -Version 2.4.5.0 ReportGenerator
 
-# Comment out the lines below to disable coverage
 OPENCOVER=$PWD/packages/OpenCover.4.6.519/tools/OpenCover.Console.exe
 REPORTGENERATOR=$PWD/packages/ReportGenerator.2.4.5.0/tools/ReportGenerator.exe
 
-FIND=/usr/bin/find
-
 CONFIG=Release
-# Arguments to use for all build-related commands (build, pack)
+# Arguments to use for the build
 DOTNET_BUILD_ARGS="-c $CONFIG"
-# Arguments to use for test-related commands (test)
+# Arguments to use for the test
 DOTNET_TEST_ARGS="$DOTNET_BUILD_ARGS"
 
 echo CLI args: $DOTNET_BUILD_ARGS
