@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Stubbery
@@ -15,6 +16,11 @@ namespace Stubbery
         /// <returns>The <see cref="Task" /> representing the asynchronous operation.</returns>
         public static Task<string> ReadAsStringAsync(this Stream stream)
         {
+            if (stream == null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             using (var sr = new StreamReader(stream))
             {
                 return sr.ReadToEndAsync();
@@ -28,6 +34,11 @@ namespace Stubbery
         /// <returns>The whole content of the stream.</returns>
         public static string ReadAsString(this Stream stream)
         {
+            if (stream == null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
             using (var sr = new StreamReader(stream))
             {
                 return sr.ReadToEnd();

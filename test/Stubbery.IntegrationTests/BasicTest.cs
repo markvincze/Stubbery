@@ -134,6 +134,25 @@ namespace Stubbery.IntegrationTests
                     Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
                 }
             }
+
+            [Fact]
+            public async Task Delete_CalledSetupRouteWithFluentMethod_SetupResponseReturned()
+            {
+                using (var sut = new ApiStub())
+                {
+                    sut.Delete().IfRoute("/testdelete").Response((req, args) => "testresponse");
+
+                    sut.Start();
+
+                    var result = await httpClient.DeleteAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testdelete" }.Uri);
+
+                    Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+
+                    var resultString = await result.Content.ReadAsStringAsync();
+
+                    Assert.Equal("testresponse", resultString);
+                }
+            }
         }
 
         public class Post
@@ -194,6 +213,29 @@ namespace Stubbery.IntegrationTests
                     Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
                 }
             }
+
+            [Fact]
+            public async Task Post_CalledSetupRouteWithFluentMethod_SetupResponseReturned()
+            {
+                using (var sut = new ApiStub())
+                {
+                    sut.Post()
+                        .IfRoute("/testpost")
+                        .Response((req, args) => "testresponse");
+
+                    sut.Start();
+
+                    var result = await httpClient.PostAsync(
+                        new UriBuilder(new Uri(sut.Address)) {Path = "/testpost"}.Uri,
+                        new StringContent(""));
+
+                    Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+
+                    var resultString = await result.Content.ReadAsStringAsync();
+
+                    Assert.Equal("testresponse", resultString);
+                }
+            }
         }
 
         public class Put
@@ -252,6 +294,29 @@ namespace Stubbery.IntegrationTests
                         new StringContent(""));
 
                     Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
+                }
+            }
+
+            [Fact]
+            public async Task Put_CalledSetupRouteWithFluentMethod_SetupResponseReturned()
+            {
+                using (var sut = new ApiStub())
+                {
+                    sut.Put()
+                        .IfRoute("/testput")
+                        .Response((req, args) => "testresponse");
+
+                    sut.Start();
+
+                    var result = await httpClient.PutAsync(
+                        new UriBuilder(new Uri(sut.Address)) { Path = "/testput" }.Uri,
+                        new StringContent(""));
+
+                    Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+
+                    var resultString = await result.Content.ReadAsStringAsync();
+
+                    Assert.Equal("testresponse", resultString);
                 }
             }
         }

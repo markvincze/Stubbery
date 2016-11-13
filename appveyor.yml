@@ -4,10 +4,6 @@
 
 version: 1.2.2.{build}-{branch}
 
-#branches:
-#only:
-#- master
-
 skip_tags: true
 
 #---------------------------------#
@@ -42,7 +38,7 @@ build_script:
 #---------------------------------#
 
 test_script:
-- dotnet test test/Stubbery.IntegrationTests/project.json --configuration Release --no-build
+- dotnet test test/Stubbery.IntegrationTests/project.json --configuration Release -f netcoreapp1.0 --no-build
 - bash coverage.sh
 - bash coveralls.sh
 

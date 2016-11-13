@@ -46,9 +46,16 @@ namespace Stubbery
 
         public void Stop()
         {
-            appLifetime.StopApplication();
-            appLifetime.ApplicationStopping.WaitHandle.WaitOne();
-            webHost.Dispose();
+            if (appLifetime != null)
+            {
+                appLifetime.StopApplication();
+                appLifetime.ApplicationStopping.WaitHandle.WaitOne();
+            }
+
+            if (webHost != null)
+            {
+                webHost.Dispose();
+            }
         }
 
         private int PickFreeTcpPort()

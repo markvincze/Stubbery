@@ -75,5 +75,50 @@ namespace Stubbery.IntegrationTests
                 Assert.Equal("testresponse", resultString);
             }
         }
+
+        [Fact]
+        public async Task IfContentType_CustomNotMatchingFunc_NotFoundReturned()
+        {
+            using (var sut = new ApiStub())
+            {
+                sut.Post("/testget", (req, args) => "testresponse")
+                    .IfContentType(contentType => contentType.Contains("does not contain"));
+
+                sut.Start();
+
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri)
+                {
+                    Content = new StringContent("", Encoding.UTF8, "custom/stubbery")
+                };
+
+                var result = await httpClient.SendAsync(requestMessage);
+
+                Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
+            }
+        }
+
+        [Fact]
+        public async Task IfContentType_CustomMatchingFunc_ResponseReturned()
+        {
+            using (var sut = new ApiStub())
+            {
+                sut.Post("/testget", (req, args) => "testresponse")
+                    .IfContentType(contentType => contentType.Contains("stubbery"));
+
+                sut.Start();
+
+                var requestMessage = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri)
+                {
+                    Content = new StringContent("", Encoding.UTF8, "custom/stubbery")
+                };
+
+                var result = await httpClient.SendAsync(requestMessage);
+
+                var resultString = await result.Content.ReadAsStringAsync();
+
+                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+                Assert.Equal("testresponse", resultString);
+            }
+        }
     }
 }
