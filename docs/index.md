@@ -3,6 +3,8 @@
 Simple library for creating and running Api stubs in .NET.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/lv48y6utx9ulcwdh?svg=true)](https://ci.appveyor.com/project/markvincze/stubbery)
+[![Latest version](https://img.shields.io/nuget/v/Stubbery.svg)](https://www.nuget.org/packages/Stubbery/)
+[![Coverage Status](https://coveralls.io/repos/github/markvincze/Stubbery/badge.svg?branch=master)](https://coveralls.io/github/markvincze/Stubbery?branch=master)
 
 ## Introduction
 
