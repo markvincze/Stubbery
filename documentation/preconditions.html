@@ -8,7 +8,7 @@
     <title>Setting up preconditions </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Setting up preconditions ">
-    <meta name="generator" content="docfx 2.1.0.0">
+    <meta name="generator" content="docfx 2.8.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -78,41 +78,35 @@ sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;);
 
 // Will match a POST
 sut.Post(&quot;/testpost&quot;, (req, args) =&gt; &quot;testresponse&quot;);
-</code></pre>
-<p>If another method is needed, the <code>Request</code> method can be used.</p>
+</code></pre><p>If another method is needed, the <code>Request</code> method can be used.</p>
 <pre><code class="lang-csharp"> // Will respond to OPTIONS
 sut.Request(HttpMethod.Options)
     .IfRoute(&quot;/testoptions&quot;)
     .Response((req, args) =&gt; &quot;testresponse&quot;);
-</code></pre>
-<h2 id="headers">Headers</h2>
+</code></pre><h2 id="headers">Headers</h2>
 <p>The presence of specific headers can be required with the <code>IfHeader</code> method.</p>
 <pre><code class="lang-csharp">// Will only respond if the Origin header with the given value is present.
 sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;)
     .IfHeader(&quot;Origin&quot;, &quot;http://www.example.com&quot;);
-</code></pre>
-<h2 id="body">Body</h2>
+</code></pre><h2 id="body">Body</h2>
 <p>We can specify requirements against the request body by calling the <code>IfBody</code> method. </p>
 <pre><code class="lang-csharp">// Will only respond if the body contains the string &quot;bodyCondition&quot;.
 sut.Post(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;)
     .IfBody(s =&gt; s.ReadAsString().Contains(&quot;bodyCondition&quot;));
-</code></pre>
-<h2 id="route">Route</h2>
+</code></pre><h2 id="route">Route</h2>
 <p>If we only want to respond on a particular path, we can pass a route template to the <code>Get</code>, <code>Post</code>, <code>Put</code> and <code>Delete</code> methods, or we can call the <code>IfRoute</code> method. </p>
 <pre><code class="lang-csharp">// Will only respond if the request path is &quot;/testget&quot;.
 sut.Request(HttpMethod.Get)
     .IfRoute(&quot;/testget&quot;)
     .Response((req, args) =&gt; &quot;testresponse&quot;);
-</code></pre>
-<h3 id="route-arguments">Route arguments</h3>
+</code></pre><h3 id="route-arguments">Route arguments</h3>
 <p>Matching route templates is implemented by using the <a href="https://docs.asp.net/en/latest/fundamentals/routing.html#template-routes">built-in routing</a> of ASP.NET, the same syntax can be used here.
 If we chain multiple route templates, the first matching one will be used to extract the route arguments.</p>
 <p>The arguments are accessible when we setup the response through the <code>Route</code> property of <code>RequestArguments</code>.</p>
 <pre><code class="lang-csharp">sut.Request(HttpMethod.Get)
     .IfRoute(&quot;/testget/{myArg}&quot;)
     .Response((req, args) =&gt; $&quot;testresponse arg: {args.Route.myArg}&quot;);
-</code></pre>
-<h2 id="chaining-multiple-conditons">Chaining multiple conditons</h2>
+</code></pre><h2 id="chaining-multiple-conditons">Chaining multiple conditons</h2>
 <p>An arbitrary number of preconditions can be chained together in a fluent fashion.
 If we specify multiple header conditions, the stubb will only respond if all of them are satisfied.
 The other types of conditions are considered satisfied is at least on of them matches.</p>
@@ -126,7 +120,6 @@ The other types of conditions are considered satisfied is at least on of them ma
     .Header(&quot;ResponseHeader1&quot;, &quot;ResponseValue1&quot;)
     .Header(&quot;ResponseHeader2&quot;, &quot;ResponseValue2&quot;);
 </code></pre>
-
             </article>
           </div>
           

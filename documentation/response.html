@@ -8,7 +8,7 @@
     <title>Configure the response </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Configure the response ">
-    <meta name="generator" content="docfx 2.1.0.0">
+    <meta name="generator" content="docfx 2.8.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,13 +73,11 @@
 <h2 id="response-body">Response body</h2>
 <p>If we&#39;re using the <code>Get</code>, <code>Post</code>, <code>Put</code> and <code>Delete</code> methods, the response body can be specified with the delegate passed as the second argument.</p>
 <pre><code class="lang-csharp">sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;);
-</code></pre>
-<p>It can also be specified by calling the <code>Response</code> method.</p>
+</code></pre><p>It can also be specified by calling the <code>Response</code> method.</p>
 <pre><code class="lang-csharp">sut.Request(HttpMethod.Get)
     .IfRoute(&quot;/testget&quot;)
     .Response((req, args) =&gt; &quot;testresponse&quot;);
-</code></pre>
-<h3 id="return-type">Return type</h3>
+</code></pre><h3 id="return-type">Return type</h3>
 <p>The <code>CreateStubResponse</code> delegate must return a string, which will be directly written to the response body.</p>
 <h3 id="request-arguments">Request arguments</h3>
 <p>Arguments of the request are accessible through the <code>RequestArguments</code> object passed to the delegate.</p>
@@ -94,19 +92,16 @@ var result = await httpClient.GetAsync(
 
 // The resultString will be &quot;testresponse arg1: orange arg2: apple qarg1: melon qarg2: pear&quot;.
 var resultString = await result.Content.ReadAsStringAsync();
-</code></pre>
-<h2 id="status-code">Status code</h2>
+</code></pre><h2 id="status-code">Status code</h2>
 <p>The status code of the response can be specified with the <code>StatusCode</code> method.</p>
 <pre><code class="lang-csharp">sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;)
     .StatusCode(StatusCodes.Status206PartialContent);
-</code></pre>
-<h2 id="headers">Headers</h2>
+</code></pre><h2 id="headers">Headers</h2>
 <p>Headers of the response can be specified with the <code>Header</code> method.</p>
 <pre><code class="lang-csharp">sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;)
     .Header(&quot;Header1&quot;, &quot;HeaderValue1&quot;)
     .Header(&quot;Header2&quot;, &quot;HeaderValue2&quot;);
 </code></pre>
-
             </article>
           </div>
           

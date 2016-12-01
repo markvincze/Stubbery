@@ -8,7 +8,7 @@
     <title>Stubbery </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Stubbery ">
-    <meta name="generator" content="docfx 2.1.0.0">
+    <meta name="generator" content="docfx 2.8.2.0">
     
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/docfx.vendor.css">
@@ -63,7 +63,9 @@
               <h1 id="stubbery">Stubbery</h1>
               
 <p>Simple library for creating and running Api stubs in .NET.</p>
-<p><a href="https://ci.appveyor.com/project/markvincze/stubbery"><img src="https://ci.appveyor.com/api/projects/status/lv48y6utx9ulcwdh?svg=true" alt="Build status"></a></p>
+<p><a href="https://ci.appveyor.com/project/markvincze/stubbery"><img src="https://ci.appveyor.com/api/projects/status/lv48y6utx9ulcwdh?svg=true" alt="Build status"></a>
+<a href="https://www.nuget.org/packages/Stubbery/"><img src="https://img.shields.io/nuget/v/Stubbery.svg" alt="Latest version"></a>
+<a href="https://coveralls.io/github/markvincze/Stubbery?branch=master"><img src="https://coveralls.io/repos/github/markvincze/Stubbery/badge.svg?branch=master" alt="Coverage Status"></a></p>
 <h2 id="introduction">Introduction</h2>
 <p>In many situations it comes handy if we&#39;re able to start a simple service that responds on certain routes with preconfigured static responses.</p>
 <p>This is particularly important in integration testing, when we might want to replace some of our dependencies with a stub that can reliably provide the expected responses.</p>
@@ -85,8 +87,7 @@ It supports .NET Core and the full .NET Framework up from .NET 4.5.1.</p>
     // resultString will contain &quot;testresponse&quot;
     var resultString = await result.Content.ReadAsStringAsync();
 }
-</code></pre>
-<p>More details can be found in the <a href="documentation/intro.html">Documentation</a> and in the <a href="api/index.html">Api Reference</a>.</p>
+</code></pre><p>More details can be found in the <a href="documentation/intro.html">Documentation</a> and in the <a href="api/index.html">Api Reference</a>.</p>
 
             </article>
           </div>

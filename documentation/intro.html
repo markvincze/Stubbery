@@ -8,7 +8,7 @@
     <title>How to use </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="How to use ">
-    <meta name="generator" content="docfx 2.1.0.0">
+    <meta name="generator" content="docfx 2.8.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -87,8 +87,7 @@
     // resultString will contain &quot;testresponse&quot;
     var resultString = await result.Content.ReadAsStringAsync();
 }
-</code></pre>
-<h3 id="accessing-the-request-parameters">Accessing the request parameters</h3>
+</code></pre><h3 id="accessing-the-request-parameters">Accessing the request parameters</h3>
 <p>Parameters of the request can be accessed through the second argument of the lambda setting up the response. The following code sample shows how the route and the query string parameters can be accessed.</p>
 <pre><code class="lang-csharp">using (var stub = new ApiStub())
 {
@@ -104,8 +103,7 @@
     // resultString will contain &quot;testresponse arg1: orange queryArg1: melon&quot;
     var resultString = await result.Content.ReadAsStringAsync();
 }
-</code></pre>
-<p>The following example shows how the HTTP body can be accessed.</p>
+</code></pre><p>The following example shows how the HTTP body can be accessed.</p>
 <pre><code class="lang-csharp">using (var stub = new ApiStub())
 {
     stub.Post(
@@ -121,8 +119,7 @@
     // resultString will contain &quot;testresponse body: orange&quot;
     var resultString = await result.Content.ReadAsStringAsync();
 }
-</code></pre>
-<p><a href="response.html">More details</a> about setting response properties.</p>
+</code></pre><p><a href="response.html">More details</a> about setting response properties.</p>
 <h3 id="other-verbs">Other verbs</h3>
 <p>If we want to use a different HTTP verb, the <code>Request</code> method can be used.</p>
 <pre><code class="lang-csharp">using (var stub = new ApiStub())
@@ -143,8 +140,7 @@
     // resultString will contain &quot;testresponse&quot;
     var resultString = await result.Content.ReadAsStringAsync();
 }
-</code></pre>
-<p><a href="preconditions.html">More details</a> about setting up preconditions.</p>
+</code></pre><p><a href="preconditions.html">More details</a> about setting up preconditions.</p>
 
             </article>
           </div>
