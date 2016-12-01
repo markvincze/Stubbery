@@ -177,8 +177,7 @@ namespace Stubbery
         /// <summary>
         /// Sets up a new stubbed request for the specified HTTP <paramref name="methods" />.
         /// </summary>
-        /// <param name="route">The route on which the stub will respond.</param>
-        /// <param name="responder">The stubbed response to send.</param>
+        /// <param name="methods">The HTTP methods for which we want to respond.</param>
         /// <returns>An <see cref="ISetup" /> object on which further conditions can be set.</returns>
         public ISetup Request(params HttpMethod[] methods)
         {

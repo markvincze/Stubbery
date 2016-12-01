@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
@@ -20,14 +18,14 @@ namespace Stubbery.RequestMatching
 
             foreach (var header in Headers)
             {
-                if (httpContext.Response.Headers.ContainsKey(header.Key))
-                {
+                //if (httpContext.Response.Headers.ContainsKey(header.Key))
+                //{
                     httpContext.Response.Headers[header.Key] = header.Value;
-                }
-                else
-                {
-                    httpContext.Response.Headers.Add(header.Key, header.Value);
-                }
+                //}
+                //else
+                //{
+                //    httpContext.Response.Headers.Add(header.Key, header.Value);
+                //}
             }
 
             var routeValues = httpContext.GetRouteValues();

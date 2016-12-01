@@ -116,5 +116,48 @@ namespace Stubbery.IntegrationTests
                 Assert.Equal("testresponse", resultString);
             }
         }
+
+        [Fact]
+        public async Task IfHeaders_CustomTwoHeaderConditionsAndHeadersNotPresent_NotFoundReturned()
+        {
+            using (var sut = new ApiStub())
+            {
+                sut
+                    .Get("/testget", (req, args) => "testresponse")
+                    .IfHeaders(headers => headers["HeaderTest1"] == "headerValue1" && headers["HeaderTest2"] == "headerValue2");
+
+                sut.Start();
+
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
+                requestMessage.Headers.Add("HeaderTest1", "headerValue1");
+
+                var result = await httpClient.SendAsync(requestMessage);
+
+                Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
+            }
+        }
+
+        [Fact]
+        public async Task IfHeaders_CustomTwoHeaderConditionsAndBothHeadersPresent_ResponseReturned()
+        {
+            using (var sut = new ApiStub())
+            {
+                sut
+                    .Get("/testget", (req, args) => "testresponse")
+                    .IfHeaders(headers => headers["HeaderTest1"] == "headerValue1" && headers["HeaderTest2"] == "headerValue2");
+
+                sut.Start();
+
+                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
+                requestMessage.Headers.Add("HeaderTest1", "headerValue1");
+                requestMessage.Headers.Add("HeaderTest2", "headerValue2");
+
+                var result = await httpClient.SendAsync(requestMessage);
+
+                var resultString = await result.Content.ReadAsStringAsync();
+
+                Assert.Equal("testresponse", resultString);
+            }
+        }
     }
 }

@@ -14,7 +14,26 @@ namespace Stubbery.IntegrationTests
         private readonly HttpClient httpClient = new HttpClient();
 
         [Fact]
-        public async void ResponseBody_BodySet_BodyReturned()
+        public void ResponseBody_NullPassed_ArgumentNullException()
+        {
+            using (var sut = new ApiStub())
+            {
+                Assert.Throws<ArgumentNullException>(() => sut.Get().Response(null));
+            }
+        }
+
+        [Fact]
+        public void ResponseBody_CalledTwice_InvalidOperationException()
+        {
+            using (var sut = new ApiStub())
+            {
+                Assert.Throws<InvalidOperationException>(
+                    () => sut.Get().Response((req, args) => "1").Response((req, args) => "2"));
+            }
+        }
+
+        [Fact]
+        public async Task ResponseBody_BodySet_BodyReturned()
         {
             using (var sut = new ApiStub())
             {
@@ -31,7 +50,7 @@ namespace Stubbery.IntegrationTests
         }
 
         [Fact]
-        public async void StatusCode_StatusCodeSet_StatusCodeReturned()
+        public async Task StatusCode_StatusCodeSet_StatusCodeReturned()
         {
             using (var sut = new ApiStub())
             {
@@ -47,7 +66,7 @@ namespace Stubbery.IntegrationTests
         }
 
         [Fact]
-        public async void Header_HeadersAdded_HeadersReturned()
+        public async Task Header_HeadersAdded_HeadersReturned()
         {
             using (var sut = new ApiStub())
             {
@@ -65,7 +84,7 @@ namespace Stubbery.IntegrationTests
         }
 
         [Fact]
-        public async void Headers_HeadersAdded_HeadersReturned()
+        public async Task Headers_HeadersAdded_HeadersReturned()
         {
             using (var sut = new ApiStub())
             {
