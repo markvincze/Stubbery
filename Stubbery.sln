@@ -1,21 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{81A2D4BF-5C42-4DB9-8BC9-A1F1FCA7E009}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Stubbery", "src\Stubbery\Stubbery.xproj", "{BAA6A4A3-FFA0-4EAE-9D64-D6E24CF8B3E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stubbery", "src\Stubbery\Stubbery.csproj", "{BAA6A4A3-FFA0-4EAE-9D64-D6E24CF8B3E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8DC01ED2-E4BF-4051-993E-6BCD60FCA453}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AED33289-E986-401A-8013-DD0F725FCD3D}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
+		appveyor.yml = appveyor.yml
+		coverage.sh = coverage.sh
+		coveralls.sh = coveralls.sh
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Stubbery.IntegrationTests", "test\Stubbery.IntegrationTests\Stubbery.IntegrationTests.xproj", "{A3B909DA-A6DF-4FC6-9CAF-228E932916E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stubbery.IntegrationTests", "test\Stubbery.IntegrationTests\Stubbery.IntegrationTests.csproj", "{A3B909DA-A6DF-4FC6-9CAF-228E932916E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

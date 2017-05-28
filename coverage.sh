@@ -19,11 +19,11 @@ echo CLI args: $DOTNET_BUILD_ARGS
 
 echo Restoring
 
-dotnet restore -v Warning
+dotnet restore
 
 echo Building
 
-dotnet build $DOTNET_BUILD_ARGS **/project.json
+dotnet build $DOTNET_BUILD_ARGS
 
 echo Testing
 
@@ -31,12 +31,12 @@ coverage=./coverage
 rm -rf $coverage
 mkdir $coverage
 
-dotnet test -f netcoreapp1.0 $DOTNET_TEST_ARGS test/Stubbery.IntegrationTests
+dotnet test -f netcoreapp1.0 $DOTNET_TEST_ARGS test/Stubbery.IntegrationTests/Stubbery.IntegrationTests.csproj
 
 echo "Calculating coverage with OpenCover"
 $OPENCOVER \
   -target:"c:\Program Files\dotnet\dotnet.exe" \
-  -targetargs:"test -f netcoreapp1.0 $DOTNET_TEST_ARGS test/Stubbery.IntegrationTests" \
+  -targetargs:"test -f netcoreapp1.0 $DOTNET_TEST_ARGS test/Stubbery.IntegrationTests/Stubbery.IntegrationTests.csproj" \
   -mergeoutput \
   -hideskipped:File \
   -output:$coverage/coverage.xml \
