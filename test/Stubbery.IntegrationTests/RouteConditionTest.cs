@@ -63,5 +63,38 @@ namespace Stubbery.IntegrationTests
                 Assert.Equal("testresponse", resultString);
             }
         }
+
+        [Fact]
+        public async Task Route_RouteIncludesMatchingQuery_ResultReturned()
+        {
+            using (var sut = new ApiStub())
+            {
+                sut.Get("/testget?foo=bar", (req, args) => "testresponse");
+
+                sut.Start();
+
+                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?foo=bar" }.Uri);
+
+                var resultString = await result.Content.ReadAsStringAsync();
+
+                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+                Assert.Equal("testresponse", resultString);
+            }
+        }
+
+        [Fact]
+        public async Task Route_RouteIncludesNotMatchingQuery_NotFoundReturned()
+        {
+            using (var sut = new ApiStub())
+            {
+                sut.Get("/testget?foo=bar", (req, args) => "testresponse");
+
+                sut.Start();
+
+                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?foo=qux" }.Uri);
+
+                Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
+            }
+        }
     }
 }

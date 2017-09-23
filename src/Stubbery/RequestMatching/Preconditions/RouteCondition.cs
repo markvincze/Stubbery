@@ -16,7 +16,7 @@ namespace Stubbery.RequestMatching.Preconditions
         {
             var routeMatcher = new RouteMatcher();
 
-            var result = routeMatcher.Match(route, context.Request.Path);
+            var result = routeMatcher.Match(route, context.Request.Path, context.Request.Query);
 
             if (result != null)
             {
