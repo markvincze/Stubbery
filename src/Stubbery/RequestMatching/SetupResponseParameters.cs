@@ -18,14 +18,7 @@ namespace Stubbery.RequestMatching
 
             foreach (var header in Headers)
             {
-                //if (httpContext.Response.Headers.ContainsKey(header.Key))
-                //{
-                    httpContext.Response.Headers[header.Key] = header.Value;
-                //}
-                //else
-                //{
-                //    httpContext.Response.Headers.Add(header.Key, header.Value);
-                //}
+                httpContext.Response.Headers[header.Key] = header.Value;
             }
 
             var routeValues = httpContext.GetRouteValues();

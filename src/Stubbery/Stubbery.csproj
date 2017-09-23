@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>Library for creating Api stubs in .NET.</Description>
     <Copyright>Copyright � Mark Vincze 2016</Copyright>
-    <VersionPrefix>1.2.4</VersionPrefix>
+    <VersionPrefix>1.2.5</VersionPrefix>
     <Authors>Mark Vincze</Authors>
     <TargetFrameworks>netstandard1.3;net451</TargetFrameworks>
     <DebugType>full</DebugType>
