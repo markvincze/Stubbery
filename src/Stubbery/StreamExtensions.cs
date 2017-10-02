@@ -14,7 +14,7 @@ namespace Stubbery
         /// </summary>
         /// <param name="stream">The stream to read.</param>
         /// <returns>The <see cref="Task" /> representing the asynchronous operation.</returns>
-        public static Task<string> ReadAsStringAsync(this Stream stream)
+        public static async Task<string> ReadAsStringAsync(this Stream stream)
         {
             if (stream == null)
             {
@@ -23,7 +23,7 @@ namespace Stubbery
 
             using (var sr = new StreamReader(stream))
             {
-                return sr.ReadToEndAsync();
+                return await sr.ReadToEndAsync();
             }
         }
 

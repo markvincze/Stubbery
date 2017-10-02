@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -11,13 +12,13 @@ namespace Stubbery.IntegrationTests
         [Fact]
         public async Task ReadAsStringAsync_CalledOnNull_ArgumentNullException()
         {
-            await Assert.ThrowsAsync<ArgumentNullException>(() => ((Stream) null).ReadAsStringAsync());
+            await Assert.ThrowsAsync<ArgumentNullException>(() => ((Stream)null).ReadAsStringAsync());
         }
 
         [Fact]
         public async Task ReadAsStringAsync_CalledOnStream_StreamContentReturned()
         {
-            using (var ms = new MemoryStream())
+            using (var ms = new DelayedMemoryStream())
             {
                 var bytes = Encoding.UTF8.GetBytes("TestString");
 
@@ -35,7 +36,7 @@ namespace Stubbery.IntegrationTests
         [Fact]
         public void ReadAsString_CalledOnNull_ArgumentNullException()
         {
-            Assert.Throws<ArgumentNullException>(() => ((Stream) null).ReadAsString());
+            Assert.Throws<ArgumentNullException>(() => ((Stream)null).ReadAsString());
         }
 
         [Fact]
@@ -53,6 +54,15 @@ namespace Stubbery.IntegrationTests
                 var result = ms.ReadAsString();
 
                 Assert.Equal("TestString", result);
+            }
+        }
+
+        class DelayedMemoryStream : MemoryStream
+        {
+            public override async Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
+            {
+                await Task.Delay(1);
+                return await base.ReadAsync(buffer, offset, count, cancellationToken);
             }
         }
     }
