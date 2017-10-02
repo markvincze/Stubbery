@@ -9,12 +9,13 @@ namespace Stubbery.RequestMatching
 {
     internal class RouteMatcher : IRouteMatcher
     {
+        private static readonly Regex queryStringRegex = new Regex(@"(.*)(\?[^{}]*$)");
+
         public RouteValueDictionary Match(string routeTemplate, string requestPath, IQueryCollection query)
         {
             // The TemplateParser can only parse the route part, and not the query string.
             // If the template provided by the user also has a query string, we separate that and match it manually.
-            var regex = new Regex(@"(.*)(\?[^{}]*$)");
-            var match = regex.Match(routeTemplate);
+            var match = queryStringRegex.Match(routeTemplate);
             if (match.Success)
             {
                 var queryString = match.Groups[2].Value;

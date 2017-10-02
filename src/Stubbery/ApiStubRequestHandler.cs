@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Stubbery.RequestMatching;
 
 namespace Stubbery
@@ -15,7 +16,7 @@ namespace Stubbery
             this.configuredEndpoints = configuredEndpoints;
         }
 
-        public async Task HandleAsync(HttpContext httpContext)
+        public async Task HandleAsync(HttpContext httpContext, OutputFormatter defaultOutputFormatter)
         {
             httpContext.Response.StatusCode = StatusCodes.Status404NotFound;
 
@@ -23,7 +24,7 @@ namespace Stubbery
 
             if (firstMatch != null)
             {
-                await firstMatch.SendResponseAsync(httpContext);
+                await firstMatch.SendResponseAsync(httpContext, defaultOutputFormatter);
             }
         }
     }

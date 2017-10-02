@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Net.Http;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Newtonsoft.Json;
 using Stubbery.RequestMatching;
 
 namespace Stubbery
@@ -29,7 +32,9 @@ namespace Stubbery
         /// </remarks>
         public ApiStub()
         {
-            var startup = new ApiStubWebAppStartup(new ApiStubRequestHandler(configuredEndpoints));
+            var startup = new ApiStubWebAppStartup(
+                new ApiStubRequestHandler(configuredEndpoints),
+                () => this.DefaultOutputFormatter);
 
             apiHost = new ApiHost(startup);
         }
@@ -85,6 +90,16 @@ namespace Stubbery
 
             state = ApiStubState.Stopped;
         }
+
+        /// <summary>
+        /// The default output formatter to used when returning response bodies.
+        /// </summary>
+        /// <remarks>
+        /// If in an endpoint configuration the response object is a string, it is directly returned in the HTTP Response body.
+        /// On the other hand, if it's any other object, the response body is created using this output formatter.
+        /// By default, a Json output formatter is used.
+        /// </remarks>
+        public OutputFormatter DefaultOutputFormatter { get; set; } = new JsonOutputFormatter(new JsonSerializerSettings(), ArrayPool<char>.Shared);
 
         /// <summary>
         /// Sets up a new stubbed GET request on a specific route with a response.

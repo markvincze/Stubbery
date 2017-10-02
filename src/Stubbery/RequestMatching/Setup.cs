@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Stubbery.RequestMatching.Preconditions;
 
 namespace Stubbery.RequestMatching
@@ -132,9 +133,9 @@ namespace Stubbery.RequestMatching
             return orConditionsMatch && andConditionsMatch;
         }
 
-        public async Task SendResponseAsync(HttpContext httpContext)
+        public async Task SendResponseAsync(HttpContext httpContext, OutputFormatter defaultOutputFormatter)
         {
-            await setupResponse.SendResponseAsync(httpContext);
+            await setupResponse.SendResponseAsync(httpContext, defaultOutputFormatter);
         }
     }
 }
