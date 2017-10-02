@@ -18,22 +18,17 @@ namespace Stubbery
 
         public async Task HandleAsync(HttpContext httpContext)
         {
-            using (var bodyStream = new MemoryStream())
+            httpContext.Response.StatusCode = StatusCodes.Status404NotFound;
+
+            var firstMatch = configuredEndpoints.FirstOrDefault(e => e.IsMatch(httpContext));
+
+            if (firstMatch != null)
             {
-                // Ensure the request body is fully read to avoid hanging connections on linux
-                await httpContext.Request.Body.CopyToAsync(bodyStream);
-                httpContext.Request.Body = bodyStream;
-                bodyStream.Position = 0;
-
-                httpContext.Response.StatusCode = StatusCodes.Status404NotFound;
-
-                var firstMatch = configuredEndpoints.FirstOrDefault(e => e.IsMatch(httpContext));
-
-                if (firstMatch != null)
-                {
-                    await firstMatch.SendResponseAsync(httpContext);
-                }
+                await firstMatch.SendResponseAsync(httpContext);
             }
+
+            // Ensure the request body is fully read to avoid hanging connections on linux
+            await httpContext.Request.Body.ReadAsStringAsync();
         }
     }
 }
