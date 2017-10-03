@@ -20,6 +20,8 @@ nuget:
 environment:
   COVERALLS_REPO_TOKEN:
     secure: l3nZXQA47cVHWucS5LK20u28aer1QZT4zcgFo2LZAOn4v1CtRjrXOomdhvJG95bD
+  api_key:
+    secure: UrYYF7dW4tZvlgTcihdNHoURAdjBRAFUvbXO+Pt+772aQLVNtbjlDBY4BqvHBxcz
 
 #---------------------------------#
 #       build configuration       #
@@ -59,3 +61,7 @@ deploy:
     secure: UrYYF7dW4tZvlgTcihdNHoURAdjBRAFUvbXO+Pt+772aQLVNtbjlDBY4BqvHBxcz
   skip_symbols: false
   artifact: /.*\.nupkg/
+  
+deploy_script:
+  - appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/latest/nuget.exe  
+  - ps: ($artifacts.values | Where-Object {($_.path -like '*.nupkg') -and  !($_.path -like '*.symbols.nupkg')}) | foreach-object {nuget.exe push $_.path -Source https://www.nuget.org/api/v2/package -ApiKey $env:api_key; if ($lastexitcode -ne 0) {throw}}
