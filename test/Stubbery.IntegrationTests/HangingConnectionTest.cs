@@ -14,7 +14,7 @@ namespace Stubbery.IntegrationTests
         [Fact]
         public async Task MultiplePosts_OneMatch_DoesntHangConnectionOnLinux()
         {
-            var largeText = string.Join("", Enumerable.Range(0, 1000).Select(x => "abcdefg"));
+            var largeText = new string('a', 6000);
 
             using (var sut = new ApiStub())
             {
