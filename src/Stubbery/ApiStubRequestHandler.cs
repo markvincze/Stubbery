@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Stubbery.RequestMatching;
+using System.IO;
 
 namespace Stubbery
 {
@@ -25,6 +26,9 @@ namespace Stubbery
             {
                 await firstMatch.SendResponseAsync(httpContext);
             }
+
+            // Ensure the request body is fully read to avoid hanging connections on linux
+            await httpContext.Request.Body.ReadAsStringAsync();
         }
     }
 }
