@@ -1,38 +1,20 @@
-﻿using System.Net;
+﻿using System.Collections.Generic;
+using System.Net;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.PlatformAbstractions;
 using Stubbery.Samples.BasicSample.Web;
-using System.Reflection;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore;
+using Microsoft.Extensions.Configuration.Memory;
 using Xunit;
 
 namespace Stubbery.Samples.BasicSample.IntegrationTests
 {
     public class CountyTests
     {
-        private readonly TestServer server;
-
-        private readonly ApiStub postcodeApiStub;
-
-        private IHostingEnvironment CreateHostingEnvironment()
+        private ApiStub StartStub()
         {
-            var hostingEnvironment = new HostingEnvironment();
-
-            var appEnvironment = PlatformServices.Default.Application;
-
-            var applicationName = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
-
-            hostingEnvironment.Initialize(applicationName, appEnvironment.ApplicationBasePath, new WebHostOptions());
-
-            return hostingEnvironment;
-        }
-
-        public CountyTests()
-        {
-            postcodeApiStub = new ApiStub();
+            var postcodeApiStub = new ApiStub();
 
             postcodeApiStub.Get(
                 "/postcodes/{postcode}",
@@ -53,27 +35,35 @@ namespace Stubbery.Samples.BasicSample.IntegrationTests
 
             postcodeApiStub.Start();
 
-            var hostingEnv = CreateHostingEnvironment();
-            var loggerFactory = new LoggerFactory();
+            return postcodeApiStub;
+        }
 
-            var startup = new Startup(hostingEnv);
-
-            server = new TestServer(new WebHostBuilder()
-                .Configure(app => startup.Configure(app, hostingEnv, loggerFactory))
-                .ConfigureServices(
-                    services =>
+        private TestServer StartApiUnderTest(ApiStub postcodeApiStub)
+        {
+            var server = new TestServer(
+                WebHost.CreateDefaultBuilder()
+                    .UseStartup<Startup>()
+                    .ConfigureAppConfiguration((ctx, b) =>
                     {
-                        startup.ConfigureServices(services);
-
-                        // Replace the real api URL with the stub.
-                        startup.Configuration["PostCodeApiUrl"] = postcodeApiStub.Address;
+                        b.Add(new MemoryConfigurationSource
+                        {
+                            InitialData = new Dictionary<string, string>
+                            {
+                                // Replace the real api URL with the stub.
+                                ["PostCodeApiUrl"] = postcodeApiStub.Address
+                            }
+                        });
                     }));
+
+            return server;
         }
 
         [Fact]
         public async Task GetCountyName_CountyFound_CountyNameReturned()
         {
-            using (var client = server.CreateClient().AcceptJson())
+            using (var stub = StartStub())
+            using (var server = StartApiUnderTest(stub))
+            using (var client = server.CreateClient())
             {
                 var response = await client.GetAsync("/countyname/postcodeOk");
 
@@ -86,7 +76,9 @@ namespace Stubbery.Samples.BasicSample.IntegrationTests
         [Fact]
         public async Task GetCountyName_CountyNotFound_NotFoundReturned()
         {
-            using (var client = server.CreateClient().AcceptJson())
+            using (var stub = StartStub())
+            using (var server = StartApiUnderTest(stub))
+            using (var client = server.CreateClient())
             {
                 var response = await client.GetAsync("/countyname/postcodeNotFound");
 
@@ -97,7 +89,9 @@ namespace Stubbery.Samples.BasicSample.IntegrationTests
         [Fact]
         public async Task GetCountyName_Error_InternalServerErrorReturned()
         {
-            using (var client = server.CreateClient().AcceptJson())
+            using (var stub = StartStub())
+            using (var server = StartApiUnderTest(stub))
+            using (var client = server.CreateClient())
             {
                 var response = await client.GetAsync("/countyname/postcodeError");
 

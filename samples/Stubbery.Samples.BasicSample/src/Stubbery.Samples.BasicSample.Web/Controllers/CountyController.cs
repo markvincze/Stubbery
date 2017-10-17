@@ -31,18 +31,18 @@ namespace Stubbery.Samples.BasicSample.Web.Controllers
 
                 var response = await hc.GetAsync(uri);
 
-                using(var stream = await response.Content.ReadAsStreamAsync())
+                using (var stream = await response.Content.ReadAsStreamAsync())
                 using (var reader = new StreamReader(stream))
                 using (var jsonTextReader = new JsonTextReader(reader))
                 {
                     var jObject = JObject.Load(jsonTextReader);
 
-                    if (jObject["status"].ToString() == "200")
+                    if (jObject["status"].Value<string>() == "200")
                     {
-                        return Ok(jObject["result"]["admin_county"].ToString());
+                        return Ok(jObject["result"]["admin_county"].Value<string>());
                     }
 
-                    if (jObject["status"].ToString() == "404")
+                    if (jObject["status"].Value<string>() == "404")
                     {
                         return NotFound();
                     }
