@@ -22,8 +22,7 @@ namespace Stubbery.RequestMatching
 
                 var queryInTemplate = QueryHelpers.ParseQuery(queryString);
 
-                if (!query.All(arg => queryInTemplate.ContainsKey(arg.Key.TrimStart('?')) &&
-                    queryInTemplate[arg.Key.TrimStart('?')] == arg.Value))
+                if (!query.All(arg => queryInTemplate.ContainsKey(arg.Key.TrimStart('?')) && queryInTemplate[arg.Key.TrimStart('?')] == arg.Value))
                 {
                     return null;
                 }
