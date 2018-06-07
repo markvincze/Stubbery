@@ -26,11 +26,12 @@ namespace Stubbery
             this.startup = startup;
         }
 
-        public string StartHosting()
+        public string StartHosting(int? port)
         {
+            var hostingPort = port ?? PickFreeTcpPort();
             var hostBuilder = new WebHostBuilder()
                 .UseKestrel()
-                .UseUrls($"http://localhost:{PickFreeTcpPort()}/")
+                .UseUrls($"http://localhost:{hostingPort}/")
                 .ConfigureServices(startup.ConfigureServices)
                 .Configure(startup.Configure);
 

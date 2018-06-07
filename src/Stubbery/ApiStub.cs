@@ -21,6 +21,30 @@ namespace Stubbery
 
         private string address;
 
+        private int? _port;
+
+        /// <summary>
+        /// Sets the Port for the stub to start />
+        /// </summary>
+        /// <remarks>
+        /// The Post property cannot be set after the stub has already started. The <see cref="Start" /> method needs to be called after the Port is set.
+        /// </remarks>
+        public int? Port
+        {
+            private get
+            {
+                return _port;
+            }
+            set
+            {
+                if (state == ApiStubState.Started)
+                {
+                    throw new InvalidOperationException("The api stub already started on another port. Set the port before the api stub starts.");
+                }
+                _port = value;
+            }
+        }
+
         /// <summary>
         /// Creates a new instance of <see cref="ApiStub" />
         /// </summary>
@@ -68,7 +92,7 @@ namespace Stubbery
                 throw new InvalidOperationException("The api stub is already started.");
             }
 
-            address = apiHost.StartHosting();
+            address = apiHost.StartHosting(Port);
 
             state = ApiStubState.Started;
         }
