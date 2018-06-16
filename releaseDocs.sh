@@ -23,7 +23,12 @@ git rm -r *
 echo "Copy documentation into the repo"
 cp -r $SOURCE_DIR/docs/_site/* .
 
-echo "Push the new docs to the remote branch"
-git add . -A
-git commit -m "Update generated documentation"
-git push origin gh-pages
+if [ "$APPVEYOR_REPO_BRANCH" == "master" ]
+then
+    echo "Push the new docs to the remote branch"
+    git add . -A
+    git commit -m "Update generated documentation"
+    git push origin gh-pages
+else
+    echo "Not on master, skipping pushing docs"
+fi
