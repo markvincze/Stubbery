@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IConditionSetup
    ">
-    <meta name="generator" content="docfx 2.8.2.0">
+    <meta name="generator" content="docfx 2.36.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -19,8 +19,10 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
+    
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -33,11 +35,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <ul class="nav level1 navbar-nav">
-                <li>
-                  <a href="../index.html" title="Home">Home</a>
-                </li>
-              </ul>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -67,368 +68,407 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              
-              
-              <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/IConditionSetup.cs/#L9" class="btn btn-primary pull-right mobile-hide">View Source</a>
-              <h1 id="Stubbery_RequestMatching_IConditionSetup" data-uid="Stubbery.RequestMatching.IConditionSetup">Interface IConditionSetup
-              </h1>
-              <div class="markdown level0 summary"><p>Represents the different preconditions that can be set on stubs.</p>
+            <article class="content wrap" id="_content" data-uid="Stubbery.RequestMatching.IConditionSetup">
+  
+  
+  <h1 id="Stubbery_RequestMatching_IConditionSetup" data-uid="Stubbery.RequestMatching.IConditionSetup" class="text-break">Interface IConditionSetup
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the different preconditions that can be set on stubs.</p>
 </div>
-              <div class="markdown level0 conceptual"></div>
-              <h6><strong>Namespace</strong>:Stubbery.RequestMatching</h6>
-              <h6><strong>Assembly</strong>:Stubbery.dll</h6>
-              <h5 id="Stubbery_RequestMatching_IConditionSetup_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public interface IConditionSetup</code></pre>
-              </div>
-              <h3 id="methods">Methods
-              </h3>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/IConditionSetup.cs/#L52">View Source</a>
-              </span>
-              <h4 id="Stubbery_RequestMatching_IConditionSetup_IfAccept_System_Func_System_String_System_Boolean__" data-uid="Stubbery.RequestMatching.IConditionSetup.IfAccept(System.Func{System.String,System.Boolean})">IfAccept(Func&lt;String, Boolean&gt;)</h4>
-              <div class="markdown level1 summary"><p>Sets up a condition so that the stub only responds if the Accept header satisfy the <em>check</em> condition.</p>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Stubbery.RequestMatching.html">Stubbery.RequestMatching</a></h6>
+  <h6><strong>Assembly</strong>: Stubbery.dll</h6>
+  <h5 id="Stubbery_RequestMatching_IConditionSetup_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IConditionSetup</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_RequestMatching_IConditionSetup_IfAccept_System_Func_System_String_System_Boolean__.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.IConditionSetup.IfAccept(System.Func%7BSystem.String%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/RequestMatching/IConditionSetup.cs/#L52">View Source</a>
+  </span>
+  <a id="Stubbery_RequestMatching_IConditionSetup_IfAccept_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfAccept*"></a>
+  <h4 id="Stubbery_RequestMatching_IConditionSetup_IfAccept_System_Func_System_String_System_Boolean__" data-uid="Stubbery.RequestMatching.IConditionSetup.IfAccept(System.Func{System.String,System.Boolean})">IfAccept(Func&lt;String, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets up a condition so that the stub only responds if the Accept header satisfy the <code data-dev-comment-type="paramref" class="paramref">check</code> condition.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ISetup IfAccept(Func&lt;string, bool&gt; check)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Boolean</span>&gt;</td>
-                    <td><em>check</em></td>
-                    <td><p>The condition the Accept header has to satisfy.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISetup IfAccept(Func&lt;string, bool&gt; check)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">check</span></td>
+        <td><p>The condition the Accept header has to satisfy.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more conditions can be set fluently.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more conditions can be set fluently.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/IConditionSetup.cs/#L45">View Source</a>
-              </span>
-              <h4 id="Stubbery_RequestMatching_IConditionSetup_IfAccept_System_String_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfAccept(System.String)">IfAccept(String)</h4>
-              <div class="markdown level1 summary"><p>Sets up a condition so that the stub only responds if the request has the Accept header.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_RequestMatching_IConditionSetup_IfAccept_System_String_.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.IConditionSetup.IfAccept(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/RequestMatching/IConditionSetup.cs/#L45">View Source</a>
+  </span>
+  <a id="Stubbery_RequestMatching_IConditionSetup_IfAccept_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfAccept*"></a>
+  <h4 id="Stubbery_RequestMatching_IConditionSetup_IfAccept_System_String_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfAccept(System.String)">IfAccept(String)</h4>
+  <div class="markdown level1 summary"><p>Sets up a condition so that the stub only responds if the request has the Accept header.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ISetup IfAccept(string accept)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><em>accept</em></td>
-                    <td><p>The required value of the Accept header.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISetup IfAccept(string accept)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">accept</span></td>
+        <td><p>The required value of the Accept header.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more conditions can be set fluently.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more conditions can be set fluently.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/IConditionSetup.cs/#L38">View Source</a>
-              </span>
-              <h4 id="Stubbery_RequestMatching_IConditionSetup_IfContentType_System_Func_System_String_System_Boolean__" data-uid="Stubbery.RequestMatching.IConditionSetup.IfContentType(System.Func{System.String,System.Boolean})">IfContentType(Func&lt;String, Boolean&gt;)</h4>
-              <div class="markdown level1 summary"><p>Sets up a condition so that the stub only responds if the Content-Type satisfies the <em>check</em> condition.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_RequestMatching_IConditionSetup_IfContentType_System_Func_System_String_System_Boolean__.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.IConditionSetup.IfContentType(System.Func%7BSystem.String%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/RequestMatching/IConditionSetup.cs/#L38">View Source</a>
+  </span>
+  <a id="Stubbery_RequestMatching_IConditionSetup_IfContentType_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfContentType*"></a>
+  <h4 id="Stubbery_RequestMatching_IConditionSetup_IfContentType_System_Func_System_String_System_Boolean__" data-uid="Stubbery.RequestMatching.IConditionSetup.IfContentType(System.Func{System.String,System.Boolean})">IfContentType(Func&lt;String, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets up a condition so that the stub only responds if the Content-Type satisfies the <code data-dev-comment-type="paramref" class="paramref">check</code> condition.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ISetup IfContentType(Func&lt;string, bool&gt; check)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Boolean</span>&gt;</td>
-                    <td><em>check</em></td>
-                    <td><p>The condition the Content-Type have to satisfy.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISetup IfContentType(Func&lt;string, bool&gt; check)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">check</span></td>
+        <td><p>The condition the Content-Type have to satisfy.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more conditions can be set fluently.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more conditions can be set fluently.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/IConditionSetup.cs/#L31">View Source</a>
-              </span>
-              <h4 id="Stubbery_RequestMatching_IConditionSetup_IfContentType_System_String_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfContentType(System.String)">IfContentType(String)</h4>
-              <div class="markdown level1 summary"><p>Sets up a condition so that the stub only responds if the request has the specified Content-Type.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_RequestMatching_IConditionSetup_IfContentType_System_String_.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.IConditionSetup.IfContentType(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/RequestMatching/IConditionSetup.cs/#L31">View Source</a>
+  </span>
+  <a id="Stubbery_RequestMatching_IConditionSetup_IfContentType_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfContentType*"></a>
+  <h4 id="Stubbery_RequestMatching_IConditionSetup_IfContentType_System_String_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfContentType(System.String)">IfContentType(String)</h4>
+  <div class="markdown level1 summary"><p>Sets up a condition so that the stub only responds if the request has the specified Content-Type.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ISetup IfContentType(string contentType)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><em>contentType</em></td>
-                    <td><p>The required value of the Content-Type.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISetup IfContentType(string contentType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">contentType</span></td>
+        <td><p>The required value of the Content-Type.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more conditions can be set fluently.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more conditions can be set fluently.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/IConditionSetup.cs/#L17">View Source</a>
-              </span>
-              <h4 id="Stubbery_RequestMatching_IConditionSetup_IfHeader_System_String_System_String_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfHeader(System.String,System.String)">IfHeader(String, String)</h4>
-              <div class="markdown level1 summary"><p>Sets up a condition so that the stub only responds if the request has the specified header.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_RequestMatching_IConditionSetup_IfHeader_System_String_System_String_.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.IConditionSetup.IfHeader(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/RequestMatching/IConditionSetup.cs/#L17">View Source</a>
+  </span>
+  <a id="Stubbery_RequestMatching_IConditionSetup_IfHeader_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfHeader*"></a>
+  <h4 id="Stubbery_RequestMatching_IConditionSetup_IfHeader_System_String_System_String_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfHeader(System.String,System.String)">IfHeader(String, String)</h4>
+  <div class="markdown level1 summary"><p>Sets up a condition so that the stub only responds if the request has the specified header.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ISetup IfHeader(string header, string value)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><em>header</em></td>
-                    <td><p>The name of the required header.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISetup IfHeader(string header, string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">header</span></td>
+        <td><p>The name of the required header.</p>
 </td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><em>value</em></td>
-                    <td><p>The value of the required header.</p>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of the required header.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more conditions can be set fluently.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more conditions can be set fluently.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/IConditionSetup.cs/#L24">View Source</a>
-              </span>
-              <h4 id="Stubbery_RequestMatching_IConditionSetup_IfHeaders_System_Func_Microsoft_AspNetCore_Http_IHeaderDictionary_System_Boolean__" data-uid="Stubbery.RequestMatching.IConditionSetup.IfHeaders(System.Func{Microsoft.AspNetCore.Http.IHeaderDictionary,System.Boolean})">IfHeaders(Func&lt;IHeaderDictionary, Boolean&gt;)</h4>
-              <div class="markdown level1 summary"><p>Sets up a condition so that the stub only responds if the request headers satisfy the <em>check</em> condition.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_RequestMatching_IConditionSetup_IfHeaders_System_Func_Microsoft_AspNetCore_Http_IHeaderDictionary_System_Boolean__.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.IConditionSetup.IfHeaders(System.Func%7BMicrosoft.AspNetCore.Http.IHeaderDictionary%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/RequestMatching/IConditionSetup.cs/#L24">View Source</a>
+  </span>
+  <a id="Stubbery_RequestMatching_IConditionSetup_IfHeaders_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfHeaders*"></a>
+  <h4 id="Stubbery_RequestMatching_IConditionSetup_IfHeaders_System_Func_Microsoft_AspNetCore_Http_IHeaderDictionary_System_Boolean__" data-uid="Stubbery.RequestMatching.IConditionSetup.IfHeaders(System.Func{Microsoft.AspNetCore.Http.IHeaderDictionary,System.Boolean})">IfHeaders(Func&lt;IHeaderDictionary, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Sets up a condition so that the stub only responds if the request headers satisfy the <code data-dev-comment-type="paramref" class="paramref">check</code> condition.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ISetup IfHeaders(Func&lt;IHeaderDictionary, bool&gt; check)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Func</span>&lt;<span class="xref">Microsoft.AspNetCore.Http.IHeaderDictionary</span>, <span class="xref">System.Boolean</span>&gt;</td>
-                    <td><em>check</em></td>
-                    <td><p>The condition the headers have to satisfy.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISetup IfHeaders(Func&lt;IHeaderDictionary, bool&gt; check)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">Microsoft.AspNetCore.Http.IHeaderDictionary</span>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">check</span></td>
+        <td><p>The condition the headers have to satisfy.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more conditions can be set fluently.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more conditions can be set fluently.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/IConditionSetup.cs/#L69">View Source</a>
-              </span>
-              <h4 id="Stubbery_RequestMatching_IConditionSetup_IfRoute_System_String_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfRoute(System.String)">IfRoute(String)</h4>
-              <div class="markdown level1 summary"><p>Sets up a condition so that the stub only responds if the route of the request matches the <em>routeTemplate</em>.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_RequestMatching_IConditionSetup_IfRoute_System_String_.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.IConditionSetup.IfRoute(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/RequestMatching/IConditionSetup.cs/#L69">View Source</a>
+  </span>
+  <a id="Stubbery_RequestMatching_IConditionSetup_IfRoute_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfRoute*"></a>
+  <h4 id="Stubbery_RequestMatching_IConditionSetup_IfRoute_System_String_" data-uid="Stubbery.RequestMatching.IConditionSetup.IfRoute(System.String)">IfRoute(String)</h4>
+  <div class="markdown level1 summary"><p>Sets up a condition so that the stub only responds if the route of the request matches the <code data-dev-comment-type="paramref" class="paramref">routeTemplate</code>.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ISetup IfRoute(string routeTemplate)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><em>routeTemplate</em></td>
-                    <td><p>The route template we want to match with the requests.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISetup IfRoute(string routeTemplate)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">routeTemplate</span></td>
+        <td><p>The route template we want to match with the requests.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more conditions can be set fluently.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more conditions can be set fluently.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 id="Stubbery_RequestMatching_IConditionSetup_IfRoute_System_String__remarks">Remarks</h5>
-              <div class="markdown level1 remarks"><p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Stubbery_RequestMatching_IConditionSetup_IfRoute_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
 If a route template gets matched, the route arguments are stored in the <span class="xref">Microsoft.AspNetCore.Http.HttpContext</span>, and they can be accessed through
-the <a class="xref" href="Stubbery.RequestArguments.html">Route</a> property when creating responses.
+the <a class="xref" href="Stubbery.RequestArguments.html#Stubbery_RequestArguments_Route">Route</a> property when creating responses.
 </p>
 <p>
-If multiple routes are set up, then they&#39;ll be matched one by one until the first match found. The route arguments in <a class="xref" href="Stubbery.RequestArguments.html">Route</a>
+If multiple routes are set up, then they&apos;ll be matched one by one until the first match found. The route arguments in <a class="xref" href="Stubbery.RequestArguments.html#Stubbery_RequestArguments_Route">Route</a>
 will be populated based on the first match.
 </p>
 </div>
-            </article>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
-            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-            <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-            </nav>
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_RequestMatching_IConditionSetup.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.IConditionSetup%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/RequestMatching/IConditionSetup.cs/#L9" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
           </div>
         </div>
       </div>
@@ -441,7 +481,7 @@ will be populated based on the first match.
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2016 Mark Vincze<br>Generated by <strong>DocFX</strong></span>
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
@@ -450,6 +490,5 @@ will be populated based on the first match.
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

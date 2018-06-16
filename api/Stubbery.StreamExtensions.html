@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class StreamExtensions
    ">
-    <meta name="generator" content="docfx 2.8.2.0">
+    <meta name="generator" content="docfx 2.36.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -19,8 +19,10 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
+    
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -33,11 +35,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <ul class="nav level1 navbar-nav">
-                <li>
-                  <a href="../index.html" title="Home">Home</a>
-                </li>
-              </ul>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -67,151 +68,170 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              
-              
-              <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/StreamExtensions.cs/#L10" class="btn btn-primary pull-right mobile-hide">View Source</a>
-              <h1 id="Stubbery_StreamExtensions" data-uid="Stubbery.StreamExtensions">Class StreamExtensions
-              </h1>
-              <div class="markdown level0 summary"><p>Provides some convenience methods to use with <span class="xref">System.IO.Stream</span> objects.</p>
+            <article class="content wrap" id="_content" data-uid="Stubbery.StreamExtensions">
+  
+  
+  <h1 id="Stubbery_StreamExtensions" data-uid="Stubbery.StreamExtensions" class="text-break">Class StreamExtensions
+  </h1>
+  <div class="markdown level0 summary"><p>Provides some convenience methods to use with <span class="xref">System.IO.Stream</span> objects.</p>
 </div>
-              <div class="markdown level0 conceptual"></div>
-              <div class="inheritance">
-                <h5>Inheritance</h5>
-                  <div class="level0"><span class="xref">System.Object</span></div>
-                  <div class="level1"><span class="xref">StreamExtensions</span></div>
-              </div>
-              <div class="inheritedMembers">
-                <h5>Inherited Members</h5>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetHashCode()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetType()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.MemberwiseClone()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.ToString()</span>
-                </div>
-              </div>
-              <h6><strong>Namespace</strong>:Stubbery</h6>
-              <h6><strong>Assembly</strong>:Stubbery.dll</h6>
-              <h5 id="Stubbery_StreamExtensions_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public static class StreamExtensions</code></pre>
-              </div>
-              <h3 id="methods">Methods
-              </h3>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/StreamExtensions.cs/#L35">View Source</a>
-              </span>
-              <h4 id="Stubbery_StreamExtensions_ReadAsString_System_IO_Stream_" data-uid="Stubbery.StreamExtensions.ReadAsString(System.IO.Stream)">ReadAsString(Stream)</h4>
-              <div class="markdown level1 summary"><p>Reads the whole <em>stream</em> as a string synchronously.</p>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">StreamExtensions</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Stubbery.html">Stubbery</a></h6>
+  <h6><strong>Assembly</strong>: Stubbery.dll</h6>
+  <h5 id="Stubbery_StreamExtensions_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class StreamExtensions</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_StreamExtensions_ReadAsString_System_IO_Stream_.md&amp;value=---%0Auid%3A%20Stubbery.StreamExtensions.ReadAsString(System.IO.Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/StreamExtensions.cs/#L35">View Source</a>
+  </span>
+  <a id="Stubbery_StreamExtensions_ReadAsString_" data-uid="Stubbery.StreamExtensions.ReadAsString*"></a>
+  <h4 id="Stubbery_StreamExtensions_ReadAsString_System_IO_Stream_" data-uid="Stubbery.StreamExtensions.ReadAsString(System.IO.Stream)">ReadAsString(Stream)</h4>
+  <div class="markdown level1 summary"><p>Reads the whole <code data-dev-comment-type="paramref" class="paramref">stream</code> as a string synchronously.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public static string ReadAsString(this Stream stream)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.IO.Stream</span></td>
-                    <td><em>stream</em></td>
-                    <td><p>The stream to read.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ReadAsString(this Stream stream)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IO.Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>The stream to read.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><p>The whole content of the stream.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The whole content of the stream.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/StreamExtensions.cs/#L17">View Source</a>
-              </span>
-              <h4 id="Stubbery_StreamExtensions_ReadAsStringAsync_System_IO_Stream_" data-uid="Stubbery.StreamExtensions.ReadAsStringAsync(System.IO.Stream)">ReadAsStringAsync(Stream)</h4>
-              <div class="markdown level1 summary"><p>Reads the whole <em>stream</em> as a string asynchronously.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_StreamExtensions_ReadAsStringAsync_System_IO_Stream_.md&amp;value=---%0Auid%3A%20Stubbery.StreamExtensions.ReadAsStringAsync(System.IO.Stream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/StreamExtensions.cs/#L17">View Source</a>
+  </span>
+  <a id="Stubbery_StreamExtensions_ReadAsStringAsync_" data-uid="Stubbery.StreamExtensions.ReadAsStringAsync*"></a>
+  <h4 id="Stubbery_StreamExtensions_ReadAsStringAsync_System_IO_Stream_" data-uid="Stubbery.StreamExtensions.ReadAsStringAsync(System.IO.Stream)">ReadAsStringAsync(Stream)</h4>
+  <div class="markdown level1 summary"><p>Reads the whole <code data-dev-comment-type="paramref" class="paramref">stream</code> as a string asynchronously.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; ReadAsStringAsync(this Stream stream)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.IO.Stream</span></td>
-                    <td><em>stream</em></td>
-                    <td><p>The stream to read.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Task&lt;string&gt; ReadAsStringAsync(this Stream stream)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.IO.Stream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td><p>The stream to read.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td><p>The <span class="xref">System.Threading.Tasks.Task</span> representing the asynchronous operation.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>The <span class="xref">System.Threading.Tasks.Task</span> representing the asynchronous operation.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-            </article>
+      </tr>
+    </tbody>
+  </table>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
-            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-            <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-            </nav>
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_StreamExtensions.md&amp;value=---%0Auid%3A%20Stubbery.StreamExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/StreamExtensions.cs/#L10" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
           </div>
         </div>
       </div>
@@ -224,7 +244,7 @@
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2016 Mark Vincze<br>Generated by <strong>DocFX</strong></span>
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
@@ -233,6 +253,5 @@
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

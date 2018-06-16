@@ -8,7 +8,7 @@
     <title>Setting up preconditions </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Setting up preconditions ">
-    <meta name="generator" content="docfx 2.8.2.0">
+    <meta name="generator" content="docfx 2.36.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -17,8 +17,10 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
+    
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -31,11 +33,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <ul class="nav level1 navbar-nav">
-                <li>
-                  <a href="../index.html" title="Home">Home</a>
-                </li>
-              </ul>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -66,9 +67,8 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-              <a href="https://github.com/markvincze/Stubbery/blob/master/docs/documentation/preconditions.md/#L1" class="btn btn-primary pull-right mobile-hide">Improve this Doc</a>
-              <h1 id="setting-up-preconditions">Setting up preconditions</h1>
-              
+<h1 id="setting-up-preconditions">Setting up preconditions</h1>
+
 <p>When configuring a stubbed endpoint, various preconditions can be configured, so the stub only responds if the conditions are met.
 The conditions can chained together with a fluent api.</p>
 <h2 id="http-methods">HTTP methods</h2>
@@ -79,20 +79,15 @@ sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;);
 // Will match a POST
 sut.Post(&quot;/testpost&quot;, (req, args) =&gt; &quot;testresponse&quot;);
 </code></pre><p>If another method is needed, the <code>Request</code> method can be used.</p>
-<pre><code class="lang-csharp"> // Will respond to OPTIONS
+<pre><code class="lang-csharp">// Will respond to OPTIONS
 sut.Request(HttpMethod.Options)
-    .IfRoute(&quot;/testoptions&quot;)
-    .Response((req, args) =&gt; &quot;testresponse&quot;);
+   .IfRoute(&quot;/testoptions&quot;)
+   .Response((req, args) =&gt; &quot;testresponse&quot;);
 </code></pre><h2 id="headers">Headers</h2>
 <p>The presence of specific headers can be required with the <code>IfHeader</code> method.</p>
 <pre><code class="lang-csharp">// Will only respond if the Origin header with the given value is present.
 sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;)
     .IfHeader(&quot;Origin&quot;, &quot;http://www.example.com&quot;);
-</code></pre><h2 id="body">Body</h2>
-<p>We can specify requirements against the request body by calling the <code>IfBody</code> method. </p>
-<pre><code class="lang-csharp">// Will only respond if the body contains the string &quot;bodyCondition&quot;.
-sut.Post(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;)
-    .IfBody(s =&gt; s.ReadAsString().Contains(&quot;bodyCondition&quot;));
 </code></pre><h2 id="route">Route</h2>
 <p>If we only want to respond on a particular path, we can pass a route template to the <code>Get</code>, <code>Post</code>, <code>Put</code> and <code>Delete</code> methods, or we can call the <code>IfRoute</code> method. </p>
 <pre><code class="lang-csharp">// Will only respond if the request path is &quot;/testget&quot;.
@@ -119,14 +114,22 @@ The other types of conditions are considered satisfied is at least on of them ma
     .StatusCode(StatusCodes.Status300MultipleChoices)
     .Header(&quot;ResponseHeader1&quot;, &quot;ResponseValue1&quot;)
     .Header(&quot;ResponseHeader2&quot;, &quot;ResponseValue2&quot;);
-</code></pre>
-            </article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
-            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-            <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-            </nav>
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/docs/documentation/preconditions.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
           </div>
         </div>
       </div>
@@ -139,7 +142,7 @@ The other types of conditions are considered satisfied is at least on of them ma
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2016 Mark Vincze<br>Generated by <strong>DocFX</strong></span>
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
@@ -148,6 +151,5 @@ The other types of conditions are considered satisfied is at least on of them ma
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

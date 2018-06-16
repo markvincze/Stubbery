@@ -15,137 +15,159 @@ references:
   nameWithType: ApiStub
 - uid: Stubbery.ApiStub.#ctor
   name: ApiStub()
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub__ctor
   commentId: M:Stubbery.ApiStub.#ctor
   fullName: Stubbery.ApiStub.ApiStub()
   nameWithType: ApiStub.ApiStub()
 - uid: Stubbery.ApiStub.#ctor*
   name: ApiStub
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub__ctor_
   commentId: Overload:Stubbery.ApiStub.#ctor
+  isSpec: "True"
   fullName: Stubbery.ApiStub.ApiStub
   nameWithType: ApiStub.ApiStub
 - uid: Stubbery.ApiStub.Address
   name: Address
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Address
   commentId: P:Stubbery.ApiStub.Address
   fullName: Stubbery.ApiStub.Address
   nameWithType: ApiStub.Address
 - uid: Stubbery.ApiStub.Address*
   name: Address
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Address_
   commentId: Overload:Stubbery.ApiStub.Address
+  isSpec: "True"
   fullName: Stubbery.ApiStub.Address
   nameWithType: ApiStub.Address
 - uid: Stubbery.ApiStub.Delete
   name: Delete()
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Delete
   commentId: M:Stubbery.ApiStub.Delete
   fullName: Stubbery.ApiStub.Delete()
   nameWithType: ApiStub.Delete()
 - uid: Stubbery.ApiStub.Delete(System.String,Stubbery.RequestMatching.CreateStubResponse)
   name: Delete(String, CreateStubResponse)
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Delete_System_String_Stubbery_RequestMatching_CreateStubResponse_
   commentId: M:Stubbery.ApiStub.Delete(System.String,Stubbery.RequestMatching.CreateStubResponse)
   fullName: Stubbery.ApiStub.Delete(System.String, Stubbery.RequestMatching.CreateStubResponse)
   nameWithType: ApiStub.Delete(String, CreateStubResponse)
 - uid: Stubbery.ApiStub.Delete*
   name: Delete
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Delete_
   commentId: Overload:Stubbery.ApiStub.Delete
+  isSpec: "True"
   fullName: Stubbery.ApiStub.Delete
   nameWithType: ApiStub.Delete
 - uid: Stubbery.ApiStub.Dispose
   name: Dispose()
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Dispose
   commentId: M:Stubbery.ApiStub.Dispose
   fullName: Stubbery.ApiStub.Dispose()
   nameWithType: ApiStub.Dispose()
 - uid: Stubbery.ApiStub.Dispose*
   name: Dispose
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Dispose_
   commentId: Overload:Stubbery.ApiStub.Dispose
+  isSpec: "True"
   fullName: Stubbery.ApiStub.Dispose
   nameWithType: ApiStub.Dispose
 - uid: Stubbery.ApiStub.Get
   name: Get()
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Get
   commentId: M:Stubbery.ApiStub.Get
   fullName: Stubbery.ApiStub.Get()
   nameWithType: ApiStub.Get()
 - uid: Stubbery.ApiStub.Get(System.String,Stubbery.RequestMatching.CreateStubResponse)
   name: Get(String, CreateStubResponse)
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Get_System_String_Stubbery_RequestMatching_CreateStubResponse_
   commentId: M:Stubbery.ApiStub.Get(System.String,Stubbery.RequestMatching.CreateStubResponse)
   fullName: Stubbery.ApiStub.Get(System.String, Stubbery.RequestMatching.CreateStubResponse)
   nameWithType: ApiStub.Get(String, CreateStubResponse)
 - uid: Stubbery.ApiStub.Get*
   name: Get
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Get_
   commentId: Overload:Stubbery.ApiStub.Get
+  isSpec: "True"
   fullName: Stubbery.ApiStub.Get
   nameWithType: ApiStub.Get
+- uid: Stubbery.ApiStub.Port
+  name: Port
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Port
+  commentId: P:Stubbery.ApiStub.Port
+  fullName: Stubbery.ApiStub.Port
+  nameWithType: ApiStub.Port
+- uid: Stubbery.ApiStub.Port*
+  name: Port
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Port_
+  commentId: Overload:Stubbery.ApiStub.Port
+  isSpec: "True"
+  fullName: Stubbery.ApiStub.Port
+  nameWithType: ApiStub.Port
 - uid: Stubbery.ApiStub.Post
   name: Post()
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Post
   commentId: M:Stubbery.ApiStub.Post
   fullName: Stubbery.ApiStub.Post()
   nameWithType: ApiStub.Post()
 - uid: Stubbery.ApiStub.Post(System.String,Stubbery.RequestMatching.CreateStubResponse)
   name: Post(String, CreateStubResponse)
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Post_System_String_Stubbery_RequestMatching_CreateStubResponse_
   commentId: M:Stubbery.ApiStub.Post(System.String,Stubbery.RequestMatching.CreateStubResponse)
   fullName: Stubbery.ApiStub.Post(System.String, Stubbery.RequestMatching.CreateStubResponse)
   nameWithType: ApiStub.Post(String, CreateStubResponse)
 - uid: Stubbery.ApiStub.Post*
   name: Post
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Post_
   commentId: Overload:Stubbery.ApiStub.Post
+  isSpec: "True"
   fullName: Stubbery.ApiStub.Post
   nameWithType: ApiStub.Post
 - uid: Stubbery.ApiStub.Put
   name: Put()
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Put
   commentId: M:Stubbery.ApiStub.Put
   fullName: Stubbery.ApiStub.Put()
   nameWithType: ApiStub.Put()
 - uid: Stubbery.ApiStub.Put(System.String,Stubbery.RequestMatching.CreateStubResponse)
   name: Put(String, CreateStubResponse)
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Put_System_String_Stubbery_RequestMatching_CreateStubResponse_
   commentId: M:Stubbery.ApiStub.Put(System.String,Stubbery.RequestMatching.CreateStubResponse)
   fullName: Stubbery.ApiStub.Put(System.String, Stubbery.RequestMatching.CreateStubResponse)
   nameWithType: ApiStub.Put(String, CreateStubResponse)
 - uid: Stubbery.ApiStub.Put*
   name: Put
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Put_
   commentId: Overload:Stubbery.ApiStub.Put
+  isSpec: "True"
   fullName: Stubbery.ApiStub.Put
   nameWithType: ApiStub.Put
 - uid: Stubbery.ApiStub.Request(System.Net.Http.HttpMethod[])
   name: Request(HttpMethod[])
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Request_System_Net_Http_HttpMethod___
   commentId: M:Stubbery.ApiStub.Request(System.Net.Http.HttpMethod[])
   name.vb: Request(HttpMethod())
   fullName: Stubbery.ApiStub.Request(System.Net.Http.HttpMethod[])
   fullName.vb: Stubbery.ApiStub.Request(System.Net.Http.HttpMethod())
   nameWithType: ApiStub.Request(HttpMethod[])
-  nameWithType.vb: Request(HttpMethod())
+  nameWithType.vb: ApiStub.Request(HttpMethod())
 - uid: Stubbery.ApiStub.Request*
   name: Request
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Request_
   commentId: Overload:Stubbery.ApiStub.Request
+  isSpec: "True"
   fullName: Stubbery.ApiStub.Request
   nameWithType: ApiStub.Request
 - uid: Stubbery.ApiStub.Start
   name: Start()
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Start
   commentId: M:Stubbery.ApiStub.Start
   fullName: Stubbery.ApiStub.Start()
   nameWithType: ApiStub.Start()
 - uid: Stubbery.ApiStub.Start*
   name: Start
-  href: api/Stubbery.ApiStub.html
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Start_
   commentId: Overload:Stubbery.ApiStub.Start
+  isSpec: "True"
   fullName: Stubbery.ApiStub.Start
   nameWithType: ApiStub.Start
 - uid: Stubbery.ISetup
@@ -162,38 +184,41 @@ references:
   nameWithType: RequestArguments
 - uid: Stubbery.RequestArguments.Body
   name: Body
-  href: api/Stubbery.RequestArguments.html
+  href: api/Stubbery.RequestArguments.html#Stubbery_RequestArguments_Body
   commentId: P:Stubbery.RequestArguments.Body
   fullName: Stubbery.RequestArguments.Body
   nameWithType: RequestArguments.Body
 - uid: Stubbery.RequestArguments.Body*
   name: Body
-  href: api/Stubbery.RequestArguments.html
+  href: api/Stubbery.RequestArguments.html#Stubbery_RequestArguments_Body_
   commentId: Overload:Stubbery.RequestArguments.Body
+  isSpec: "True"
   fullName: Stubbery.RequestArguments.Body
   nameWithType: RequestArguments.Body
 - uid: Stubbery.RequestArguments.Query
   name: Query
-  href: api/Stubbery.RequestArguments.html
+  href: api/Stubbery.RequestArguments.html#Stubbery_RequestArguments_Query
   commentId: P:Stubbery.RequestArguments.Query
   fullName: Stubbery.RequestArguments.Query
   nameWithType: RequestArguments.Query
 - uid: Stubbery.RequestArguments.Query*
   name: Query
-  href: api/Stubbery.RequestArguments.html
+  href: api/Stubbery.RequestArguments.html#Stubbery_RequestArguments_Query_
   commentId: Overload:Stubbery.RequestArguments.Query
+  isSpec: "True"
   fullName: Stubbery.RequestArguments.Query
   nameWithType: RequestArguments.Query
 - uid: Stubbery.RequestArguments.Route
   name: Route
-  href: api/Stubbery.RequestArguments.html
+  href: api/Stubbery.RequestArguments.html#Stubbery_RequestArguments_Route
   commentId: P:Stubbery.RequestArguments.Route
   fullName: Stubbery.RequestArguments.Route
   nameWithType: RequestArguments.Route
 - uid: Stubbery.RequestArguments.Route*
   name: Route
-  href: api/Stubbery.RequestArguments.html
+  href: api/Stubbery.RequestArguments.html#Stubbery_RequestArguments_Route_
   commentId: Overload:Stubbery.RequestArguments.Route
+  isSpec: "True"
   fullName: Stubbery.RequestArguments.Route
   nameWithType: RequestArguments.Route
 - uid: Stubbery.RequestMatching
@@ -216,83 +241,88 @@ references:
   nameWithType: IConditionSetup
 - uid: Stubbery.RequestMatching.IConditionSetup.IfAccept(System.Func{System.String,System.Boolean})
   name: IfAccept(Func<String, Boolean>)
-  href: api/Stubbery.RequestMatching.IConditionSetup.html
+  href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfAccept_System_Func_System_String_System_Boolean__
   commentId: M:Stubbery.RequestMatching.IConditionSetup.IfAccept(System.Func{System.String,System.Boolean})
   name.vb: IfAccept(Func(Of String, Boolean))
   fullName: Stubbery.RequestMatching.IConditionSetup.IfAccept(System.Func<System.String, System.Boolean>)
   fullName.vb: Stubbery.RequestMatching.IConditionSetup.IfAccept(System.Func(Of System.String, System.Boolean))
   nameWithType: IConditionSetup.IfAccept(Func<String, Boolean>)
-  nameWithType.vb: IfAccept(Func(Of String, Boolean))
+  nameWithType.vb: IConditionSetup.IfAccept(Func(Of String, Boolean))
 - uid: Stubbery.RequestMatching.IConditionSetup.IfAccept(System.String)
   name: IfAccept(String)
-  href: api/Stubbery.RequestMatching.IConditionSetup.html
+  href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfAccept_System_String_
   commentId: M:Stubbery.RequestMatching.IConditionSetup.IfAccept(System.String)
   fullName: Stubbery.RequestMatching.IConditionSetup.IfAccept(System.String)
   nameWithType: IConditionSetup.IfAccept(String)
 - uid: Stubbery.RequestMatching.IConditionSetup.IfAccept*
   name: IfAccept
-  href: api/Stubbery.RequestMatching.IConditionSetup.html
+  href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfAccept_
   commentId: Overload:Stubbery.RequestMatching.IConditionSetup.IfAccept
+  isSpec: "True"
   fullName: Stubbery.RequestMatching.IConditionSetup.IfAccept
   nameWithType: IConditionSetup.IfAccept
 - uid: Stubbery.RequestMatching.IConditionSetup.IfContentType(System.Func{System.String,System.Boolean})
   name: IfContentType(Func<String, Boolean>)
-  href: api/Stubbery.RequestMatching.IConditionSetup.html
+  href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfContentType_System_Func_System_String_System_Boolean__
   commentId: M:Stubbery.RequestMatching.IConditionSetup.IfContentType(System.Func{System.String,System.Boolean})
   name.vb: IfContentType(Func(Of String, Boolean))
   fullName: Stubbery.RequestMatching.IConditionSetup.IfContentType(System.Func<System.String, System.Boolean>)
   fullName.vb: Stubbery.RequestMatching.IConditionSetup.IfContentType(System.Func(Of System.String, System.Boolean))
   nameWithType: IConditionSetup.IfContentType(Func<String, Boolean>)
-  nameWithType.vb: IfContentType(Func(Of String, Boolean))
+  nameWithType.vb: IConditionSetup.IfContentType(Func(Of String, Boolean))
 - uid: Stubbery.RequestMatching.IConditionSetup.IfContentType(System.String)
   name: IfContentType(String)
-  href: api/Stubbery.RequestMatching.IConditionSetup.html
+  href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfContentType_System_String_
   commentId: M:Stubbery.RequestMatching.IConditionSetup.IfContentType(System.String)
   fullName: Stubbery.RequestMatching.IConditionSetup.IfContentType(System.String)
   nameWithType: IConditionSetup.IfContentType(String)
 - uid: Stubbery.RequestMatching.IConditionSetup.IfContentType*
   name: IfContentType
-  href: api/Stubbery.RequestMatching.IConditionSetup.html
+  href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfContentType_
   commentId: Overload:Stubbery.RequestMatching.IConditionSetup.IfContentType
+  isSpec: "True"
   fullName: Stubbery.RequestMatching.IConditionSetup.IfContentType
   nameWithType: IConditionSetup.IfContentType
 - uid: Stubbery.RequestMatching.IConditionSetup.IfHeader(System.String,System.String)
   name: IfHeader(String, String)
-  href: api/Stubbery.RequestMatching.IConditionSetup.html
+  href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfHeader_System_String_System_String_
   commentId: M:Stubbery.RequestMatching.IConditionSetup.IfHeader(System.String,System.String)
   fullName: Stubbery.RequestMatching.IConditionSetup.IfHeader(System.String, System.String)
   nameWithType: IConditionSetup.IfHeader(String, String)
 - uid: Stubbery.RequestMatching.IConditionSetup.IfHeader*
   name: IfHeader
-  href: api/Stubbery.RequestMatching.IConditionSetup.html
+  href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfHeader_
   commentId: Overload:Stubbery.RequestMatching.IConditionSetup.IfHeader
+  isSpec: "True"
   fullName: Stubbery.RequestMatching.IConditionSetup.IfHeader
   nameWithType: IConditionSetup.IfHeader
 - uid: Stubbery.RequestMatching.IConditionSetup.IfHeaders(System.Func{Microsoft.AspNetCore.Http.IHeaderDictionary,System.Boolean})
   name: IfHeaders(Func<IHeaderDictionary, Boolean>)
-  href: api/Stubbery.RequestMatching.IConditionSetup.html
+  href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfHeaders_System_Func_Microsoft_AspNetCore_Http_IHeaderDictionary_System_Boolean__
   commentId: M:Stubbery.RequestMatching.IConditionSetup.IfHeaders(System.Func{Microsoft.AspNetCore.Http.IHeaderDictionary,System.Boolean})
   name.vb: IfHeaders(Func(Of IHeaderDictionary, Boolean))
   fullName: Stubbery.RequestMatching.IConditionSetup.IfHeaders(System.Func<Microsoft.AspNetCore.Http.IHeaderDictionary, System.Boolean>)
   fullName.vb: Stubbery.RequestMatching.IConditionSetup.IfHeaders(System.Func(Of Microsoft.AspNetCore.Http.IHeaderDictionary, System.Boolean))
   nameWithType: IConditionSetup.IfHeaders(Func<IHeaderDictionary, Boolean>)
-  nameWithType.vb: IfHeaders(Func(Of IHeaderDictionary, Boolean))
+  nameWithType.vb: IConditionSetup.IfHeaders(Func(Of IHeaderDictionary, Boolean))
 - uid: Stubbery.RequestMatching.IConditionSetup.IfHeaders*
   name: IfHeaders
-  href: api/Stubbery.RequestMatching.IConditionSetup.html
+  href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfHeaders_
   commentId: Overload:Stubbery.RequestMatching.IConditionSetup.IfHeaders
+  isSpec: "True"
   fullName: Stubbery.RequestMatching.IConditionSetup.IfHeaders
   nameWithType: IConditionSetup.IfHeaders
 - uid: Stubbery.RequestMatching.IConditionSetup.IfRoute(System.String)
   name: IfRoute(String)
-  href: api/Stubbery.RequestMatching.IConditionSetup.html
+  href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfRoute_System_String_
   commentId: M:Stubbery.RequestMatching.IConditionSetup.IfRoute(System.String)
   fullName: Stubbery.RequestMatching.IConditionSetup.IfRoute(System.String)
   nameWithType: IConditionSetup.IfRoute(String)
 - uid: Stubbery.RequestMatching.IConditionSetup.IfRoute*
   name: IfRoute
-  href: api/Stubbery.RequestMatching.IConditionSetup.html
+  href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfRoute_
   commentId: Overload:Stubbery.RequestMatching.IConditionSetup.IfRoute
+  isSpec: "True"
   fullName: Stubbery.RequestMatching.IConditionSetup.IfRoute
   nameWithType: IConditionSetup.IfRoute
 - uid: Stubbery.RequestMatching.IResultSetup
@@ -303,53 +333,57 @@ references:
   nameWithType: IResultSetup
 - uid: Stubbery.RequestMatching.IResultSetup.Header(System.String,System.String)
   name: Header(String, String)
-  href: api/Stubbery.RequestMatching.IResultSetup.html
+  href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Header_System_String_System_String_
   commentId: M:Stubbery.RequestMatching.IResultSetup.Header(System.String,System.String)
   fullName: Stubbery.RequestMatching.IResultSetup.Header(System.String, System.String)
   nameWithType: IResultSetup.Header(String, String)
 - uid: Stubbery.RequestMatching.IResultSetup.Header*
   name: Header
-  href: api/Stubbery.RequestMatching.IResultSetup.html
+  href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Header_
   commentId: Overload:Stubbery.RequestMatching.IResultSetup.Header
+  isSpec: "True"
   fullName: Stubbery.RequestMatching.IResultSetup.Header
   nameWithType: IResultSetup.Header
 - uid: Stubbery.RequestMatching.IResultSetup.Headers(System.Collections.Generic.KeyValuePair{System.String,System.String}[])
   name: Headers(KeyValuePair<String, String>[])
-  href: api/Stubbery.RequestMatching.IResultSetup.html
+  href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Headers_System_Collections_Generic_KeyValuePair_System_String_System_String____
   commentId: M:Stubbery.RequestMatching.IResultSetup.Headers(System.Collections.Generic.KeyValuePair{System.String,System.String}[])
   name.vb: Headers(KeyValuePair(Of String, String)())
   fullName: Stubbery.RequestMatching.IResultSetup.Headers(System.Collections.Generic.KeyValuePair<System.String, System.String>[])
   fullName.vb: Stubbery.RequestMatching.IResultSetup.Headers(System.Collections.Generic.KeyValuePair(Of System.String, System.String)())
   nameWithType: IResultSetup.Headers(KeyValuePair<String, String>[])
-  nameWithType.vb: Headers(KeyValuePair(Of String, String)())
+  nameWithType.vb: IResultSetup.Headers(KeyValuePair(Of String, String)())
 - uid: Stubbery.RequestMatching.IResultSetup.Headers*
   name: Headers
-  href: api/Stubbery.RequestMatching.IResultSetup.html
+  href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Headers_
   commentId: Overload:Stubbery.RequestMatching.IResultSetup.Headers
+  isSpec: "True"
   fullName: Stubbery.RequestMatching.IResultSetup.Headers
   nameWithType: IResultSetup.Headers
 - uid: Stubbery.RequestMatching.IResultSetup.Response(Stubbery.RequestMatching.CreateStubResponse)
   name: Response(CreateStubResponse)
-  href: api/Stubbery.RequestMatching.IResultSetup.html
+  href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Response_Stubbery_RequestMatching_CreateStubResponse_
   commentId: M:Stubbery.RequestMatching.IResultSetup.Response(Stubbery.RequestMatching.CreateStubResponse)
   fullName: Stubbery.RequestMatching.IResultSetup.Response(Stubbery.RequestMatching.CreateStubResponse)
   nameWithType: IResultSetup.Response(CreateStubResponse)
 - uid: Stubbery.RequestMatching.IResultSetup.Response*
   name: Response
-  href: api/Stubbery.RequestMatching.IResultSetup.html
+  href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Response_
   commentId: Overload:Stubbery.RequestMatching.IResultSetup.Response
+  isSpec: "True"
   fullName: Stubbery.RequestMatching.IResultSetup.Response
   nameWithType: IResultSetup.Response
 - uid: Stubbery.RequestMatching.IResultSetup.StatusCode(System.Int32)
   name: StatusCode(Int32)
-  href: api/Stubbery.RequestMatching.IResultSetup.html
+  href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_StatusCode_System_Int32_
   commentId: M:Stubbery.RequestMatching.IResultSetup.StatusCode(System.Int32)
   fullName: Stubbery.RequestMatching.IResultSetup.StatusCode(System.Int32)
   nameWithType: IResultSetup.StatusCode(Int32)
 - uid: Stubbery.RequestMatching.IResultSetup.StatusCode*
   name: StatusCode
-  href: api/Stubbery.RequestMatching.IResultSetup.html
+  href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_StatusCode_
   commentId: Overload:Stubbery.RequestMatching.IResultSetup.StatusCode
+  isSpec: "True"
   fullName: Stubbery.RequestMatching.IResultSetup.StatusCode
   nameWithType: IResultSetup.StatusCode
 - uid: Stubbery.RequestMatching.RoutingHttpContextExtensions
@@ -360,14 +394,15 @@ references:
   nameWithType: RoutingHttpContextExtensions
 - uid: Stubbery.RequestMatching.RoutingHttpContextExtensions.GetRouteValues(Microsoft.AspNetCore.Http.HttpContext)
   name: GetRouteValues(HttpContext)
-  href: api/Stubbery.RequestMatching.RoutingHttpContextExtensions.html
+  href: api/Stubbery.RequestMatching.RoutingHttpContextExtensions.html#Stubbery_RequestMatching_RoutingHttpContextExtensions_GetRouteValues_Microsoft_AspNetCore_Http_HttpContext_
   commentId: M:Stubbery.RequestMatching.RoutingHttpContextExtensions.GetRouteValues(Microsoft.AspNetCore.Http.HttpContext)
   fullName: Stubbery.RequestMatching.RoutingHttpContextExtensions.GetRouteValues(Microsoft.AspNetCore.Http.HttpContext)
   nameWithType: RoutingHttpContextExtensions.GetRouteValues(HttpContext)
 - uid: Stubbery.RequestMatching.RoutingHttpContextExtensions.GetRouteValues*
   name: GetRouteValues
-  href: api/Stubbery.RequestMatching.RoutingHttpContextExtensions.html
+  href: api/Stubbery.RequestMatching.RoutingHttpContextExtensions.html#Stubbery_RequestMatching_RoutingHttpContextExtensions_GetRouteValues_
   commentId: Overload:Stubbery.RequestMatching.RoutingHttpContextExtensions.GetRouteValues
+  isSpec: "True"
   fullName: Stubbery.RequestMatching.RoutingHttpContextExtensions.GetRouteValues
   nameWithType: RoutingHttpContextExtensions.GetRouteValues
 - uid: Stubbery.StreamExtensions
@@ -378,25 +413,27 @@ references:
   nameWithType: StreamExtensions
 - uid: Stubbery.StreamExtensions.ReadAsString(System.IO.Stream)
   name: ReadAsString(Stream)
-  href: api/Stubbery.StreamExtensions.html
+  href: api/Stubbery.StreamExtensions.html#Stubbery_StreamExtensions_ReadAsString_System_IO_Stream_
   commentId: M:Stubbery.StreamExtensions.ReadAsString(System.IO.Stream)
   fullName: Stubbery.StreamExtensions.ReadAsString(System.IO.Stream)
   nameWithType: StreamExtensions.ReadAsString(Stream)
 - uid: Stubbery.StreamExtensions.ReadAsString*
   name: ReadAsString
-  href: api/Stubbery.StreamExtensions.html
+  href: api/Stubbery.StreamExtensions.html#Stubbery_StreamExtensions_ReadAsString_
   commentId: Overload:Stubbery.StreamExtensions.ReadAsString
+  isSpec: "True"
   fullName: Stubbery.StreamExtensions.ReadAsString
   nameWithType: StreamExtensions.ReadAsString
 - uid: Stubbery.StreamExtensions.ReadAsStringAsync(System.IO.Stream)
   name: ReadAsStringAsync(Stream)
-  href: api/Stubbery.StreamExtensions.html
+  href: api/Stubbery.StreamExtensions.html#Stubbery_StreamExtensions_ReadAsStringAsync_System_IO_Stream_
   commentId: M:Stubbery.StreamExtensions.ReadAsStringAsync(System.IO.Stream)
   fullName: Stubbery.StreamExtensions.ReadAsStringAsync(System.IO.Stream)
   nameWithType: StreamExtensions.ReadAsStringAsync(Stream)
 - uid: Stubbery.StreamExtensions.ReadAsStringAsync*
   name: ReadAsStringAsync
-  href: api/Stubbery.StreamExtensions.html
+  href: api/Stubbery.StreamExtensions.html#Stubbery_StreamExtensions_ReadAsStringAsync_
   commentId: Overload:Stubbery.StreamExtensions.ReadAsStringAsync
+  isSpec: "True"
   fullName: Stubbery.StreamExtensions.ReadAsStringAsync
   nameWithType: StreamExtensions.ReadAsStringAsync

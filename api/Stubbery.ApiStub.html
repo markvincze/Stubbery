@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ApiStub
    ">
-    <meta name="generator" content="docfx 2.8.2.0">
+    <meta name="generator" content="docfx 2.36.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -19,8 +19,10 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
+    
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -33,11 +35,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <ul class="nav level1 navbar-nav">
-                <li>
-                  <a href="../index.html" title="Home">Home</a>
-                </li>
-              </ul>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -67,511 +68,614 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              
-              
-              <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ApiStub.cs/#L14" class="btn btn-primary pull-right mobile-hide">View Source</a>
-              <h1 id="Stubbery_ApiStub" data-uid="Stubbery.ApiStub">Class ApiStub
-              </h1>
-              <div class="markdown level0 summary"><p>Represents an Api stub that responds to certain requests with preconfigured responses.</p>
+            <article class="content wrap" id="_content" data-uid="Stubbery.ApiStub">
+  
+  
+  <h1 id="Stubbery_ApiStub" data-uid="Stubbery.ApiStub" class="text-break">Class ApiStub
+  </h1>
+  <div class="markdown level0 summary"><p>Represents an Api stub that responds to certain requests with preconfigured responses.</p>
 </div>
-              <div class="markdown level0 conceptual"></div>
-              <div class="inheritance">
-                <h5>Inheritance</h5>
-                  <div class="level0"><span class="xref">System.Object</span></div>
-                  <div class="level1"><span class="xref">ApiStub</span></div>
-              </div>
-              <div class="inheritedMembers">
-                <h5>Inherited Members</h5>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetHashCode()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetType()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.MemberwiseClone()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.ToString()</span>
-                </div>
-              </div>
-              <h6><strong>Namespace</strong>:Stubbery</h6>
-              <h6><strong>Assembly</strong>:Stubbery.dll</h6>
-              <h5 id="Stubbery_ApiStub_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public class ApiStub : IDisposable</code></pre>
-              </div>
-              <h5 id="Stubbery_ApiStub_remarks"><strong>Remarks</strong></h5>
-              <div class="markdown level0 remarks"><p>After instantiating and setting up the stubbed endpoints, the stub needs to be started by calling the <a class="xref" href="Stubbery.ApiStub.html">Start()</a> method.</p>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ApiStub</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Stubbery.html">Stubbery</a></h6>
+  <h6><strong>Assembly</strong>: Stubbery.dll</h6>
+  <h5 id="Stubbery_ApiStub_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ApiStub : IDisposable</code></pre>
+  </div>
+  <h5 id="Stubbery_ApiStub_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>After instantiating and setting up the stubbed endpoints, the stub needs to be started by calling the <a class="xref" href="Stubbery.ApiStub.html#Stubbery_ApiStub_Start">Start()</a> method.</p>
 </div>
-              <h3 id="constructors">Constructors
-              </h3>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ApiStub.cs/#L30">View Source</a>
-              </span>
-              <h4 id="Stubbery_ApiStub__ctor" data-uid="Stubbery.ApiStub.#ctor">ApiStub()</h4>
-              <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="Stubbery.ApiStub.html">ApiStub</a></p>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub__ctor.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L54">View Source</a>
+  </span>
+  <a id="Stubbery_ApiStub__ctor_" data-uid="Stubbery.ApiStub.#ctor*"></a>
+  <h4 id="Stubbery_ApiStub__ctor" data-uid="Stubbery.ApiStub.#ctor">ApiStub()</h4>
+  <div class="markdown level1 summary"><p>Creates a new instance of <a class="xref" href="Stubbery.ApiStub.html">ApiStub</a></p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ApiStub()</code></pre>
-              </div>
-              <h5 id="Stubbery_ApiStub__ctor_remarks">Remarks</h5>
-              <div class="markdown level1 remarks"><p>The constructor does not start up the stub web server. In order to start listening for requests, the <a class="xref" href="Stubbery.ApiStub.html">Start()</a> method needs to be called.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ApiStub()</code></pre>
+  </div>
+  <h5 id="Stubbery_ApiStub__ctor_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The constructor does not start up the stub web server. In order to start listening for requests, the <a class="xref" href="Stubbery.ApiStub.html#Stubbery_ApiStub_Start">Start()</a> method needs to be called.</p>
 </div>
-              <h3 id="properties">Properties
-              </h3>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ApiStub.cs/#L44">View Source</a>
-              </span>
-              <h4 id="Stubbery_ApiStub_Address" data-uid="Stubbery.ApiStub.Address">Address</h4>
-              <div class="markdown level1 summary"><p>Gets the full url at which the stub is accessible.</p>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub_Address.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub.Address%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L68">View Source</a>
+  </span>
+  <a id="Stubbery_ApiStub_Address_" data-uid="Stubbery.ApiStub.Address*"></a>
+  <h4 id="Stubbery_ApiStub_Address" data-uid="Stubbery.ApiStub.Address">Address</h4>
+  <div class="markdown level1 summary"><p>Gets the full url at which the stub is accessible.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string Address { get; }</code></pre>
-              </div>
-              <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 id="Stubbery_ApiStub_Address_remarks">Remarks</h5>
-              <div class="markdown level1 remarks"><p>When calling the <a class="xref" href="Stubbery.ApiStub.html">Start()</a> method, the stub is started on a randomly picked free port.
-Thus <a class="xref" href="Stubbery.ApiStub.html">Address</a> will return a url like &quot;<a href="http://localhost:51234">http://localhost:51234</a>&quot;.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Address { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Stubbery_ApiStub_Address_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>When calling the <a class="xref" href="Stubbery.ApiStub.html#Stubbery_ApiStub_Start">Start()</a> method, the stub is started on a randomly picked free port.
+Thus <a class="xref" href="Stubbery.ApiStub.html#Stubbery_ApiStub_Address">Address</a> will return a url like &quot;http://localhost:51234&quot;.</p>
 </div>
-              <h3 id="methods">Methods
-              </h3>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ApiStub.cs/#L172">View Source</a>
-              </span>
-              <h4 id="Stubbery_ApiStub_Delete" data-uid="Stubbery.ApiStub.Delete">Delete()</h4>
-              <div class="markdown level1 summary"><p>Sets up a new stubbed DELETE request.</p>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub_Port.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub.Port%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L32">View Source</a>
+  </span>
+  <a id="Stubbery_ApiStub_Port_" data-uid="Stubbery.ApiStub.Port*"></a>
+  <h4 id="Stubbery_ApiStub_Port" data-uid="Stubbery.ApiStub.Port">Port</h4>
+  <div class="markdown level1 summary"><p>Sets the Port for the stub to start /&gt;</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ISetup Delete()</code></pre>
-              </div>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? Port { set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Stubbery_ApiStub_Port_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The Post property cannot be set after the stub has already started. The <a class="xref" href="Stubbery.ApiStub.html#Stubbery_ApiStub_Start">Start()</a> method needs to be called after the Port is set.</p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub_Delete.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub.Delete%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L196">View Source</a>
+  </span>
+  <a id="Stubbery_ApiStub_Delete_" data-uid="Stubbery.ApiStub.Delete*"></a>
+  <h4 id="Stubbery_ApiStub_Delete" data-uid="Stubbery.ApiStub.Delete">Delete()</h4>
+  <div class="markdown level1 summary"><p>Sets up a new stubbed DELETE request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISetup Delete()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ApiStub.cs/#L161">View Source</a>
-              </span>
-              <h4 id="Stubbery_ApiStub_Delete_System_String_Stubbery_RequestMatching_CreateStubResponse_" data-uid="Stubbery.ApiStub.Delete(System.String,Stubbery.RequestMatching.CreateStubResponse)">Delete(String, CreateStubResponse)</h4>
-              <div class="markdown level1 summary"><p>Sets up a new stubbed DELETE request on a specific route with a response.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub_Delete_System_String_Stubbery_RequestMatching_CreateStubResponse_.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub.Delete(System.String%2CStubbery.RequestMatching.CreateStubResponse)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L185">View Source</a>
+  </span>
+  <a id="Stubbery_ApiStub_Delete_" data-uid="Stubbery.ApiStub.Delete*"></a>
+  <h4 id="Stubbery_ApiStub_Delete_System_String_Stubbery_RequestMatching_CreateStubResponse_" data-uid="Stubbery.ApiStub.Delete(System.String,Stubbery.RequestMatching.CreateStubResponse)">Delete(String, CreateStubResponse)</h4>
+  <div class="markdown level1 summary"><p>Sets up a new stubbed DELETE request on a specific route with a response.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ISetup Delete(string route, CreateStubResponse responder)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><em>route</em></td>
-                    <td><p>The route on which the stub will respond.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISetup Delete(string route, CreateStubResponse responder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">route</span></td>
+        <td><p>The route on which the stub will respond.</p>
 </td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.RequestMatching.CreateStubResponse.html">CreateStubResponse</a></td>
-                    <td><em>responder</em></td>
-                    <td><p>The stubbed response to send.</p>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Stubbery.RequestMatching.CreateStubResponse.html">CreateStubResponse</a></td>
+        <td><span class="parametername">responder</span></td>
+        <td><p>The stubbed response to send.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ApiStub.cs/#L82">View Source</a>
-              </span>
-              <h4 id="Stubbery_ApiStub_Dispose" data-uid="Stubbery.ApiStub.Dispose">Dispose()</h4>
-              <div class="markdown level1 summary"><p>Stops the stub server.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub_Dispose.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L106">View Source</a>
+  </span>
+  <a id="Stubbery_ApiStub_Dispose_" data-uid="Stubbery.ApiStub.Dispose*"></a>
+  <h4 id="Stubbery_ApiStub_Dispose" data-uid="Stubbery.ApiStub.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"><p>Stops the stub server.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
-              </div>
-              <h5 class="implements">Implements</h5>
-                  <div><span class="xref">System.IDisposable.Dispose()</span></div>
-              <h5 id="Stubbery_ApiStub_Dispose_remarks">Remarks</h5>
-              <div class="markdown level1 remarks"><p>The stub needs to be disposed when it&#39;s not needed, so the TCP port used is freed up.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <h5 id="Stubbery_ApiStub_Dispose_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The stub needs to be disposed when it&apos;s not needed, so the TCP port used is freed up.</p>
 </div>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ApiStub.cs/#L106">View Source</a>
-              </span>
-              <h4 id="Stubbery_ApiStub_Get" data-uid="Stubbery.ApiStub.Get">Get()</h4>
-              <div class="markdown level1 summary"><p>Sets up a new stubbed GET request.</p>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub_Get.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub.Get%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L130">View Source</a>
+  </span>
+  <a id="Stubbery_ApiStub_Get_" data-uid="Stubbery.ApiStub.Get*"></a>
+  <h4 id="Stubbery_ApiStub_Get" data-uid="Stubbery.ApiStub.Get">Get()</h4>
+  <div class="markdown level1 summary"><p>Sets up a new stubbed GET request.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ISetup Get()</code></pre>
-              </div>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISetup Get()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ApiStub.cs/#L95">View Source</a>
-              </span>
-              <h4 id="Stubbery_ApiStub_Get_System_String_Stubbery_RequestMatching_CreateStubResponse_" data-uid="Stubbery.ApiStub.Get(System.String,Stubbery.RequestMatching.CreateStubResponse)">Get(String, CreateStubResponse)</h4>
-              <div class="markdown level1 summary"><p>Sets up a new stubbed GET request on a specific route with a response.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub_Get_System_String_Stubbery_RequestMatching_CreateStubResponse_.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub.Get(System.String%2CStubbery.RequestMatching.CreateStubResponse)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L119">View Source</a>
+  </span>
+  <a id="Stubbery_ApiStub_Get_" data-uid="Stubbery.ApiStub.Get*"></a>
+  <h4 id="Stubbery_ApiStub_Get_System_String_Stubbery_RequestMatching_CreateStubResponse_" data-uid="Stubbery.ApiStub.Get(System.String,Stubbery.RequestMatching.CreateStubResponse)">Get(String, CreateStubResponse)</h4>
+  <div class="markdown level1 summary"><p>Sets up a new stubbed GET request on a specific route with a response.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ISetup Get(string route, CreateStubResponse responder)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><em>route</em></td>
-                    <td><p>The route on which the stub will respond.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISetup Get(string route, CreateStubResponse responder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">route</span></td>
+        <td><p>The route on which the stub will respond.</p>
 </td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.RequestMatching.CreateStubResponse.html">CreateStubResponse</a></td>
-                    <td><em>responder</em></td>
-                    <td><p>The stubbed response to send.</p>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Stubbery.RequestMatching.CreateStubResponse.html">CreateStubResponse</a></td>
+        <td><span class="parametername">responder</span></td>
+        <td><p>The stubbed response to send.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ApiStub.cs/#L128">View Source</a>
-              </span>
-              <h4 id="Stubbery_ApiStub_Post" data-uid="Stubbery.ApiStub.Post">Post()</h4>
-              <div class="markdown level1 summary"><p>Sets up a new stubbed POST request.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub_Post.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub.Post%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L152">View Source</a>
+  </span>
+  <a id="Stubbery_ApiStub_Post_" data-uid="Stubbery.ApiStub.Post*"></a>
+  <h4 id="Stubbery_ApiStub_Post" data-uid="Stubbery.ApiStub.Post">Post()</h4>
+  <div class="markdown level1 summary"><p>Sets up a new stubbed POST request.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ISetup Post()</code></pre>
-              </div>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISetup Post()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ApiStub.cs/#L117">View Source</a>
-              </span>
-              <h4 id="Stubbery_ApiStub_Post_System_String_Stubbery_RequestMatching_CreateStubResponse_" data-uid="Stubbery.ApiStub.Post(System.String,Stubbery.RequestMatching.CreateStubResponse)">Post(String, CreateStubResponse)</h4>
-              <div class="markdown level1 summary"><p>Sets up a new stubbed POST request on a specific route with a response.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub_Post_System_String_Stubbery_RequestMatching_CreateStubResponse_.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub.Post(System.String%2CStubbery.RequestMatching.CreateStubResponse)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L141">View Source</a>
+  </span>
+  <a id="Stubbery_ApiStub_Post_" data-uid="Stubbery.ApiStub.Post*"></a>
+  <h4 id="Stubbery_ApiStub_Post_System_String_Stubbery_RequestMatching_CreateStubResponse_" data-uid="Stubbery.ApiStub.Post(System.String,Stubbery.RequestMatching.CreateStubResponse)">Post(String, CreateStubResponse)</h4>
+  <div class="markdown level1 summary"><p>Sets up a new stubbed POST request on a specific route with a response.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ISetup Post(string route, CreateStubResponse responder)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><em>route</em></td>
-                    <td><p>The route on which the stub will respond.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISetup Post(string route, CreateStubResponse responder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">route</span></td>
+        <td><p>The route on which the stub will respond.</p>
 </td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.RequestMatching.CreateStubResponse.html">CreateStubResponse</a></td>
-                    <td><em>responder</em></td>
-                    <td><p>The stubbed response to send.</p>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Stubbery.RequestMatching.CreateStubResponse.html">CreateStubResponse</a></td>
+        <td><span class="parametername">responder</span></td>
+        <td><p>The stubbed response to send.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ApiStub.cs/#L150">View Source</a>
-              </span>
-              <h4 id="Stubbery_ApiStub_Put" data-uid="Stubbery.ApiStub.Put">Put()</h4>
-              <div class="markdown level1 summary"><p>Sets up a new stubbed PUT request.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub_Put.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub.Put%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L174">View Source</a>
+  </span>
+  <a id="Stubbery_ApiStub_Put_" data-uid="Stubbery.ApiStub.Put*"></a>
+  <h4 id="Stubbery_ApiStub_Put" data-uid="Stubbery.ApiStub.Put">Put()</h4>
+  <div class="markdown level1 summary"><p>Sets up a new stubbed PUT request.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ISetup Put()</code></pre>
-              </div>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISetup Put()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ApiStub.cs/#L139">View Source</a>
-              </span>
-              <h4 id="Stubbery_ApiStub_Put_System_String_Stubbery_RequestMatching_CreateStubResponse_" data-uid="Stubbery.ApiStub.Put(System.String,Stubbery.RequestMatching.CreateStubResponse)">Put(String, CreateStubResponse)</h4>
-              <div class="markdown level1 summary"><p>Sets up a new stubbed PUT request on a specific route with a response.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub_Put_System_String_Stubbery_RequestMatching_CreateStubResponse_.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub.Put(System.String%2CStubbery.RequestMatching.CreateStubResponse)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L163">View Source</a>
+  </span>
+  <a id="Stubbery_ApiStub_Put_" data-uid="Stubbery.ApiStub.Put*"></a>
+  <h4 id="Stubbery_ApiStub_Put_System_String_Stubbery_RequestMatching_CreateStubResponse_" data-uid="Stubbery.ApiStub.Put(System.String,Stubbery.RequestMatching.CreateStubResponse)">Put(String, CreateStubResponse)</h4>
+  <div class="markdown level1 summary"><p>Sets up a new stubbed PUT request on a specific route with a response.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ISetup Put(string route, CreateStubResponse responder)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><em>route</em></td>
-                    <td><p>The route on which the stub will respond.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISetup Put(string route, CreateStubResponse responder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">route</span></td>
+        <td><p>The route on which the stub will respond.</p>
 </td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.RequestMatching.CreateStubResponse.html">CreateStubResponse</a></td>
-                    <td><em>responder</em></td>
-                    <td><p>The stubbed response to send.</p>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Stubbery.RequestMatching.CreateStubResponse.html">CreateStubResponse</a></td>
+        <td><span class="parametername">responder</span></td>
+        <td><p>The stubbed response to send.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ApiStub.cs/#L182">View Source</a>
-              </span>
-              <h4 id="Stubbery_ApiStub_Request_System_Net_Http_HttpMethod___" data-uid="Stubbery.ApiStub.Request(System.Net.Http.HttpMethod[])">Request(HttpMethod[])</h4>
-              <div class="markdown level1 summary"><p>Sets up a new stubbed request for the specified HTTP <em>methods</em>.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub_Request_System_Net_Http_HttpMethod___.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub.Request(System.Net.Http.HttpMethod%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L206">View Source</a>
+  </span>
+  <a id="Stubbery_ApiStub_Request_" data-uid="Stubbery.ApiStub.Request*"></a>
+  <h4 id="Stubbery_ApiStub_Request_System_Net_Http_HttpMethod___" data-uid="Stubbery.ApiStub.Request(System.Net.Http.HttpMethod[])">Request(HttpMethod[])</h4>
+  <div class="markdown level1 summary"><p>Sets up a new stubbed request for the specified HTTP <code data-dev-comment-type="paramref" class="paramref">methods</code>.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ISetup Request(params HttpMethod[] methods)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Net.Http.HttpMethod</span>[]</td>
-                    <td><em>methods</em></td>
-                    <td><p>The HTTP methods for which we want to respond.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISetup Request(params HttpMethod[] methods)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.Http.HttpMethod</span>[]</td>
+        <td><span class="parametername">methods</span></td>
+        <td><p>The HTTP methods for which we want to respond.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>An <a class="xref" href="Stubbery.ISetup.html">ISetup</a> object on which further conditions can be set.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ApiStub.cs/#L64">View Source</a>
-              </span>
-              <h4 id="Stubbery_ApiStub_Start" data-uid="Stubbery.ApiStub.Start">Start()</h4>
-              <div class="markdown level1 summary"><p>Starts the stub server and starts listening to requests.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub_Start.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub.Start%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L88">View Source</a>
+  </span>
+  <a id="Stubbery_ApiStub_Start_" data-uid="Stubbery.ApiStub.Start*"></a>
+  <h4 id="Stubbery_ApiStub_Start" data-uid="Stubbery.ApiStub.Start">Start()</h4>
+  <div class="markdown level1 summary"><p>Starts the stub server and starts listening to requests.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public void Start()</code></pre>
-              </div>
-              <h5 id="Stubbery_ApiStub_Start_remarks">Remarks</h5>
-              <div class="markdown level1 remarks"><p>The stub is started on a randomly picked free port, so it will be accessible on an url like &quot;<a href="http://localhost:51234">http://localhost:51234</a>&quot;.
-The exact address can be retrieved through the <a class="xref" href="Stubbery.ApiStub.html">Address</a> property.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Start()</code></pre>
+  </div>
+  <h5 id="Stubbery_ApiStub_Start_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The stub is started on a randomly picked free port, so it will be accessible on an url like &quot;http://localhost:51234&quot;.
+The exact address can be retrieved through the <a class="xref" href="Stubbery.ApiStub.html#Stubbery_ApiStub_Address">Address</a> property.</p>
 </div>
-            </article>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
-            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-            <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-            </nav>
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ApiStub.md&amp;value=---%0Auid%3A%20Stubbery.ApiStub%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ApiStub.cs/#L14" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
           </div>
         </div>
       </div>
@@ -584,7 +688,7 @@ The exact address can be retrieved through the <a class="xref" href="Stubbery.Ap
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2016 Mark Vincze<br>Generated by <strong>DocFX</strong></span>
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
@@ -593,6 +697,5 @@ The exact address can be retrieved through the <a class="xref" href="Stubbery.Ap
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

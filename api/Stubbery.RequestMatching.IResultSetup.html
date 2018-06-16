@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IResultSetup
    ">
-    <meta name="generator" content="docfx 2.8.2.0">
+    <meta name="generator" content="docfx 2.36.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -19,8 +19,10 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
+    
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -33,11 +35,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <ul class="nav level1 navbar-nav">
-                <li>
-                  <a href="../index.html" title="Home">Home</a>
-                </li>
-              </ul>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -67,223 +68,250 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              
-              
-              <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/IResultSetup.cs/#L8" class="btn btn-primary pull-right mobile-hide">View Source</a>
-              <h1 id="Stubbery_RequestMatching_IResultSetup" data-uid="Stubbery.RequestMatching.IResultSetup">Interface IResultSetup
-              </h1>
-              <div class="markdown level0 summary"><p>Represents the response arguments which can be customized for stubs.</p>
+            <article class="content wrap" id="_content" data-uid="Stubbery.RequestMatching.IResultSetup">
+  
+  
+  <h1 id="Stubbery_RequestMatching_IResultSetup" data-uid="Stubbery.RequestMatching.IResultSetup" class="text-break">Interface IResultSetup
+  </h1>
+  <div class="markdown level0 summary"><p>Represents the response arguments which can be customized for stubs.</p>
 </div>
-              <div class="markdown level0 conceptual"></div>
-              <h6><strong>Namespace</strong>:Stubbery.RequestMatching</h6>
-              <h6><strong>Assembly</strong>:Stubbery.dll</h6>
-              <h5 id="Stubbery_RequestMatching_IResultSetup_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public interface IResultSetup</code></pre>
-              </div>
-              <h3 id="methods">Methods
-              </h3>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/IResultSetup.cs/#L33">View Source</a>
-              </span>
-              <h4 id="Stubbery_RequestMatching_IResultSetup_Header_System_String_System_String_" data-uid="Stubbery.RequestMatching.IResultSetup.Header(System.String,System.String)">Header(String, String)</h4>
-              <div class="markdown level1 summary"><p>Sets a header to be added to the stub response.</p>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Stubbery.RequestMatching.html">Stubbery.RequestMatching</a></h6>
+  <h6><strong>Assembly</strong>: Stubbery.dll</h6>
+  <h5 id="Stubbery_RequestMatching_IResultSetup_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IResultSetup</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_RequestMatching_IResultSetup_Header_System_String_System_String_.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.IResultSetup.Header(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/RequestMatching/IResultSetup.cs/#L33">View Source</a>
+  </span>
+  <a id="Stubbery_RequestMatching_IResultSetup_Header_" data-uid="Stubbery.RequestMatching.IResultSetup.Header*"></a>
+  <h4 id="Stubbery_RequestMatching_IResultSetup_Header_System_String_System_String_" data-uid="Stubbery.RequestMatching.IResultSetup.Header(System.String,System.String)">Header(String, String)</h4>
+  <div class="markdown level1 summary"><p>Sets a header to be added to the stub response.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ISetup Header(string header, string value)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><em>header</em></td>
-                    <td><p>The name of the header to be added to the response.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISetup Header(string header, string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">header</span></td>
+        <td><p>The name of the header to be added to the response.</p>
 </td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><em>value</em></td>
-                    <td><p>The value of the header to be added to the response.</p>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value of the header to be added to the response.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more parameters can be set fluently.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more parameters can be set fluently.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/IResultSetup.cs/#L40">View Source</a>
-              </span>
-              <h4 id="Stubbery_RequestMatching_IResultSetup_Headers_System_Collections_Generic_KeyValuePair_System_String_System_String____" data-uid="Stubbery.RequestMatching.IResultSetup.Headers(System.Collections.Generic.KeyValuePair{System.String,System.String}[])">Headers(KeyValuePair&lt;String, String&gt;[])</h4>
-              <div class="markdown level1 summary"><p>Sets the given headers to be added to the response.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_RequestMatching_IResultSetup_Headers_System_Collections_Generic_KeyValuePair_System_String_System_String____.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.IResultSetup.Headers(System.Collections.Generic.KeyValuePair%7BSystem.String%2CSystem.String%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/RequestMatching/IResultSetup.cs/#L40">View Source</a>
+  </span>
+  <a id="Stubbery_RequestMatching_IResultSetup_Headers_" data-uid="Stubbery.RequestMatching.IResultSetup.Headers*"></a>
+  <h4 id="Stubbery_RequestMatching_IResultSetup_Headers_System_Collections_Generic_KeyValuePair_System_String_System_String____" data-uid="Stubbery.RequestMatching.IResultSetup.Headers(System.Collections.Generic.KeyValuePair{System.String,System.String}[])">Headers(KeyValuePair&lt;String, String&gt;[])</h4>
+  <div class="markdown level1 summary"><p>Sets the given headers to be added to the response.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ISetup Headers(params KeyValuePair&lt;string, string&gt;[] headers)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;[]</td>
-                    <td><em>headers</em></td>
-                    <td><p>The headers to be added to the response.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISetup Headers(params KeyValuePair&lt;string, string&gt;[] headers)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;[]</td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The headers to be added to the response.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more parameters can be set fluently.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more parameters can be set fluently.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/IResultSetup.cs/#L18">View Source</a>
-              </span>
-              <h4 id="Stubbery_RequestMatching_IResultSetup_Response_Stubbery_RequestMatching_CreateStubResponse_" data-uid="Stubbery.RequestMatching.IResultSetup.Response(Stubbery.RequestMatching.CreateStubResponse)">Response(CreateStubResponse)</h4>
-              <div class="markdown level1 summary"><p>Sets up the response to be sent by the stubbed endpoint.</p>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_RequestMatching_IResultSetup_Response_Stubbery_RequestMatching_CreateStubResponse_.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.IResultSetup.Response(Stubbery.RequestMatching.CreateStubResponse)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/RequestMatching/IResultSetup.cs/#L18">View Source</a>
+  </span>
+  <a id="Stubbery_RequestMatching_IResultSetup_Response_" data-uid="Stubbery.RequestMatching.IResultSetup.Response*"></a>
+  <h4 id="Stubbery_RequestMatching_IResultSetup_Response_Stubbery_RequestMatching_CreateStubResponse_" data-uid="Stubbery.RequestMatching.IResultSetup.Response(Stubbery.RequestMatching.CreateStubResponse)">Response(CreateStubResponse)</h4>
+  <div class="markdown level1 summary"><p>Sets up the response to be sent by the stubbed endpoint.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ISetup Response(CreateStubResponse responder)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.RequestMatching.CreateStubResponse.html">CreateStubResponse</a></td>
-                    <td><em>responder</em></td>
-                    <td><p>The delegate that is called to create the response.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISetup Response(CreateStubResponse responder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.RequestMatching.CreateStubResponse.html">CreateStubResponse</a></td>
+        <td><span class="parametername">responder</span></td>
+        <td><p>The delegate that is called to create the response.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more parameters can be set fluently.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more parameters can be set fluently.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 id="Stubbery_RequestMatching_IResultSetup_Response_Stubbery_RequestMatching_CreateStubResponse__remarks">Remarks</h5>
-              <div class="markdown level1 remarks"><p>The object returned by the <em>responder</em> delegate must be a string. That string will be directly written to the response body.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Stubbery_RequestMatching_IResultSetup_Response_Stubbery_RequestMatching_CreateStubResponse__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The object returned by the <code data-dev-comment-type="paramref" class="paramref">responder</code> delegate must be a string. That string will be directly written to the response body.</p>
 </div>
-              
-              <span class="small pull-right mobile-hide">
-                <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/IResultSetup.cs/#L25">View Source</a>
-              </span>
-              <h4 id="Stubbery_RequestMatching_IResultSetup_StatusCode_System_Int32_" data-uid="Stubbery.RequestMatching.IResultSetup.StatusCode(System.Int32)">StatusCode(Int32)</h4>
-              <div class="markdown level1 summary"><p>Sets the status code of the stub response.</p>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_RequestMatching_IResultSetup_StatusCode_System_Int32_.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.IResultSetup.StatusCode(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/RequestMatching/IResultSetup.cs/#L25">View Source</a>
+  </span>
+  <a id="Stubbery_RequestMatching_IResultSetup_StatusCode_" data-uid="Stubbery.RequestMatching.IResultSetup.StatusCode*"></a>
+  <h4 id="Stubbery_RequestMatching_IResultSetup_StatusCode_System_Int32_" data-uid="Stubbery.RequestMatching.IResultSetup.StatusCode(System.Int32)">StatusCode(Int32)</h4>
+  <div class="markdown level1 summary"><p>Sets the status code of the stub response.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ISetup StatusCode(int statusCode)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
-                    <td><em>statusCode</em></td>
-                    <td><p>The status code to be set on the response.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ISetup StatusCode(int statusCode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">statusCode</span></td>
+        <td><p>The status code to be set on the response.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
-                    <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more parameters can be set fluently.</p>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Stubbery.ISetup.html">ISetup</a></td>
+        <td><p>The same <a class="xref" href="Stubbery.ISetup.html">ISetup</a>-instance, so that more parameters can be set fluently.</p>
 </td>
-                  </tr>
-                </tbody>
-              </table>
-            </article>
+      </tr>
+    </tbody>
+  </table>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
-            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-            <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-            </nav>
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_RequestMatching_IResultSetup.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.IResultSetup%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/RequestMatching/IResultSetup.cs/#L8" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
           </div>
         </div>
       </div>
@@ -296,7 +324,7 @@
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2016 Mark Vincze<br>Generated by <strong>DocFX</strong></span>
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
@@ -305,6 +333,5 @@
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

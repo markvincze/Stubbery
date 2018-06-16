@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface ISetup
    ">
-    <meta name="generator" content="docfx 2.8.2.0">
+    <meta name="generator" content="docfx 2.36.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -19,8 +19,10 @@
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
+    
+    
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -33,11 +35,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <ul class="nav level1 navbar-nav">
-                <li>
-                  <a href="../index.html" title="Home">Home</a>
-                </li>
-              </ul>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -67,64 +68,75 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              
-              
-              <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/ISetup.cs/#L8" class="btn btn-primary pull-right mobile-hide">View Source</a>
-              <h1 id="Stubbery_ISetup" data-uid="Stubbery.ISetup">Interface ISetup
-              </h1>
-              <div class="markdown level0 summary"><p>Represents a stubbed endpoint on which further conditions or result parameters can be set.</p>
+            <article class="content wrap" id="_content" data-uid="Stubbery.ISetup">
+  
+  
+  <h1 id="Stubbery_ISetup" data-uid="Stubbery.ISetup" class="text-break">Interface ISetup
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a stubbed endpoint on which further conditions or result parameters can be set.</p>
 </div>
-              <div class="markdown level0 conceptual"></div>
-              <div class="inheritedMembers">
-                <h5>Inherited Members</h5>
-                <div>
-                  <a class="xref" href="Stubbery.RequestMatching.IConditionSetup.html">IfHeader(String, String)</a>
-                </div>
-                <div>
-                  <a class="xref" href="Stubbery.RequestMatching.IConditionSetup.html">IfHeaders(Func&lt;IHeaderDictionary, Boolean&gt;)</a>
-                </div>
-                <div>
-                  <a class="xref" href="Stubbery.RequestMatching.IConditionSetup.html">IfContentType(String)</a>
-                </div>
-                <div>
-                  <a class="xref" href="Stubbery.RequestMatching.IConditionSetup.html">IfContentType(Func&lt;String, Boolean&gt;)</a>
-                </div>
-                <div>
-                  <a class="xref" href="Stubbery.RequestMatching.IConditionSetup.html">IfAccept(String)</a>
-                </div>
-                <div>
-                  <a class="xref" href="Stubbery.RequestMatching.IConditionSetup.html">IfAccept(Func&lt;String, Boolean&gt;)</a>
-                </div>
-                <div>
-                  <a class="xref" href="Stubbery.RequestMatching.IConditionSetup.html">IfRoute(String)</a>
-                </div>
-                <div>
-                  <a class="xref" href="Stubbery.RequestMatching.IResultSetup.html">Response(CreateStubResponse)</a>
-                </div>
-                <div>
-                  <a class="xref" href="Stubbery.RequestMatching.IResultSetup.html">StatusCode(Int32)</a>
-                </div>
-                <div>
-                  <a class="xref" href="Stubbery.RequestMatching.IResultSetup.html">Header(String, String)</a>
-                </div>
-                <div>
-                  <a class="xref" href="Stubbery.RequestMatching.IResultSetup.html">Headers(KeyValuePair&lt;String, String&gt;[])</a>
-                </div>
-              </div>
-              <h6><strong>Namespace</strong>:Stubbery</h6>
-              <h6><strong>Assembly</strong>:Stubbery.dll</h6>
-              <h5 id="Stubbery_ISetup_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public interface ISetup : IConditionSetup, IResultSetup</code></pre>
-              </div>
-            </article>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfHeader_System_String_System_String_">IConditionSetup.IfHeader(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfHeaders_System_Func_Microsoft_AspNetCore_Http_IHeaderDictionary_System_Boolean__">IConditionSetup.IfHeaders(Func&lt;IHeaderDictionary, Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfContentType_System_String_">IConditionSetup.IfContentType(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfContentType_System_Func_System_String_System_Boolean__">IConditionSetup.IfContentType(Func&lt;String, Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfAccept_System_String_">IConditionSetup.IfAccept(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfAccept_System_Func_System_String_System_Boolean__">IConditionSetup.IfAccept(Func&lt;String, Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfRoute_System_String_">IConditionSetup.IfRoute(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Response_Stubbery_RequestMatching_CreateStubResponse_">IResultSetup.Response(CreateStubResponse)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_StatusCode_System_Int32_">IResultSetup.StatusCode(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Header_System_String_System_String_">IResultSetup.Header(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Headers_System_Collections_Generic_KeyValuePair_System_String_System_String____">IResultSetup.Headers(KeyValuePair&lt;String, String&gt;[])</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Stubbery.html">Stubbery</a></h6>
+  <h6><strong>Assembly</strong>: Stubbery.dll</h6>
+  <h5 id="Stubbery_ISetup_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ISetup : IConditionSetup, IResultSetup</code></pre>
+  </div>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
-            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-            <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-            </nav>
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/markvincze/Stubbery/new/publish-docs-automatic/apiSpec/new?filename=Stubbery_ISetup.md&amp;value=---%0Auid%3A%20Stubbery.ISetup%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/markvincze/Stubbery/blob/publish-docs-automatic/src/Stubbery/ISetup.cs/#L8" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
           </div>
         </div>
       </div>
@@ -137,7 +149,7 @@
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2016 Mark Vincze<br>Generated by <strong>DocFX</strong></span>
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
@@ -146,6 +158,5 @@
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
