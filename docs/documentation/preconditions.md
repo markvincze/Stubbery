@@ -34,16 +34,6 @@ sut.Get("/testget", (req, args) => "testresponse")
     .IfHeader("Origin", "http://www.example.com");
 ```
 
-## Body
-
-We can specify requirements against the request body by calling the `IfBody` method. 
-
-```csharp
-// Will only respond if the body contains the string "bodyCondition".
-sut.Post("/testget", (req, args) => "testresponse")
-    .IfBody(s => s.ReadAsString().Contains("bodyCondition"));
-```
-
 ## Route
 
 If we only want to respond on a particular path, we can pass a route template to the `Get`, `Post`, `Put` and `Delete` methods, or we can call the `IfRoute` method. 
