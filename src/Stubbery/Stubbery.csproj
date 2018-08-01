@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <Description>Library for creating Api stubs in .NET.</Description>
     <Copyright>Copyright � Mark Vincze 2016</Copyright>
@@ -14,7 +13,6 @@
     <PackageProjectUrl>http://markvincze.github.io/Stubbery/</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/markvincze/Stubbery/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Libuv" Version="1.9.2" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="1.1.2" />
@@ -26,16 +24,13 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="1.1.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.2" />
   </ItemGroup>
-
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
     <PackageReference Include="System.Net.Sockets" Version="4.3.0" />
     <PackageReference Include="System.Net.Http" Version="4.3.2" />
   </ItemGroup>
-
   <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
     <PackageReference Include="System.Net.Http" Version="4.3.2" />
     <PackageReference Include="Microsoft.CSharp" Version="4.3.0" />
     <Reference Include="System" />
   </ItemGroup>
-
 </Project>
