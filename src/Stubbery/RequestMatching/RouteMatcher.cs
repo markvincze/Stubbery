@@ -33,14 +33,8 @@ namespace Stubbery.RequestMatching
             var matcher = new TemplateMatcher(template, GetDefaults(template));
 
             var values = new RouteValueDictionary();
-            if (matcher.TryMatch(requestPath, values))
-            {
-                return values;
-            }
-            else
-            {
-                return null;
-            }
+
+            return matcher.TryMatch(requestPath, values) ? values : null;
         }
 
         private RouteValueDictionary GetDefaults(RouteTemplate parsedTemplate)

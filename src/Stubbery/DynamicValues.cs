@@ -15,26 +15,16 @@ namespace Stubbery
 
         internal DynamicValues(IEnumerable<KeyValuePair<string, StringValues>> values)
         {
-            if (values == null)
-            {
-                this.values = new Dictionary<string, string>();
-            }
-            else
-            {
-                this.values = values.ToDictionary(v => v.Key.TrimStart('?'), v => v.Value.ToString());
-            }
+            this.values = values == null ?
+                new Dictionary<string, string>() :
+                values.ToDictionary(v => v.Key.TrimStart('?'), v => v.Value.ToString());
         }
 
         internal DynamicValues(IEnumerable<KeyValuePair<string, object>> values)
         {
-            if (values == null)
-            {
-                this.values = new Dictionary<string, string>();
-            }
-            else
-            {
-                this.values = values.ToDictionary(v => v.Key, v => v.Value.ToString());
-            }
+            this.values = values == null ?
+                new Dictionary<string, string>() :
+                values.ToDictionary(v => v.Key, v => v.Value.ToString());
         }
 
         public override bool TrySetMember(SetMemberBinder binder, object value)
@@ -44,8 +34,7 @@ namespace Stubbery
 
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            string value;
-            var found = values.TryGetValue(binder.Name, out value);
+            var found = values.TryGetValue(binder.Name, out var value);
             result = value;
             return found;
         }

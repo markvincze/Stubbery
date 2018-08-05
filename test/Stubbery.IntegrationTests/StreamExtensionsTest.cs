@@ -57,11 +57,11 @@ namespace Stubbery.IntegrationTests
             }
         }
 
-        class DelayedMemoryStream : MemoryStream
+        private class DelayedMemoryStream : MemoryStream
         {
             public override async Task<int> ReadAsync(byte[] buffer, int offset, int count, CancellationToken cancellationToken)
             {
-                await Task.Delay(1);
+                await Task.Delay(1, cancellationToken);
                 return await base.ReadAsync(buffer, offset, count, cancellationToken);
             }
         }
