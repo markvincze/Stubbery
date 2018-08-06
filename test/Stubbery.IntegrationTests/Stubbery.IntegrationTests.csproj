@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFrameworks>net451;netcoreapp1.0</TargetFrameworks>
     <AssemblyName>Stubbery.IntegrationTests</AssemblyName>
@@ -7,17 +8,21 @@
     <RuntimeFrameworkVersion Condition=" '$(TargetFramework)' == 'netcoreapp1.0' ">1.0.4</RuntimeFrameworkVersion>
     <RuntimeIdentifier Condition="'$(TargetFramework)' == 'net451'">win7-x64</RuntimeIdentifier>
   </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\src\Stubbery\Stubbery.csproj" />
   </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
     <PackageReference Include="Moq" Version="4.7.10" />
     <PackageReference Include="xunit" Version="2.2.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
   </ItemGroup>
+
   <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
+
 </Project>
