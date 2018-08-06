@@ -237,3 +237,6 @@ _Pvt_Extensions
 
 # Coverage reports
 /coverage/
+
+# Rider work dir
+.idea/

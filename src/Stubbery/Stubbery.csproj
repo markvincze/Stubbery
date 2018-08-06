@@ -3,14 +3,14 @@
   <PropertyGroup>
     <Description>Library for creating Api stubs in .NET.</Description>
     <Copyright>Copyright � Mark Vincze 2016</Copyright>
-    <VersionPrefix>1.3.0</VersionPrefix>
+    <VersionPrefix>1.4.0</VersionPrefix>
     <Authors>Mark Vincze</Authors>
     <TargetFrameworks>netstandard1.3;net451</TargetFrameworks>
     <DebugType>full</DebugType>
     <AssemblyName>Stubbery</AssemblyName>
     <PackageId>Stubbery</PackageId>
     <PackageTags>ASP.NET;Stub;Testing</PackageTags>
-    <PackageReleaseNotes>Updated to .NET Core RTM</PackageReleaseNotes>
+    <PackageReleaseNotes>Added new condition to filter requests based on body content</PackageReleaseNotes>
     <PackageProjectUrl>http://markvincze.github.io/Stubbery/</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/markvincze/Stubbery/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
