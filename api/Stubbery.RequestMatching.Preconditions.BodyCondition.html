@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class RoutingHttpContextExtensions
+    <title>Class BodyCondition
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class RoutingHttpContextExtensions
+    <meta name="title" content="Class BodyCondition
    ">
     <meta name="generator" content="docfx 2.37.2.0">
     
@@ -68,18 +68,17 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Stubbery.RequestMatching.RoutingHttpContextExtensions">
+            <article class="content wrap" id="_content" data-uid="Stubbery.RequestMatching.Preconditions.BodyCondition">
   
   
-  <h1 id="Stubbery_RequestMatching_RoutingHttpContextExtensions" data-uid="Stubbery.RequestMatching.RoutingHttpContextExtensions" class="text-break">Class RoutingHttpContextExtensions
+  <h1 id="Stubbery_RequestMatching_Preconditions_BodyCondition" data-uid="Stubbery.RequestMatching.Preconditions.BodyCondition" class="text-break">Class BodyCondition
   </h1>
-  <div class="markdown level0 summary"><p>Provides convenient extensions to access route arguments.</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">RoutingHttpContextExtensions</span></div>
+    <div class="level1"><span class="xref">BodyCondition</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -105,29 +104,62 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Stubbery.RequestMatching.html">Stubbery.RequestMatching</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Stubbery.RequestMatching.Preconditions.html">Stubbery.RequestMatching.Preconditions</a></h6>
   <h6><strong>Assembly</strong>: Stubbery.dll</h6>
-  <h5 id="Stubbery_RequestMatching_RoutingHttpContextExtensions_syntax">Syntax</h5>
+  <h5 id="Stubbery_RequestMatching_Preconditions_BodyCondition_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class RoutingHttpContextExtensions</code></pre>
+    <pre><code class="lang-csharp hljs">public class BodyCondition : IPrecondition</code></pre>
   </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/markvincze/Stubbery/new/master/apiSpec/new?filename=Stubbery_RequestMatching_Preconditions_BodyCondition__ctor_System_Func_System_String_System_Boolean__.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.Preconditions.BodyCondition.%23ctor(System.Func%7BSystem.String%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/Preconditions/BodyCondition.cs/#L14">View Source</a>
+  </span>
+  <a id="Stubbery_RequestMatching_Preconditions_BodyCondition__ctor_" data-uid="Stubbery.RequestMatching.Preconditions.BodyCondition.#ctor*"></a>
+  <h4 id="Stubbery_RequestMatching_Preconditions_BodyCondition__ctor_System_Func_System_String_System_Boolean__" data-uid="Stubbery.RequestMatching.Preconditions.BodyCondition.#ctor(System.Func{System.String,System.Boolean})">BodyCondition(Func&lt;String, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BodyCondition(Func&lt;string, bool&gt; condition)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">condition</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/markvincze/Stubbery/new/master/apiSpec/new?filename=Stubbery_RequestMatching_RoutingHttpContextExtensions_GetRouteValues_Microsoft_AspNetCore_Http_HttpContext_.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.RoutingHttpContextExtensions.GetRouteValues(Microsoft.AspNetCore.Http.HttpContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/markvincze/Stubbery/new/master/apiSpec/new?filename=Stubbery_RequestMatching_Preconditions_BodyCondition_Match_Microsoft_AspNetCore_Http_HttpContext_.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.Preconditions.BodyCondition.Match(Microsoft.AspNetCore.Http.HttpContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/RoutingHttpContextExtensions.cs/#L17">View Source</a>
+    <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/Preconditions/BodyCondition.cs/#L19">View Source</a>
   </span>
-  <a id="Stubbery_RequestMatching_RoutingHttpContextExtensions_GetRouteValues_" data-uid="Stubbery.RequestMatching.RoutingHttpContextExtensions.GetRouteValues*"></a>
-  <h4 id="Stubbery_RequestMatching_RoutingHttpContextExtensions_GetRouteValues_Microsoft_AspNetCore_Http_HttpContext_" data-uid="Stubbery.RequestMatching.RoutingHttpContextExtensions.GetRouteValues(Microsoft.AspNetCore.Http.HttpContext)">GetRouteValues(HttpContext)</h4>
-  <div class="markdown level1 summary"><p>Returns the route arguments extracted during matching a <span class="xref">Stubbery.RequestMatching.Preconditions.RouteCondition</span>.</p>
-</div>
+  <a id="Stubbery_RequestMatching_Preconditions_BodyCondition_Match_" data-uid="Stubbery.RequestMatching.Preconditions.BodyCondition.Match*"></a>
+  <h4 id="Stubbery_RequestMatching_Preconditions_BodyCondition_Match_Microsoft_AspNetCore_Http_HttpContext_" data-uid="Stubbery.RequestMatching.Preconditions.BodyCondition.Match(Microsoft.AspNetCore.Http.HttpContext)">Match(HttpContext)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static RouteValueDictionary GetRouteValues(this HttpContext httpContext)</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Match(HttpContext context)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -141,9 +173,8 @@
     <tbody>
       <tr>
         <td><span class="xref">Microsoft.AspNetCore.Http.HttpContext</span></td>
-        <td><span class="parametername">httpContext</span></td>
-        <td><p>The HTTP context to extract the arguments from.</p>
-</td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -157,9 +188,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.AspNetCore.Routing.RouteValueDictionary</span></td>
-        <td><p>The extracted route arguments.</p>
-</td>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -171,10 +201,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/markvincze/Stubbery/new/master/apiSpec/new?filename=Stubbery_RequestMatching_RoutingHttpContextExtensions.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.RoutingHttpContextExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/markvincze/Stubbery/new/master/apiSpec/new?filename=Stubbery_RequestMatching_Preconditions_BodyCondition.md&amp;value=---%0Auid%3A%20Stubbery.RequestMatching.Preconditions.BodyCondition%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/RoutingHttpContextExtensions.cs/#L10" class="contribution-link">View Source</a>
+                    <a href="https://github.com/markvincze/Stubbery/blob/master/src/Stubbery/RequestMatching/Preconditions/BodyCondition.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

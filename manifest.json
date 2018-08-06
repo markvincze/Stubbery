@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Stubbery.ApiStub.html",
-          "hash": "C36BXoQ51wdRl2GuoI/WPA=="
+          "hash": "uc3MmTTq2Sf+mmkkbhFrfw=="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Stubbery.ISetup.html",
-          "hash": "hdmfZWJ3UWO0P1utwyHDQA=="
+          "hash": "DpQJGAQ8Wf6TBJaMat81qg=="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Stubbery.RequestArguments.html",
-          "hash": "Ar6jqc/zF0ltIZqqS8QiOg=="
+          "hash": "zgrzkPB9H36TEY2D3a8MKg=="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Stubbery.RequestMatching.CreateStubResponse.html",
-          "hash": "Y6zZFA9XDKF8Vm9Wi8hGnw=="
+          "hash": "S6b1hk6zLRlihWhNw3zMvA=="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Stubbery.RequestMatching.IConditionSetup.html",
-          "hash": "f591C5tlLICwwxIY+acdEQ=="
+          "hash": "ZwhpoqkOE9hGlAvuwvZsag=="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Stubbery.RequestMatching.IResultSetup.html",
-          "hash": "d1fbd0ZBrJmhSjArKEZ21g=="
+          "hash": "VxfeZRmb1R7LCgmYWCj6ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Stubbery.RequestMatching.Preconditions.BodyCondition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Stubbery.RequestMatching.Preconditions.BodyCondition.html",
+          "hash": "tPFS8R69degKvrnEbWBLrw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Stubbery.RequestMatching.Preconditions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Stubbery.RequestMatching.Preconditions.html",
+          "hash": "P6BxC894jMfO4lJnqGy/Tg=="
         }
       },
       "is_incremental": false,
@@ -81,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Stubbery.RequestMatching.RoutingHttpContextExtensions.html",
-          "hash": "Xrohkeqlhcvv2mpMFScjzg=="
+          "hash": "+dDKZZit/dx3NGjEJAirOQ=="
         }
       },
       "is_incremental": false,
@@ -93,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Stubbery.RequestMatching.html",
-          "hash": "pZ9wXN4LZDV220f7FxdJiw=="
+          "hash": "/qxRYzSxCjpu4iI6Imjj7w=="
         }
       },
       "is_incremental": false,
@@ -105,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Stubbery.StreamExtensions.html",
-          "hash": "/O34FY3T8jIDXVaQD1mB+g=="
+          "hash": "1SzyXGDJ8X4H6muNKwGNMQ=="
         }
       },
       "is_incremental": false,
@@ -117,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Stubbery.html",
-          "hash": "GTOMrMtO0/eBn5s/JS856Q=="
+          "hash": "N5aUEOHbrlBx3ad6j9ib2Q=="
         }
       },
       "is_incremental": false,
@@ -132,7 +156,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "bzIHuvOFNeUgGG9cmcDDEA=="
+          "hash": "RLA0X8TuRsHRVSAo499AiA=="
         }
       },
       "is_incremental": false,
@@ -144,7 +168,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "X5BCpEoGYzP/Tiowts5R3g=="
+          "hash": "oDrWqzh73bnCTSSJuAHJJA=="
         }
       },
       "is_incremental": false,
@@ -156,7 +180,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/intro.html",
-          "hash": "eleQzs7quBj4XtfVkJicZQ=="
+          "hash": "wAdVSdlZ98xbxxfRdiV35Q=="
         }
       },
       "is_incremental": false,
@@ -168,7 +192,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/preconditions.html",
-          "hash": "mildCT/qbLXag3ZKYRLyQQ=="
+          "hash": "uZf2URcjDnxaRzcIsSVOjA=="
         }
       },
       "is_incremental": false,
@@ -180,7 +204,7 @@
       "output": {
         ".html": {
           "relative_path": "documentation/response.html",
-          "hash": "HlCx1E0dQ0CuFtIVPYcBng=="
+          "hash": "+f9z7RICfeE4QbTzCOaDKg=="
         }
       },
       "is_incremental": false,
@@ -204,7 +228,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "D9rwguCGJz4+MF/dzz2PCA=="
+          "hash": "m5b+b9BrimatgzAfc8INbg=="
         }
       },
       "is_incremental": false,

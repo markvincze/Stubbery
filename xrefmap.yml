@@ -261,6 +261,22 @@ references:
   isSpec: "True"
   fullName: Stubbery.RequestMatching.IConditionSetup.IfAccept
   nameWithType: IConditionSetup.IfAccept
+- uid: Stubbery.RequestMatching.IConditionSetup.IfBody(System.Func{System.String,System.Boolean})
+  name: IfBody(Func<String, Boolean>)
+  href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfBody_System_Func_System_String_System_Boolean__
+  commentId: M:Stubbery.RequestMatching.IConditionSetup.IfBody(System.Func{System.String,System.Boolean})
+  name.vb: IfBody(Func(Of String, Boolean))
+  fullName: Stubbery.RequestMatching.IConditionSetup.IfBody(System.Func<System.String, System.Boolean>)
+  fullName.vb: Stubbery.RequestMatching.IConditionSetup.IfBody(System.Func(Of System.String, System.Boolean))
+  nameWithType: IConditionSetup.IfBody(Func<String, Boolean>)
+  nameWithType.vb: IConditionSetup.IfBody(Func(Of String, Boolean))
+- uid: Stubbery.RequestMatching.IConditionSetup.IfBody*
+  name: IfBody
+  href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfBody_
+  commentId: Overload:Stubbery.RequestMatching.IConditionSetup.IfBody
+  isSpec: "True"
+  fullName: Stubbery.RequestMatching.IConditionSetup.IfBody
+  nameWithType: IConditionSetup.IfBody
 - uid: Stubbery.RequestMatching.IConditionSetup.IfContentType(System.Func{System.String,System.Boolean})
   name: IfContentType(Func<String, Boolean>)
   href: api/Stubbery.RequestMatching.IConditionSetup.html#Stubbery_RequestMatching_IConditionSetup_IfContentType_System_Func_System_String_System_Boolean__
@@ -386,6 +402,47 @@ references:
   isSpec: "True"
   fullName: Stubbery.RequestMatching.IResultSetup.StatusCode
   nameWithType: IResultSetup.StatusCode
+- uid: Stubbery.RequestMatching.Preconditions
+  name: Stubbery.RequestMatching.Preconditions
+  href: api/Stubbery.RequestMatching.Preconditions.html
+  commentId: N:Stubbery.RequestMatching.Preconditions
+  fullName: Stubbery.RequestMatching.Preconditions
+  nameWithType: Stubbery.RequestMatching.Preconditions
+- uid: Stubbery.RequestMatching.Preconditions.BodyCondition
+  name: BodyCondition
+  href: api/Stubbery.RequestMatching.Preconditions.BodyCondition.html
+  commentId: T:Stubbery.RequestMatching.Preconditions.BodyCondition
+  fullName: Stubbery.RequestMatching.Preconditions.BodyCondition
+  nameWithType: BodyCondition
+- uid: Stubbery.RequestMatching.Preconditions.BodyCondition.#ctor(System.Func{System.String,System.Boolean})
+  name: BodyCondition(Func<String, Boolean>)
+  href: api/Stubbery.RequestMatching.Preconditions.BodyCondition.html#Stubbery_RequestMatching_Preconditions_BodyCondition__ctor_System_Func_System_String_System_Boolean__
+  commentId: M:Stubbery.RequestMatching.Preconditions.BodyCondition.#ctor(System.Func{System.String,System.Boolean})
+  name.vb: BodyCondition(Func(Of String, Boolean))
+  fullName: Stubbery.RequestMatching.Preconditions.BodyCondition.BodyCondition(System.Func<System.String, System.Boolean>)
+  fullName.vb: Stubbery.RequestMatching.Preconditions.BodyCondition.BodyCondition(System.Func(Of System.String, System.Boolean))
+  nameWithType: BodyCondition.BodyCondition(Func<String, Boolean>)
+  nameWithType.vb: BodyCondition.BodyCondition(Func(Of String, Boolean))
+- uid: Stubbery.RequestMatching.Preconditions.BodyCondition.#ctor*
+  name: BodyCondition
+  href: api/Stubbery.RequestMatching.Preconditions.BodyCondition.html#Stubbery_RequestMatching_Preconditions_BodyCondition__ctor_
+  commentId: Overload:Stubbery.RequestMatching.Preconditions.BodyCondition.#ctor
+  isSpec: "True"
+  fullName: Stubbery.RequestMatching.Preconditions.BodyCondition.BodyCondition
+  nameWithType: BodyCondition.BodyCondition
+- uid: Stubbery.RequestMatching.Preconditions.BodyCondition.Match(Microsoft.AspNetCore.Http.HttpContext)
+  name: Match(HttpContext)
+  href: api/Stubbery.RequestMatching.Preconditions.BodyCondition.html#Stubbery_RequestMatching_Preconditions_BodyCondition_Match_Microsoft_AspNetCore_Http_HttpContext_
+  commentId: M:Stubbery.RequestMatching.Preconditions.BodyCondition.Match(Microsoft.AspNetCore.Http.HttpContext)
+  fullName: Stubbery.RequestMatching.Preconditions.BodyCondition.Match(Microsoft.AspNetCore.Http.HttpContext)
+  nameWithType: BodyCondition.Match(HttpContext)
+- uid: Stubbery.RequestMatching.Preconditions.BodyCondition.Match*
+  name: Match
+  href: api/Stubbery.RequestMatching.Preconditions.BodyCondition.html#Stubbery_RequestMatching_Preconditions_BodyCondition_Match_
+  commentId: Overload:Stubbery.RequestMatching.Preconditions.BodyCondition.Match
+  isSpec: "True"
+  fullName: Stubbery.RequestMatching.Preconditions.BodyCondition.Match
+  nameWithType: BodyCondition.Match
 - uid: Stubbery.RequestMatching.RoutingHttpContextExtensions
   name: RoutingHttpContextExtensions
   href: api/Stubbery.RequestMatching.RoutingHttpContextExtensions.html
