@@ -22,7 +22,7 @@ namespace Stubbery.IntegrationTests
                     apiStub.Start();
 
                     var stubPort = apiStub.Address.Split(':')[2];
-                    Assert.Equal(stubPort, "1010");
+                    Assert.Equal("1010", stubPort);
                 }
             }
 

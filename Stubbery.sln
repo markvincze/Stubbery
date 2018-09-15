@@ -11,10 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8DC01ED2-E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AED33289-E986-401A-8013-DD0F725FCD3D}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		appveyor.yml = appveyor.yml
 		coverage.sh = coverage.sh
 		coveralls.sh = coveralls.sh
+		LICENSE = LICENSE
 		README.md = README.md
+		releaseDocs.sh = releaseDocs.sh
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stubbery.IntegrationTests", "test\Stubbery.IntegrationTests\Stubbery.IntegrationTests.csproj", "{A3B909DA-A6DF-4FC6-9CAF-228E932916E7}"
@@ -40,5 +43,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{BAA6A4A3-FFA0-4EAE-9D64-D6E24CF8B3E8} = {81A2D4BF-5C42-4DB9-8BC9-A1F1FCA7E009}
 		{A3B909DA-A6DF-4FC6-9CAF-228E932916E7} = {8DC01ED2-E4BF-4051-993E-6BCD60FCA453}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3EA4D782-4734-421D-9896-411F4D23DA9A}
 	EndGlobalSection
 EndGlobal

@@ -31,18 +31,18 @@ coverage=./coverage
 rm -rf $coverage
 mkdir $coverage
 
-dotnet test -f netcoreapp1.0 $DOTNET_TEST_ARGS test/Stubbery.IntegrationTests/Stubbery.IntegrationTests.csproj
+dotnet test -f netcoreapp2.1 $DOTNET_TEST_ARGS test/Stubbery.IntegrationTests/Stubbery.IntegrationTests.csproj
 
 echo "Calculating coverage with OpenCover"
 $OPENCOVER \
   -target:"c:\Program Files\dotnet\dotnet.exe" \
-  -targetargs:"test -f netcoreapp1.0 $DOTNET_TEST_ARGS test/Stubbery.IntegrationTests/Stubbery.IntegrationTests.csproj" \
+  -targetargs:"test -f netcoreapp2.1 $DOTNET_TEST_ARGS test/Stubbery.IntegrationTests/Stubbery.IntegrationTests.csproj" \
   -mergeoutput \
   -hideskipped:File \
   -output:$coverage/coverage.xml \
   -oldStyle \
   -filter:"+[Stubbery*]* -[Stubbery.*Tests*]*" \
-  -searchdirs:$testdir/bin/$CONFIG/netcoreapp1.0 \
+  -searchdirs:$testdir/bin/$CONFIG/netcoreapp2.1 \
   -register:user
 
 echo "Generating HTML report"

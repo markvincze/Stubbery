@@ -18,12 +18,7 @@ namespace Stubbery
 
         public ApiHost(IApiStartup startup)
         {
-            if (startup == null)
-            {
-                throw new ArgumentNullException(nameof(startup));
-            }
-
-            this.startup = startup;
+            this.startup = startup ?? throw new ArgumentNullException(nameof(startup));
         }
 
         public string StartHosting(int? port)
@@ -53,10 +48,7 @@ namespace Stubbery
                 appLifetime.ApplicationStopping.WaitHandle.WaitOne();
             }
 
-            if (webHost != null)
-            {
-                webHost.Dispose();
-            }
+            webHost?.Dispose();
         }
 
         private int PickFreeTcpPort()
