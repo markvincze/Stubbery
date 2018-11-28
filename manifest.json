@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Stubbery.ISetup.html",
-          "hash": "2bts1AZSUN8y1l87RxLKXg=="
+          "hash": "rhay6am/KeYDXfboMc3+pw=="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Stubbery.RequestMatching.IConditionSetup.html",
-          "hash": "Aj8FFkVaUhHgauriCYb9kQ=="
+          "hash": "4lBnaLVlxx6KYjBN5LxvHA=="
         }
       },
       "is_incremental": false,
@@ -70,30 +70,6 @@
         ".html": {
           "relative_path": "api/Stubbery.RequestMatching.IResultSetup.html",
           "hash": "2QwHFx3vdf5+NWLAlJLJyw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Stubbery.RequestMatching.Preconditions.BodyCondition.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Stubbery.RequestMatching.Preconditions.BodyCondition.html",
-          "hash": "fDFDRuq1wQb8+owM9PvoGg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Stubbery.RequestMatching.Preconditions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Stubbery.RequestMatching.Preconditions.html",
-          "hash": "iaA/Zt6DtieqqjpHfmCfxw=="
         }
       },
       "is_incremental": false,
@@ -168,7 +144,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "FkiKKYb6oymQPN+dgV3egQ=="
+          "hash": "PMcGo71txSF0Cvt9bCeRww=="
         }
       },
       "is_incremental": false,
