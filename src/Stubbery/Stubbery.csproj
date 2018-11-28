@@ -3,14 +3,14 @@
   <PropertyGroup>
     <Description>Library for creating Api stubs in .NET.</Description>
     <Copyright>Copyright © Mark Vincze 2018</Copyright>
-    <VersionPrefix>2.0.0</VersionPrefix>
+    <VersionPrefix>2.1.0</VersionPrefix>
     <Authors>Mark Vincze</Authors>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <DebugType>full</DebugType>
     <AssemblyName>Stubbery</AssemblyName>
     <PackageId>Stubbery</PackageId>
     <PackageTags>ASP.NET;Stub;Testing</PackageTags>
-    <PackageReleaseNotes>Upgraded to netstandard2.0.</PackageReleaseNotes>
+    <PackageReleaseNotes>Upgraded all dependencies to fix security alerts.</PackageReleaseNotes>
     <PackageProjectUrl>http://markvincze.github.io/Stubbery/</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/markvincze/Stubbery/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
@@ -18,7 +18,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Routing" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.1.3" />
   </ItemGroup>
 
 </Project>
