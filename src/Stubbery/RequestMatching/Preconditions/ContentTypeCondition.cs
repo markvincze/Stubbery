@@ -12,9 +12,6 @@ namespace Stubbery.RequestMatching.Preconditions
             this.condition = condition;
         }
 
-        public bool Match(HttpContext context)
-        {
-            return condition(context.Request.ContentType);
-        }
+        public bool Match(HttpContext context) => condition(context.Request.ContentType);
     }
 }

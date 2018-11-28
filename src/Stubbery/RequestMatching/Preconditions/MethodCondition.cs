@@ -11,9 +11,6 @@ namespace Stubbery.RequestMatching.Preconditions
             this.method = method;
         }
 
-        public bool Match(HttpContext context)
-        {
-            return context.Request.Method == method;
-        }
+        public bool Match(HttpContext context) => context.Request.Method == method;
     }
 }

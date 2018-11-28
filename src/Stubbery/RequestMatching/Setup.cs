@@ -24,6 +24,7 @@ namespace Stubbery.RequestMatching
             {
                 [ConditionGroup.Method] = new List<IPrecondition>(),
                 [ConditionGroup.Route] = new List<IPrecondition>(),
+                [ConditionGroup.QueryArg] = new List<IPrecondition>(),
                 [ConditionGroup.ContentType] = new List<IPrecondition>(),
                 [ConditionGroup.Accept] = new List<IPrecondition>(),
                 [ConditionGroup.Body] = new List<IPrecondition>()
@@ -79,6 +80,13 @@ namespace Stubbery.RequestMatching
         public ISetup IfRoute(string routeTemplate)
         {
             orConditions[ConditionGroup.Route].Add(new RouteCondition(routeTemplate));
+
+            return this;
+        }
+
+        public ISetup IfQueryArg(string argName, string argValue)
+        {
+            orConditions[ConditionGroup.QueryArg].Add(new QueryArgCondition(argName, argValue));
 
             return this;
         }

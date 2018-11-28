@@ -1,13 +1,12 @@
 ﻿using System;
 using System.IO;
-using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Internal;
 
 namespace Stubbery.RequestMatching.Preconditions
 {
-    public class BodyCondition : IPrecondition
+    internal class BodyCondition : IPrecondition
     {
         private readonly Func<string, bool> condition;
 

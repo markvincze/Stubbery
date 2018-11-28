@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Stubbery.RequestMatching;
-using System.IO;
 
 namespace Stubbery
 {

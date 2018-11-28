@@ -4,6 +4,7 @@
     {
         Method,
         Route,
+        QueryArg,
         ContentType,
         Accept,
         Body
