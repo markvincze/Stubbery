@@ -65,7 +65,8 @@
     ],
     "dest": "_site",
     "template": [
-      "default"
+      "default",
+      "templates/stubbery"
     ],
     "noLangKeyword": false
   }

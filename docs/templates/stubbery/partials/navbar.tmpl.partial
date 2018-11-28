@@ -11,7 +11,7 @@
       </button>
       <ul class="nav level1 navbar-nav">
         <li>
-          <a href="{{_rel}}index.html" title="Home">Home</a>
+          <a href="{{_rel}}index.html" title="Stubbery">Stubbery</a>
         </li>
       </ul>
     </div>
