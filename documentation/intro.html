@@ -35,7 +35,7 @@
               </button>
               <ul class="nav level1 navbar-nav">
                 <li>
-                  <a href="../index.html" title="Stubbery">Stubbery</a>
+                  <a href="../index.html" style="padding-left: 0px" title="Stubbery">Stubbery</a>
                 </li>
               </ul>
             </div>
@@ -125,7 +125,7 @@
 <p>If we want to use a different HTTP verb, the <code>Request</code> method can be used.</p>
 <pre><code class="lang-csharp">using (var stub = new ApiStub())
 {
-    sut.Request(HttpMethod.Options)
+    stub.Request(HttpMethod.Options)
         .IfRoute(&quot;/testoptions&quot;)
         .Response((req, args) =&gt; &quot;testresponse&quot;);
 

@@ -35,7 +35,7 @@
               </button>
               <ul class="nav level1 navbar-nav">
                 <li>
-                  <a href="../index.html" title="Stubbery">Stubbery</a>
+                  <a href="../index.html" style="padding-left: 0px" title="Stubbery">Stubbery</a>
                 </li>
               </ul>
             </div>
@@ -75,38 +75,44 @@ The conditions can chained together with a fluent api.</p>
 <h2 id="http-methods">HTTP methods</h2>
 <p>For requiring the most common methods, the <code>Get</code>, <code>Post</code>, <code>Put</code> and <code>Delete</code> methods can be used.</p>
 <pre><code class="lang-csharp">// Will match a GET
-sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;);
+stub.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;);
 
 // Will match a POST
-sut.Post(&quot;/testpost&quot;, (req, args) =&gt; &quot;testresponse&quot;);
+stub.Post(&quot;/testpost&quot;, (req, args) =&gt; &quot;testresponse&quot;);
 </code></pre><p>If another method is needed, the <code>Request</code> method can be used.</p>
 <pre><code class="lang-csharp">// Will respond to OPTIONS
-sut.Request(HttpMethod.Options)
+stub.Request(HttpMethod.Options)
    .IfRoute(&quot;/testoptions&quot;)
    .Response((req, args) =&gt; &quot;testresponse&quot;);
 </code></pre><h2 id="headers">Headers</h2>
 <p>The presence of specific headers can be required with the <code>IfHeader</code> method.</p>
 <pre><code class="lang-csharp">// Will only respond if the Origin header with the given value is present.
-sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;)
+stub.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;)
     .IfHeader(&quot;Origin&quot;, &quot;http://www.example.com&quot;);
 </code></pre><h2 id="route">Route</h2>
 <p>If we only want to respond on a particular path, we can pass a route template to the <code>Get</code>, <code>Post</code>, <code>Put</code> and <code>Delete</code> methods, or we can call the <code>IfRoute</code> method. </p>
 <pre><code class="lang-csharp">// Will only respond if the request path is &quot;/testget&quot;.
-sut.Request(HttpMethod.Get)
+stub.Request(HttpMethod.Get)
     .IfRoute(&quot;/testget&quot;)
     .Response((req, args) =&gt; &quot;testresponse&quot;);
 </code></pre><h3 id="route-arguments">Route arguments</h3>
 <p>Matching route templates is implemented by using the <a href="https://docs.asp.net/en/latest/fundamentals/routing.html#template-routes">built-in routing</a> of ASP.NET, the same syntax can be used here.
 If we chain multiple route templates, the first matching one will be used to extract the route arguments.</p>
 <p>The arguments are accessible when we setup the response through the <code>Route</code> property of <code>RequestArguments</code>.</p>
-<pre><code class="lang-csharp">sut.Request(HttpMethod.Get)
+<pre><code class="lang-csharp">stub.Request(HttpMethod.Get)
     .IfRoute(&quot;/testget/{myArg}&quot;)
     .Response((req, args) =&gt; $&quot;testresponse arg: {args.Route.myArg}&quot;);
+</code></pre><h2 id="query">Query</h2>
+<p>If we only want to respond if a particular query string argument is present with a specific value, we can use the <code>IfQueryArg</code> method.</p>
+<pre><code class="lang-csharp">// Will only respond if the request has the query string argument testarg with value testval. (for example /foo?testarg=testval)
+stub.Request(HttpMethod.Get)
+    .IfQueryArg(&quot;testarg&quot;, &quot;testval&quot;)
+    .Response((req, args) =&gt; &quot;testresponse&quot;);
 </code></pre><h2 id="chaining-multiple-conditons">Chaining multiple conditons</h2>
 <p>An arbitrary number of preconditions can be chained together in a fluent fashion.
 If we specify multiple header conditions, the stubb will only respond if all of them are satisfied.
 The other types of conditions are considered satisfied is at least on of them matches.</p>
-<pre><code class="lang-csharp">sut.Get(&quot;/testget1/{arg1}&quot;, (req, args) =&gt; $&quot;testresponse, {args.Route.arg2}&quot;)
+<pre><code class="lang-csharp">stub.Get(&quot;/testget1/{arg1}&quot;, (req, args) =&gt; $&quot;testresponse, {args.Route.arg2}&quot;)
     .IfHeader(&quot;Header1&quot;, &quot;TestValue1&quot;)
     .IfHeader(&quot;Header2&quot;, &quot;TestValue2&quot;)
     .IfContentType(&quot;custom/stubbery&quot;)

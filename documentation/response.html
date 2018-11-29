@@ -35,7 +35,7 @@
               </button>
               <ul class="nav level1 navbar-nav">
                 <li>
-                  <a href="../index.html" title="Stubbery">Stubbery</a>
+                  <a href="../index.html" style="padding-left: 0px" title="Stubbery">Stubbery</a>
                 </li>
               </ul>
             </div>
@@ -70,36 +70,36 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="configure-the-response">Configure the response</h1>
 
-<p>Variouse properties of the stub response can be customized.</p>
+<p>Various properties of the stub response can be customized.</p>
 <h2 id="response-body">Response body</h2>
 <p>If we&#39;re using the <code>Get</code>, <code>Post</code>, <code>Put</code> and <code>Delete</code> methods, the response body can be specified with the delegate passed as the second argument.</p>
-<pre><code class="lang-csharp">sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;);
+<pre><code class="lang-csharp">stub.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;);
 </code></pre><p>It can also be specified by calling the <code>Response</code> method.</p>
-<pre><code class="lang-csharp">sut.Request(HttpMethod.Get)
+<pre><code class="lang-csharp">stub.Request(HttpMethod.Get)
     .IfRoute(&quot;/testget&quot;)
     .Response((req, args) =&gt; &quot;testresponse&quot;);
 </code></pre><h3 id="return-type">Return type</h3>
 <p>The <code>CreateStubResponse</code> delegate must return a string, which will be directly written to the response body.</p>
 <h3 id="request-arguments">Request arguments</h3>
 <p>Arguments of the request are accessible through the <code>RequestArguments</code> object passed to the delegate.</p>
-<pre><code class="lang-csharp">sut.Get(
+<pre><code class="lang-csharp">stub.Get(
     &quot;/testget/{arg1}/part/{arg2}&quot;,
     (req, args) =&gt; $&quot;testresponse arg1: {args.Route.arg1} arg2: {args.Route.arg2} qarg1: {args.Query.qarg1} qarg2: {args.Query.qarg2}&quot;);
 
-sut.Start();
+stub.Start();
 
 var result = await httpClient.GetAsync(
-    new UriBuilder(new Uri(sut.Address)) { Path = &quot;/testget/orange/part/apple&quot;, Query = &quot;?qarg1=melon&amp;qarg2=pear&quot; }.Uri);
+    new UriBuilder(new Uri(stub.Address)) { Path = &quot;/testget/orange/part/apple&quot;, Query = &quot;?qarg1=melon&amp;qarg2=pear&quot; }.Uri);
 
 // The resultString will be &quot;testresponse arg1: orange arg2: apple qarg1: melon qarg2: pear&quot;.
 var resultString = await result.Content.ReadAsStringAsync();
 </code></pre><h2 id="status-code">Status code</h2>
 <p>The status code of the response can be specified with the <code>StatusCode</code> method.</p>
-<pre><code class="lang-csharp">sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;)
+<pre><code class="lang-csharp">stub.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;)
     .StatusCode(StatusCodes.Status206PartialContent);
 </code></pre><h2 id="headers">Headers</h2>
 <p>Headers of the response can be specified with the <code>Header</code> method.</p>
-<pre><code class="lang-csharp">sut.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;)
+<pre><code class="lang-csharp">stub.Get(&quot;/testget&quot;, (req, args) =&gt; &quot;testresponse&quot;)
     .Header(&quot;Header1&quot;, &quot;HeaderValue1&quot;)
     .Header(&quot;Header2&quot;, &quot;HeaderValue2&quot;);
 </code></pre></article>
