@@ -9,17 +9,17 @@ For requiring the most common methods, the `Get`, `Post`, `Put` and `Delete` met
 
 ```csharp
 // Will match a GET
-sut.Get("/testget", (req, args) => "testresponse");
+stub.Get("/testget", (req, args) => "testresponse");
 
 // Will match a POST
-sut.Post("/testpost", (req, args) => "testresponse");
+stub.Post("/testpost", (req, args) => "testresponse");
 ```
 
 If another method is needed, the `Request` method can be used.
 
  ```csharp
  // Will respond to OPTIONS
-sut.Request(HttpMethod.Options)
+stub.Request(HttpMethod.Options)
     .IfRoute("/testoptions")
     .Response((req, args) => "testresponse");
 ```
@@ -30,7 +30,7 @@ The presence of specific headers can be required with the `IfHeader` method.
 
 ```csharp
 // Will only respond if the Origin header with the given value is present.
-sut.Get("/testget", (req, args) => "testresponse")
+stub.Get("/testget", (req, args) => "testresponse")
     .IfHeader("Origin", "http://www.example.com");
 ```
 
@@ -40,7 +40,7 @@ If we only want to respond on a particular path, we can pass a route template to
 
 ```csharp
 // Will only respond if the request path is "/testget".
-sut.Request(HttpMethod.Get)
+stub.Request(HttpMethod.Get)
     .IfRoute("/testget")
     .Response((req, args) => "testresponse");
 ```
@@ -53,10 +53,21 @@ If we chain multiple route templates, the first matching one will be used to ext
 The arguments are accessible when we setup the response through the `Route` property of `RequestArguments`.
 
 ```csharp
-sut.Request(HttpMethod.Get)
+stub.Request(HttpMethod.Get)
     .IfRoute("/testget/{myArg}")
     .Response((req, args) => $"testresponse arg: {args.Route.myArg}");
 ``` 
+
+## Query
+
+If we only want to respond if a particular query string argument is present with a specific value, we can use the `IfQueryArg` method.
+
+```csharp
+// Will only respond if the request has the query string argument testarg with value testval. (for example /foo?testarg=testval)
+stub.Request(HttpMethod.Get)
+    .IfQueryArg("testarg", "testval")
+    .Response((req, args) => "testresponse");
+```
 
 ## Chaining multiple conditons
 
@@ -65,7 +76,7 @@ If we specify multiple header conditions, the stubb will only respond if all of 
 The other types of conditions are considered satisfied is at least on of them matches.
 
 ```csharp
-sut.Get("/testget1/{arg1}", (req, args) => $"testresponse, {args.Route.arg2}")
+stub.Get("/testget1/{arg1}", (req, args) => $"testresponse, {args.Route.arg2}")
     .IfHeader("Header1", "TestValue1")
     .IfHeader("Header2", "TestValue2")
     .IfContentType("custom/stubbery")

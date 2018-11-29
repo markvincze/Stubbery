@@ -89,7 +89,7 @@ If we want to use a different HTTP verb, the `Request` method can be used.
 ```csharp
 using (var stub = new ApiStub())
 {
-    sut.Request(HttpMethod.Options)
+    stub.Request(HttpMethod.Options)
         .IfRoute("/testoptions")
         .Response((req, args) => "testresponse");
 
