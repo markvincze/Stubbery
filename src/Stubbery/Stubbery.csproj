@@ -7,6 +7,9 @@
     <Authors>Mark Vincze</Authors>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <DebugType>full</DebugType>
+    <LangVersion>8.0</LangVersion>
+    <NullableReferenceTypes>true</NullableReferenceTypes>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <AssemblyName>Stubbery</AssemblyName>
     <PackageId>Stubbery</PackageId>
     <PackageTags>ASP.NET;Stub;Testing</PackageTags>

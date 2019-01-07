@@ -8,7 +8,7 @@ namespace Stubbery.RequestMatching
     {
         public int StatusCode { get; set; } = StatusCodes.Status200OK;
 
-        public CreateStubResponse Responder { get; set; }
+        public CreateStubResponse? Responder { get; set; }
 
         public List<KeyValuePair<string, string>> Headers { get; } = new List<KeyValuePair<string, string>>();
 
@@ -28,7 +28,9 @@ namespace Stubbery.RequestMatching
                 new DynamicValues(httpContext.Request.Query),
                 httpContext.Request.Body);
 
-            await httpContext.Response.WriteAsync((string)Responder(httpContext.Request, arguments));
+            var responseContent = Responder == null ? "" : (string)Responder(httpContext.Request, arguments);
+
+            await httpContext.Response.WriteAsync(responseContent);
         }
     }
 }

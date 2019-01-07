@@ -17,7 +17,7 @@ namespace Stubbery.IntegrationTests
         }
 
         [Fact]
-        public void GetRouteValues_NoRoutesValuesFeature_NullReturned()
+        public void GetRouteValues_NoRoutesValuesFeature_EmptyRouteValueDictionaryReturned()
         {
             var httpContext = new Mock<HttpContext>();
             var features = new Mock<IFeatureCollection>();
@@ -28,7 +28,7 @@ namespace Stubbery.IntegrationTests
 
             var result = httpContext.Object.GetRouteValues();
 
-            Assert.Null(result);
+            Assert.Empty(result);
         }
 
         [Fact]

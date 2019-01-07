@@ -19,7 +19,7 @@ namespace Stubbery
 
         private ApiStubState state = ApiStubState.Stopped;
 
-        private string address;
+        private string? address;
 
         private int? _port;
 
@@ -69,7 +69,7 @@ namespace Stubbery
         {
             get
             {
-                if (state == ApiStubState.Stopped)
+                if (state == ApiStubState.Stopped || address == null)
                 {
                     throw new InvalidOperationException($"The api stub is not started yet. It can be started by calling the {nameof(Start)} method.");
                 }

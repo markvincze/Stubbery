@@ -9,7 +9,7 @@ namespace Stubbery.RequestMatching
 {
     internal class RouteMatcher : IRouteMatcher
     {
-        public RouteValueDictionary Match(string routeTemplate, string requestPath, IQueryCollection query)
+        public RouteValueDictionary? Match(string routeTemplate, string requestPath, IQueryCollection query)
         {
             // The TemplateParser can only parse the route part, and not the query string.
             // If the template provided by the user also has a query string, we separate that and match it manually.

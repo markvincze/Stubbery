@@ -12,9 +12,9 @@ namespace Stubbery
     {
         private readonly IApiStartup startup;
 
-        private IApplicationLifetime appLifetime;
+        private IApplicationLifetime? appLifetime;
 
-        private IWebHost webHost;
+        private IWebHost? webHost;
 
         public ApiHost(IApiStartup startup)
         {

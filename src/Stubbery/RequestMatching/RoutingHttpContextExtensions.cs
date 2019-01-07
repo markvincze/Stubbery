@@ -23,7 +23,8 @@ namespace Stubbery.RequestMatching
 
             // If a route is successfully matched, the extracted arguments are added to the Features collection.
             var routingFeature = httpContext.Features[typeof(IRouteValuesFeature)] as IRouteValuesFeature;
-            return routingFeature?.RouteValues;
+
+            return routingFeature?.RouteValues ?? new RouteValueDictionary();
         }
     }
 }
