@@ -13,7 +13,7 @@ In many situations it comes handy if we're able to start a simple service that r
 This is particularly important in integration testing, when we might want to replace some of our dependencies with a stub that can reliably provide the expected responses.
 
 **Stubbery** is a library with which we can simply configure and start a web server that responds on particular routes with the configured results.
-It supports .NET Core and the full .NET Framework up from .NET 4.5.1.
+It targets `nestandard2.0`, so it can be used with .NET Core 2, and the full .NET Framework up from .NET 4.6.1.
 
 The binaries are published on [NuGet](https://www.nuget.org/packages/Stubbery/) and you can find the source code on [GitHub](https://github.com/markvincze/Stubbery).
 
