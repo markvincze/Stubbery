@@ -8,7 +8,7 @@
     <title>Stubbery </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Stubbery ">
-    <meta name="generator" content="docfx 2.40.4.0">
+    <meta name="generator" content="docfx 2.40.7.0">
     
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="styles/docfx.vendor.css">
@@ -71,7 +71,7 @@
 <p>In many situations it comes handy if we&#39;re able to start a simple service that responds on certain routes with preconfigured static responses.</p>
 <p>This is particularly important in integration testing, when we might want to replace some of our dependencies with a stub that can reliably provide the expected responses.</p>
 <p><strong>Stubbery</strong> is a library with which we can simply configure and start a web server that responds on particular routes with the configured results.
-It supports .NET Core and the full .NET Framework up from .NET 4.5.1.</p>
+It targets <code>nestandard2.0</code>, so it can be used with .NET Core 2, and the full .NET Framework up from .NET 4.6.1.</p>
 <p>The binaries are published on <a href="https://www.nuget.org/packages/Stubbery/">NuGet</a> and you can find the source code on <a href="https://github.com/markvincze/Stubbery">GitHub</a>.</p>
 <h2 id="basic-usage">Basic usage</h2>
 <p>The following code sample shows how a simple stub can be started that responds on the route <code>/testget</code> with the string <code>testresponse</code>.</p>
