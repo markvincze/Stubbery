@@ -136,15 +136,35 @@ namespace Stubbery.RequestMatching
             return this;
         }
 
-        public bool IsMatch(HttpContext httpContext)
+        public async Task<bool> IsMatch(HttpContext httpContext)
         {
-            var orConditionsMatch = orConditions
-                .Where(g => g.Value.Count > 0)
-                .All(conditionGroup => conditionGroup.Value.Any(condition => condition.Match(httpContext)));
+            foreach (var orGroup in orConditions.Where(g => g.Value.Count > 0))
+            {
+                var orGroupMatched = false;
+                foreach (var condition in orGroup.Value)
+                {
+                    if (await condition.Match(httpContext))
+                    {
+                        orGroupMatched = true;
+                        break;
+                    }
+                }
 
-            var andConditionsMatch = andConditions.All(condition => condition.Match(httpContext));
+                if (!orGroupMatched)
+                {
+                    return false;
+                }
+            }
 
-            return orConditionsMatch && andConditionsMatch;
+            foreach (var condition in andConditions)
+            {
+                if (!await condition.Match(httpContext))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public async Task SendResponseAsync(HttpContext httpContext)

@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace Stubbery.RequestMatching.Preconditions
 {
     internal interface IPrecondition
     {
-        bool Match(HttpContext context);
+        Task<bool> Match(HttpContext context);
     }
 }

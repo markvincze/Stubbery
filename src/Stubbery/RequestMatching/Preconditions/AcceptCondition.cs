@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
 namespace Stubbery.RequestMatching.Preconditions
@@ -12,7 +13,7 @@ namespace Stubbery.RequestMatching.Preconditions
             this.condition = condition;
         }
 
-        public bool Match(HttpContext context)
+        public async Task<bool> Match(HttpContext context)
         {
             if (!context.Request.Headers.ContainsKey("Accept"))
             {

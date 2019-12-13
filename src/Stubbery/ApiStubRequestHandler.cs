@@ -19,14 +19,15 @@ namespace Stubbery
         {
             httpContext.Response.StatusCode = StatusCodes.Status404NotFound;
 
-            var firstMatch = configuredEndpoints.FirstOrDefault(e => e.IsMatch(httpContext));
-
-            if (firstMatch != null)
+            foreach (var endpoint in configuredEndpoints)
             {
-                await firstMatch.SendResponseAsync(httpContext);
+                if (await endpoint.IsMatch(httpContext))
+                {
+                    await endpoint.SendResponseAsync(httpContext);
+                    break;
+                }
             }
 
-            // Ensure the request body is fully read to avoid hanging connections on linux
             await httpContext.Request.Body.ReadAsStringAsync();
         }
     }

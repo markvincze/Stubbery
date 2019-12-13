@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
 namespace Stubbery.RequestMatching.Preconditions
@@ -12,6 +13,6 @@ namespace Stubbery.RequestMatching.Preconditions
             this.condition = condition;
         }
 
-        public bool Match(HttpContext context) => condition(context.Request.Headers);
+        public async Task<bool> Match(HttpContext context) => condition(context.Request.Headers);
     }
 }
