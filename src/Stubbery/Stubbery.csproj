@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>Library for creating Api stubs in .NET.</Description>
     <Copyright>Copyright © Mark Vincze 2018</Copyright>
-    <VersionPrefix>2.2.0</VersionPrefix>
+    <VersionPrefix>2.3.0</VersionPrefix>
     <Authors>Mark Vincze</Authors>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <DebugType>full</DebugType>
