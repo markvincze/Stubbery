@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
 namespace Stubbery.RequestMatching.Preconditions
@@ -14,6 +15,6 @@ namespace Stubbery.RequestMatching.Preconditions
             this.argValue = argValue;
         }
 
-        public bool Match(HttpContext context) => context.Request.Query[argName].Contains(argValue);
+        public async Task<bool> Match(HttpContext context) => context.Request.Query[argName].Contains(argValue);
     }
 }

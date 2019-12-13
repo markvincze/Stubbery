@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 
 namespace Stubbery.RequestMatching.Preconditions
@@ -12,7 +13,7 @@ namespace Stubbery.RequestMatching.Preconditions
             this.route = route.TrimStart('/');
         }
 
-        public bool Match(HttpContext context)
+        public async Task<bool> Match(HttpContext context)
         {
             var routeMatcher = new RouteMatcher();
 

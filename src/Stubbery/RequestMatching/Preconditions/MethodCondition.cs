@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace Stubbery.RequestMatching.Preconditions
 {
@@ -11,6 +12,6 @@ namespace Stubbery.RequestMatching.Preconditions
             this.method = method;
         }
 
-        public bool Match(HttpContext context) => context.Request.Method == method;
+        public async Task<bool> Match(HttpContext context) => context.Request.Method == method;
     }
 }
