@@ -50,7 +50,7 @@ namespace Stubbery.IntegrationTests
         }
 
         [Fact]
-        public async Task StatusCode_StatusCodeSet_StatusCodeReturned()
+        public async Task StatusCode_StatusCodeValueSet_StatusCodeReturned()
         {
             using (var sut = new ApiStub())
             {
@@ -62,6 +62,26 @@ namespace Stubbery.IntegrationTests
                 var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
                 Assert.Equal(HttpStatusCode.PartialContent, result.StatusCode);
+            }
+        }
+
+        [Fact]
+        public async Task StatusCode_StatusCodeProviderSet_StatusCodeReturned()
+        {
+            using (var sut = new ApiStub())
+            {
+                sut.Get("/testget", (req, args) => "testresponse")
+                    .StatusCode((req, args) => args.Query.testquery == "Success" ? StatusCodes.Status200OK : StatusCodes.Status500InternalServerError);
+
+                sut.Start();
+
+                var resultSuccess = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Success"}.Uri);
+
+                Assert.Equal(HttpStatusCode.OK, resultSuccess.StatusCode);
+
+                var resultFailure = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Failure"}.Uri);
+
+                Assert.Equal(HttpStatusCode.InternalServerError, resultFailure.StatusCode);
             }
         }
 

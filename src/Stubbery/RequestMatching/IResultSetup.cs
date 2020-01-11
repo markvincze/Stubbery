@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
 namespace Stubbery.RequestMatching
 {
@@ -23,6 +25,13 @@ namespace Stubbery.RequestMatching
         /// <param name="statusCode">The status code to be set on the response.</param>
         /// <returns>The same <see cref="ISetup"/>-instance, so that more parameters can be set fluently.</returns>
         ISetup StatusCode(int statusCode);
+
+        /// <summary>
+        /// Sets the function providing the status code of the stub response.
+        /// </summary>
+        /// <param name="statusCodeProvider">The function which provides the status code based on the request.</param>
+        /// <returns>The same <see cref="ISetup"/>-instance, so that more parameters can be set fluently.</returns>
+        ISetup StatusCode(Func<HttpRequest, RequestArguments, int> statusCodeProvider);
 
         /// <summary>
         /// Sets a header to be added to the stub response.
