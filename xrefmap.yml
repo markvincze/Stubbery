@@ -402,6 +402,15 @@ references:
   isSpec: "True"
   fullName: Stubbery.RequestMatching.IResultSetup.Response
   nameWithType: IResultSetup.Response
+- uid: Stubbery.RequestMatching.IResultSetup.StatusCode(System.Func{Microsoft.AspNetCore.Http.HttpRequest,Stubbery.RequestArguments,System.Int32})
+  name: StatusCode(Func<HttpRequest, RequestArguments, Int32>)
+  href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_StatusCode_System_Func_Microsoft_AspNetCore_Http_HttpRequest_Stubbery_RequestArguments_System_Int32__
+  commentId: M:Stubbery.RequestMatching.IResultSetup.StatusCode(System.Func{Microsoft.AspNetCore.Http.HttpRequest,Stubbery.RequestArguments,System.Int32})
+  name.vb: StatusCode(Func(Of HttpRequest, RequestArguments, Int32))
+  fullName: Stubbery.RequestMatching.IResultSetup.StatusCode(System.Func<Microsoft.AspNetCore.Http.HttpRequest, Stubbery.RequestArguments, System.Int32>)
+  fullName.vb: Stubbery.RequestMatching.IResultSetup.StatusCode(System.Func(Of Microsoft.AspNetCore.Http.HttpRequest, Stubbery.RequestArguments, System.Int32))
+  nameWithType: IResultSetup.StatusCode(Func<HttpRequest, RequestArguments, Int32>)
+  nameWithType.vb: IResultSetup.StatusCode(Func(Of HttpRequest, RequestArguments, Int32))
 - uid: Stubbery.RequestMatching.IResultSetup.StatusCode(System.Int32)
   name: StatusCode(Int32)
   href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_StatusCode_System_Int32_
