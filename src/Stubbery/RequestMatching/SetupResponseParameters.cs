@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
@@ -6,7 +7,7 @@ namespace Stubbery.RequestMatching
 {
     internal class SetupResponseParameters
     {
-        public int StatusCode { get; set; } = StatusCodes.Status200OK;
+        public Func<HttpRequest, RequestArguments, int> StatusCodeProvider { get; set; } = (req, args) => StatusCodes.Status200OK;
 
         public CreateStubResponse Responder { get; set; }
 
@@ -14,8 +15,6 @@ namespace Stubbery.RequestMatching
 
         public async Task SendResponseAsync(HttpContext httpContext)
         {
-            httpContext.Response.StatusCode = StatusCode;
-
             foreach (var header in Headers)
             {
                 httpContext.Response.Headers[header.Key] = header.Value;
@@ -27,6 +26,8 @@ namespace Stubbery.RequestMatching
                 new DynamicValues(routeValues),
                 new DynamicValues(httpContext.Request.Query),
                 httpContext.Request.Body);
+
+            httpContext.Response.StatusCode = StatusCodeProvider(httpContext.Request, arguments);
 
             await httpContext.Response.WriteAsync((string)Responder(httpContext.Request, arguments));
         }

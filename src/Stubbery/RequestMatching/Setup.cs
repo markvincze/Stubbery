@@ -117,7 +117,14 @@ namespace Stubbery.RequestMatching
 
         public ISetup StatusCode(int statusCode)
         {
-            setupResponse.StatusCode = statusCode;
+            setupResponse.StatusCodeProvider = (req, args) => statusCode;
+
+            return this;
+        }
+
+        public ISetup StatusCode(Func<HttpRequest, RequestArguments, int> statusCodeProvider)
+        {
+            setupResponse.StatusCodeProvider = statusCodeProvider;
 
             return this;
         }
