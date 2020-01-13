@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Abstractions;
+using Microsoft.AspNetCore.Routing;
+using Newtonsoft.Json;
 
 namespace Stubbery.RequestMatching
 {
@@ -29,7 +33,29 @@ namespace Stubbery.RequestMatching
 
             httpContext.Response.StatusCode = StatusCodeProvider(httpContext.Request, arguments);
 
-            await httpContext.Response.WriteAsync((string)Responder(httpContext.Request, arguments));
+            var response = Responder(httpContext.Request, arguments);
+
+            if (response is string stringResponse)
+            {
+                await httpContext.Response.WriteAsync(stringResponse);
+                return;
+            }
+
+            if (response is IActionResult actionResultResponse)
+            {
+                ActionContext context = new ActionContext(httpContext, new RouteData(), new ActionDescriptor());
+                await (actionResultResponse).ExecuteResultAsync(context);
+                return;
+            }
+
+            if (response is object objectResponse)
+            {
+                await httpContext.Response.WriteAsync(JsonConvert.SerializeObject(objectResponse));
+                return;
+            }
+
+            await httpContext.Response.WriteAsync((string)response);
+            return;
         }
     }
 }
