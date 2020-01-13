@@ -29,7 +29,7 @@ build_script:
 - dotnet pack src/Stubbery/Stubbery.csproj --configuration Release --no-build
 
 test_script:
-- dotnet test test/Stubbery.IntegrationTests/Stubbery.IntegrationTests.csproj --configuration Release -f netcoreapp2.1 --no-build
+- dotnet test test/Stubbery.IntegrationTests/Stubbery.IntegrationTests.csproj --configuration Release --no-build
 - bash coverage.sh
 - bash coveralls.sh
 
