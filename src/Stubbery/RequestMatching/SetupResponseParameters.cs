@@ -12,18 +12,12 @@ namespace Stubbery.RequestMatching
     internal class SetupResponseParameters
     {
         public Func<HttpRequest, RequestArguments, int> StatusCodeProvider { get; set; } = (req, args) => StatusCodes.Status200OK;
+        public ICollection<Func<HttpRequest, RequestArguments, KeyValuePair<string, string>[]>> HeaderProviders { get; set; } = new List<Func<HttpRequest, RequestArguments, KeyValuePair<string, string>[]>>();
 
         public CreateStubResponse Responder { get; set; }
 
-        public List<KeyValuePair<string, string>> Headers { get; } = new List<KeyValuePair<string, string>>();
-
         public async Task SendResponseAsync(HttpContext httpContext)
         {
-            foreach (var header in Headers)
-            {
-                httpContext.Response.Headers[header.Key] = header.Value;
-            }
-
             var routeValues = httpContext.GetRouteValues();
 
             var arguments = new RequestArguments(
@@ -32,6 +26,13 @@ namespace Stubbery.RequestMatching
                 httpContext.Request.Body);
 
             httpContext.Response.StatusCode = StatusCodeProvider(httpContext.Request, arguments);
+
+            foreach (var headerProvider in HeaderProviders) {
+                var headers = headerProvider(httpContext.Request, arguments);
+                foreach (var header in headers) {
+                    httpContext.Response.Headers[header.Key] = header.Value;
+                }
+            }
 
             var response = Responder(httpContext.Request, arguments);
 
