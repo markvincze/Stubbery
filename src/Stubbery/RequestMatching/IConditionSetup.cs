@@ -69,7 +69,7 @@ namespace Stubbery.RequestMatching
         ISetup IfRoute(string routeTemplate);
 
         /// <summary>
-        /// Sets up a contition so that the stub only responds if the query string argument <paramref name="argName"/> has the value <paramref name="argValue"/>.
+        /// Sets up a condition so that the stub only responds if the query string argument <paramref name="argName"/> has the value <paramref name="argValue"/>.
         /// </summary>
         /// <param name="argName"></param>
         /// <param name="argValue"></param>

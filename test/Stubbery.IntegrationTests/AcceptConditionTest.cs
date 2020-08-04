@@ -13,103 +13,98 @@ namespace Stubbery.IntegrationTests
         [Fact]
         public async Task IfAccept_AcceptDifferent_NotFoundReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse")
-                    .IfAccept("custom/stubbery");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse")
+                .IfAccept("custom/stubbery");
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
-            }
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+
+            Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
         }
 
         [Fact]
         public async Task IfAccept_AcceptEqual_ResultReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse")
-                    .IfAccept("custom/stubbery");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse")
+                .IfAccept("custom/stubbery");
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
-                requestMessage.Headers.Add("Accept", "custom/stubbery");
+            sut.Start();
 
-                var result = await httpClient.SendAsync(requestMessage);
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
+            requestMessage.Headers.Add("Accept", "custom/stubbery");
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            var result = await httpClient.SendAsync(requestMessage);
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
-                Assert.Equal("testresponse", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            Assert.Equal("testresponse", resultString);
         }
 
         [Fact]
         public async Task IfAccept_MultipleAcceptsOneIsEqual_ResultReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse")
-                    .IfAccept("custom/stubbery")
-                    .IfAccept("custom/stubbery2");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse")
+                .IfAccept("custom/stubbery")
+                .IfAccept("custom/stubbery2");
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
-                requestMessage.Headers.Add("Accept", "custom/stubbery");
+            sut.Start();
 
-                var result = await httpClient.SendAsync(requestMessage);
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
+            requestMessage.Headers.Add("Accept", "custom/stubbery");
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            var result = await httpClient.SendAsync(requestMessage);
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
-                Assert.Equal("testresponse", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            Assert.Equal("testresponse", resultString);
         }
 
         [Fact]
-        public async Task IfAccept_CustomNotMatchinAcceptCondition_NotFoundReturned()
+        public async Task IfAccept_CustomNotMatchingAcceptCondition_NotFoundReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse")
-                    .IfAccept(accept => accept.Contains("does not contain"));
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse")
+                .IfAccept(accept => accept.Contains("does not contain"));
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
-                requestMessage.Headers.Add("Accept", "custom/stubbery");
+            sut.Start();
 
-                var result = await httpClient.SendAsync(requestMessage);
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
+            requestMessage.Headers.Add("Accept", "custom/stubbery");
 
-                Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
-            }
+            var result = await httpClient.SendAsync(requestMessage);
+
+            Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
         }
 
         [Fact]
-        public async Task IfAccept_CustomMatchinAcceptCondition_ResultReturned()
+        public async Task IfAccept_CustomMatchingAcceptCondition_ResultReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse")
-                    .IfAccept(accept => accept.Contains("stubbery"));
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse")
+                .IfAccept(accept => accept.Contains("stubbery"));
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
-                requestMessage.Headers.Add("Accept", "custom/stubbery");
+            sut.Start();
 
-                var result = await httpClient.SendAsync(requestMessage);
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
+            requestMessage.Headers.Add("Accept", "custom/stubbery");
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            var result = await httpClient.SendAsync(requestMessage);
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
-                Assert.Equal("testresponse", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            Assert.Equal("testresponse", resultString);
         }
     }
 }

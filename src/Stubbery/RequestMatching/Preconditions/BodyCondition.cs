@@ -23,12 +23,12 @@ namespace Stubbery.RequestMatching.Preconditions
             }
 
             context.Request.EnableBuffering();
-            using (var reader = new StreamReader(context.Request.Body, Encoding.UTF8, true, 1024, true))
-            {
-                var body = await reader.ReadToEndAsync();
-                context.Request.Body.Seek(0, SeekOrigin.Begin);
-                return condition(body);    
-            }
+
+            using var reader = new StreamReader(context.Request.Body, Encoding.UTF8, true, 1024, true);
+
+            var body = await reader.ReadToEndAsync();
+            context.Request.Body.Seek(0, SeekOrigin.Begin);
+            return condition(body);
         }
     }
 }

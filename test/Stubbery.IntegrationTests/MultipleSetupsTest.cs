@@ -13,43 +13,41 @@ namespace Stubbery.IntegrationTests
         [Fact]
         public async Task MultipleSetups_OnlyOneMatch_TheMatchingReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget1", (req, args) => "testresponse1");
-                sut.Get("/testget2", (req, args) => "testresponse2");
-                sut.Get("/testget3", (req, args) => "testresponse3");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget1", (req, args) => "testresponse1");
+            sut.Get("/testget2", (req, args) => "testresponse2");
+            sut.Get("/testget3", (req, args) => "testresponse3");
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget2" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget2" }.Uri);
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
-                Assert.Equal("testresponse2", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal("testresponse2", resultString);
         }
 
         [Fact]
         public async Task MultipleSetups_AllMatch_TheFirstOneReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse1");
-                sut.Get("/testget", (req, args) => "testresponse2");
-                sut.Get("/testget", (req, args) => "testresponse3");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse1");
+            sut.Get("/testget", (req, args) => "testresponse2");
+            sut.Get("/testget", (req, args) => "testresponse3");
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
-                Assert.Equal("testresponse1", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal("testresponse1", resultString);
         }
     }
 }

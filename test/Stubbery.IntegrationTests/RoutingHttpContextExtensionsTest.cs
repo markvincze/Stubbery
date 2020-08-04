@@ -37,7 +37,7 @@ namespace Stubbery.IntegrationTests
             var httpContext = new Mock<HttpContext>();
             var features = new Mock<IFeatureCollection>();
             var routeValues = new Mock<RouteValueDictionary>();
-            var routeValuesFeature = new DummRouteValuesFeature(routeValues.Object);
+            var routeValuesFeature = new DummyRouteValuesFeature(routeValues.Object);
 
             features.SetupGet(f => f[typeof(IRouteValuesFeature)]).Returns(routeValuesFeature);
 
@@ -49,9 +49,9 @@ namespace Stubbery.IntegrationTests
         }
     }
 
-    public class DummRouteValuesFeature : IRouteValuesFeature
+    public class DummyRouteValuesFeature : IRouteValuesFeature
     {
-        public DummRouteValuesFeature(RouteValueDictionary dictionary)
+        public DummyRouteValuesFeature(RouteValueDictionary dictionary)
         {
             RouteValues = dictionary;
         }

@@ -4,6 +4,7 @@
     <TargetFrameworks>netcoreapp2.2;netcoreapp3.1</TargetFrameworks>
     <AssemblyName>Stubbery.IntegrationTests</AssemblyName>
     <PackageId>Stubbery.IntegrationTests</PackageId>
+    <LangVersion>8.0</LangVersion>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
   </PropertyGroup>
 

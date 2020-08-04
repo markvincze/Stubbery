@@ -14,111 +14,106 @@ namespace Stubbery.IntegrationTests
         [Fact]
         public async Task IfContentType_ContentTypeDifferent_NotFoundReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse")
-                    .IfContentType("custom/stubbery");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse")
+                .IfContentType("custom/stubbery");
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
-            }
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+
+            Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
         }
 
         [Fact]
         public async Task IfContentType_ContentTypeEqual_ResultReturned()
         {
-            using (var sut = new ApiStub())
+            using var sut = new ApiStub();
+
+            sut.Post("/testget", (req, args) => "testresponse")
+                .IfContentType("custom/stubbery");
+
+            sut.Start();
+
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri)
             {
-                sut.Post("/testget", (req, args) => "testresponse")
-                    .IfContentType("custom/stubbery");
+                Content = new StringContent("", Encoding.UTF8, "custom/stubbery")
+            };
 
-                sut.Start();
+            var result = await httpClient.SendAsync(requestMessage);
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri)
-                {
-                    Content = new StringContent("", Encoding.UTF8, "custom/stubbery")
-                };
+            var resultString = await result.Content.ReadAsStringAsync();
 
-                var result = await httpClient.SendAsync(requestMessage);
-
-                var resultString = await result.Content.ReadAsStringAsync();
-
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
-                Assert.Equal("testresponse", resultString);
-            }
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            Assert.Equal("testresponse", resultString);
         }
 
         [Fact]
         public async Task IfContentType_MultipleContentTypesOneIsEqual_ResultReturned()
         {
-            using (var sut = new ApiStub())
+            using var sut = new ApiStub();
+
+            sut.Post("/testget", (req, args) => "testresponse")
+                .IfContentType("custom/stubbery")
+                .IfContentType("custom/stubbery2");
+
+            sut.Start();
+
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri)
             {
-                sut.Post("/testget", (req, args) => "testresponse")
-                    .IfContentType("custom/stubbery")
-                    .IfContentType("custom/stubbery2");
+                Content = new StringContent("", Encoding.UTF8, "custom/stubbery")
+            };
 
-                sut.Start();
+            var result = await httpClient.SendAsync(requestMessage);
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri)
-                {
-                    Content = new StringContent("", Encoding.UTF8, "custom/stubbery")
-                };
+            var resultString = await result.Content.ReadAsStringAsync();
 
-                var result = await httpClient.SendAsync(requestMessage);
-
-                var resultString = await result.Content.ReadAsStringAsync();
-
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
-                Assert.Equal("testresponse", resultString);
-            }
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            Assert.Equal("testresponse", resultString);
         }
 
         [Fact]
         public async Task IfContentType_CustomNotMatchingFunc_NotFoundReturned()
         {
-            using (var sut = new ApiStub())
+            using var sut = new ApiStub();
+
+            sut.Post("/testget", (req, args) => "testresponse")
+                .IfContentType(contentType => contentType.Contains("does not contain"));
+
+            sut.Start();
+
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri)
             {
-                sut.Post("/testget", (req, args) => "testresponse")
-                    .IfContentType(contentType => contentType.Contains("does not contain"));
+                Content = new StringContent("", Encoding.UTF8, "custom/stubbery")
+            };
 
-                sut.Start();
+            var result = await httpClient.SendAsync(requestMessage);
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri)
-                {
-                    Content = new StringContent("", Encoding.UTF8, "custom/stubbery")
-                };
-
-                var result = await httpClient.SendAsync(requestMessage);
-
-                Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
-            }
+            Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
         }
 
         [Fact]
         public async Task IfContentType_CustomMatchingFunc_ResponseReturned()
         {
-            using (var sut = new ApiStub())
+            using var sut = new ApiStub();
+
+            sut.Post("/testget", (req, args) => "testresponse")
+                .IfContentType(contentType => contentType.Contains("stubbery"));
+
+            sut.Start();
+
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri)
             {
-                sut.Post("/testget", (req, args) => "testresponse")
-                    .IfContentType(contentType => contentType.Contains("stubbery"));
+                Content = new StringContent("", Encoding.UTF8, "custom/stubbery")
+            };
 
-                sut.Start();
+            var result = await httpClient.SendAsync(requestMessage);
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Post, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri)
-                {
-                    Content = new StringContent("", Encoding.UTF8, "custom/stubbery")
-                };
+            var resultString = await result.Content.ReadAsStringAsync();
 
-                var result = await httpClient.SendAsync(requestMessage);
-
-                var resultString = await result.Content.ReadAsStringAsync();
-
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
-                Assert.Equal("testresponse", resultString);
-            }
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            Assert.Equal("testresponse", resultString);
         }
     }
 }

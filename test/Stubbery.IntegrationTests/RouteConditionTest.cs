@@ -13,88 +13,83 @@ namespace Stubbery.IntegrationTests
         [Fact]
         public async Task Route_RouteDifferent_NotFoundReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse");
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget2" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
-            }
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget2" }.Uri);
+
+            Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
         }
 
         [Fact]
         public async Task Route_RouteSame_ResultReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse");
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
-                Assert.Equal("testresponse", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            Assert.Equal("testresponse", resultString);
         }
 
         [Fact]
         public async Task Route_MultipleRoutesOneIsEqual_ResultReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Request(HttpMethod.Get)
-                    .IfRoute("/testget2")
-                    .IfRoute("/testget")
-                    .Response((req, args) => "testresponse");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Request(HttpMethod.Get)
+                .IfRoute("/testget2")
+                .IfRoute("/testget")
+                .Response((req, args) => "testresponse");
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
-                Assert.Equal("testresponse", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            Assert.Equal("testresponse", resultString);
         }
 
         [Fact]
         public async Task Route_RouteIncludesMatchingQuery_ResultReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget?foo=bar", (req, args) => "testresponse");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget?foo=bar", (req, args) => "testresponse");
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?foo=bar" }.Uri);
+            sut.Start();
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?foo=bar" }.Uri);
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
-                Assert.Equal("testresponse", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            Assert.Equal("testresponse", resultString);
         }
 
         [Fact]
         public async Task Route_RouteIncludesNotMatchingQuery_NotFoundReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget?foo=bar", (req, args) => "testresponse");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget?foo=bar", (req, args) => "testresponse");
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?foo=qux" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
-            }
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?foo=qux" }.Uri);
+
+            Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
         }
     }
 }

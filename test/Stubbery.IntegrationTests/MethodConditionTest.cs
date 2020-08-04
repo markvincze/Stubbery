@@ -13,55 +13,52 @@ namespace Stubbery.IntegrationTests
         [Fact]
         public async Task Method_MethodDifferent_NotFoundReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse")
-                    .IfAccept("custom/stubbery");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse")
+                .IfAccept("custom/stubbery");
 
-                var result = await httpClient.DeleteAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
-            }
+            var result = await httpClient.DeleteAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+
+            Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
         }
 
         [Fact]
         public async Task Method_MethodSame_ResultReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Delete("/testget", (req, args) => "testresponse");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Delete("/testget", (req, args) => "testresponse");
 
-                var result = await httpClient.DeleteAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            var result = await httpClient.DeleteAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
-                Assert.Equal("testresponse", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            Assert.Equal("testresponse", resultString);
         }
 
         [Fact]
         public async Task Method_MultipleMethodsOneIsEqual_ResultReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Request(HttpMethod.Get, HttpMethod.Delete)
-                    .IfRoute("/testget")
-                    .Response((req, args) => "testresponse");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Request(HttpMethod.Get, HttpMethod.Delete)
+                .IfRoute("/testget")
+                .Response((req, args) => "testresponse");
 
-                var result = await httpClient.DeleteAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            var result = await httpClient.DeleteAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
-                Assert.Equal("testresponse", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            Assert.Equal("testresponse", resultString);
         }
     }
 }
