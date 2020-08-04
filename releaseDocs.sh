@@ -27,7 +27,7 @@ if [ "$APPVEYOR_REPO_BRANCH" == "master" ]
 then
     echo "Push the new docs to the remote branch"
     git add . -A
-    git commit -m "Update generated documentation"
+    git commit --allow-empty -m "Update generated documentation"
     git push origin gh-pages
 else
     echo "Not on master, skipping pushing docs"
