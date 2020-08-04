@@ -12,7 +12,8 @@ namespace Stubbery.RequestMatching
     internal class SetupResponseParameters
     {
         public Func<HttpRequest, RequestArguments, int> StatusCodeProvider { get; set; } = (req, args) => StatusCodes.Status200OK;
-        public ICollection<Func<HttpRequest, RequestArguments, KeyValuePair<string, string>[]>> HeaderProviders { get; set; } = new List<Func<HttpRequest, RequestArguments, KeyValuePair<string, string>[]>>();
+        public ICollection<Func<HttpRequest, RequestArguments, (string, string)[]>> HeaderProviders { get; set; } =
+            new List<Func<HttpRequest, RequestArguments, (string, string)[]>>();
 
         public CreateStubResponse Responder { get; set; }
 
@@ -29,8 +30,9 @@ namespace Stubbery.RequestMatching
 
             foreach (var headerProvider in HeaderProviders) {
                 var headers = headerProvider(httpContext.Request, arguments);
-                foreach (var header in headers) {
-                    httpContext.Response.Headers[header.Key] = header.Value;
+
+                foreach (var (headerName, headerValue) in headers) {
+                    httpContext.Response.Headers[headerName] = headerValue;
                 }
             }
 
@@ -49,14 +51,10 @@ namespace Stubbery.RequestMatching
                 return;
             }
 
-            if (response is object objectResponse)
+            if (response != null)
             {
-                await httpContext.Response.WriteAsync(JsonConvert.SerializeObject(objectResponse));
-                return;
+                await httpContext.Response.WriteAsync(JsonConvert.SerializeObject(response));
             }
-
-            await httpContext.Response.WriteAsync((string)response);
-            return;
         }
     }
 }

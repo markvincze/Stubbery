@@ -124,11 +124,11 @@ namespace Stubbery.IntegrationTests
 
                 sut.Start();
 
-                var resultSuccess = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Success"}.Uri);
+                var resultSuccess = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Success" }.Uri);
 
                 Assert.Equal(HttpStatusCode.OK, resultSuccess.StatusCode);
 
-                var resultFailure = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Failure"}.Uri);
+                var resultFailure = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Failure" }.Uri);
 
                 Assert.Equal(HttpStatusCode.InternalServerError, resultFailure.StatusCode);
             }
@@ -159,16 +159,16 @@ namespace Stubbery.IntegrationTests
             {
                 sut.Get("/testget", (req, args) => "testresponse")
                     .Header((req, args) => args.Query.testquery == "Success"
-                        ? new KeyValuePair<string, string>("HeaderSuccess", "HeaderValueSuccess")
-                        : new KeyValuePair<string, string>("HeaderFailure", "HeaderValueFailure"));
+                        ? ("HeaderSuccess", "HeaderValueSuccess")
+                        : ("HeaderFailure", "HeaderValueFailure"));
 
                 sut.Start();
 
-                var resultSuccess = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Success"}.Uri);
+                var resultSuccess = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Success" }.Uri);
 
                 Assert.Equal("HeaderValueSuccess", resultSuccess.Headers.GetValues("HeaderSuccess").First());
 
-                var resultFailure = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Failure"}.Uri);
+                var resultFailure = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Failure" }.Uri);
 
                 Assert.Equal("HeaderValueFailure", resultFailure.Headers.GetValues("HeaderFailure").First());
             }
@@ -180,7 +180,7 @@ namespace Stubbery.IntegrationTests
             using (var sut = new ApiStub())
             {
                 sut.Get("/testget", (req, args) => "testresponse")
-                    .Headers(new KeyValuePair<string, string>("Header1", "HeaderValue1"), new KeyValuePair<string, string>("Header2", "HeaderValue2"));
+                    .Headers(("Header1", "HeaderValue1"), ("Header2", "HeaderValue2"));
 
                 sut.Start();
 
@@ -194,26 +194,29 @@ namespace Stubbery.IntegrationTests
         [Fact]
         public async Task Headers_HeadersProviderSet_HeaderReturned()
         {
-            using (var sut = new ApiStub()) {
+            using (var sut = new ApiStub())
+            {
                 sut.Get("/testget", (req, args) => "testresponse")
                    .Headers((req, args) => args.Query.testquery == "Success"
-                       ? new[] {
-                           new KeyValuePair<string, string>("HeaderSuccess1", "HeaderValueSuccess1"),
-                           new KeyValuePair<string, string>("HeaderSuccess2", "HeaderValueSuccess2"),
+                       ? new[]
+                       {
+                           ("HeaderSuccess1", "HeaderValueSuccess1"),
+                           ("HeaderSuccess2", "HeaderValueSuccess2"),
                        }
-                       : new[] {
-                           new KeyValuePair<string, string>("HeaderFailure1", "HeaderValueFailure1"),
-                           new KeyValuePair<string, string>("HeaderFailure2", "HeaderValueFailure2"),
+                       : new[]
+                       {
+                           ("HeaderFailure1", "HeaderValueFailure1"),
+                           ("HeaderFailure2", "HeaderValueFailure2"),
                        });
 
                 sut.Start();
 
-                var resultSuccess = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Success"}.Uri);
+                var resultSuccess = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Success" }.Uri);
 
                 Assert.Equal("HeaderValueSuccess1", resultSuccess.Headers.GetValues("HeaderSuccess1").First());
                 Assert.Equal("HeaderValueSuccess2", resultSuccess.Headers.GetValues("HeaderSuccess2").First());
 
-                var resultFailure = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Failure"}.Uri);
+                var resultFailure = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Failure" }.Uri);
 
                 Assert.Equal("HeaderValueFailure1", resultFailure.Headers.GetValues("HeaderFailure1").First());
                 Assert.Equal("HeaderValueFailure2", resultFailure.Headers.GetValues("HeaderFailure2").First());
