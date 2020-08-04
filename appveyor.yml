@@ -46,7 +46,7 @@ deploy:
     appveyor_repo_tag: true
   artifact: /.*\.nupkg/
 
-deploy_script:
+after_deploy:
 - git config --global credential.helper store
 - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
 - git config --global user.email %github_email%
