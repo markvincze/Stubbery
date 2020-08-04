@@ -13,151 +13,144 @@ namespace Stubbery.IntegrationTests
         [Fact]
         public async Task IfHeader_OneHeaderConditionAndHeaderNotPresent_NotFoundReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse")
-                    .IfHeader("HeaderTest", "headerValue");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse")
+                .IfHeader("HeaderTest", "headerValue");
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
-            }
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+
+            Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
         }
 
         [Fact]
         public async Task IfHeader_OneHeaderConditionAndHeaderPresentWithWrongValue_NotFoundReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get(
+            using var sut = new ApiStub();
+
+            sut.Get(
                     "/testget",
                     (req, args) => "testresponse")
-                    .IfHeader("HeaderTest", "headerValue");
+                .IfHeader("HeaderTest", "headerValue");
 
-                sut.Start();
+            sut.Start();
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
-                requestMessage.Headers.Add("HeaderTest", "wrongValue");
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
+            requestMessage.Headers.Add("HeaderTest", "wrongValue");
 
-                var result = await httpClient.SendAsync(requestMessage);
+            var result = await httpClient.SendAsync(requestMessage);
 
-                Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
-            }
+            Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
         }
 
         [Fact]
         public async Task IfHeader_OneHeaderConditionAndHeaderPresent_ResponseReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get(
+            using var sut = new ApiStub();
+
+            sut.Get(
                     "/testget",
                     (req, args) => "testresponse")
-                    .IfHeader("HeaderTest", "headerValue");
+                .IfHeader("HeaderTest", "headerValue");
 
-                sut.Start();
+            sut.Start();
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
-                requestMessage.Headers.Add("HeaderTest", "headerValue");
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
+            requestMessage.Headers.Add("HeaderTest", "headerValue");
 
-                var result = await httpClient.SendAsync(requestMessage);
+            var result = await httpClient.SendAsync(requestMessage);
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            var resultString = await result.Content.ReadAsStringAsync();
 
-                Assert.Equal("testresponse", resultString);
-            }
+            Assert.Equal("testresponse", resultString);
         }
 
         [Fact]
         public async Task IfHeader_TwoHeaderConditionsAndOnlyOneHeaderPresent_NotFoundReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get(
+            using var sut = new ApiStub();
+
+            sut.Get(
                     "/testget",
                     (req, args) => "testresponse")
-                    .IfHeader("HeaderTest1", "headerValue1")
-                    .IfHeader("HeaderTest2", "headerValue2");
+                .IfHeader("HeaderTest1", "headerValue1")
+                .IfHeader("HeaderTest2", "headerValue2");
 
-                sut.Start();
+            sut.Start();
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
-                requestMessage.Headers.Add("HeaderTest1", "headerValue1");
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
+            requestMessage.Headers.Add("HeaderTest1", "headerValue1");
 
-                var result = await httpClient.SendAsync(requestMessage);
+            var result = await httpClient.SendAsync(requestMessage);
 
-                Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
-            }
+            Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
         }
 
         [Fact]
         public async Task IfHeader_TwoHeaderConditionsAndBothHeadersPresent_ResponseReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get(
+            using var sut = new ApiStub();
+
+            sut.Get(
                     "/testget",
                     (req, args) => "testresponse")
-                    .IfHeader("HeaderTest1", "headerValue1")
-                    .IfHeader("HeaderTest2", "headerValue2");
+                .IfHeader("HeaderTest1", "headerValue1")
+                .IfHeader("HeaderTest2", "headerValue2");
 
-                sut.Start();
+            sut.Start();
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
-                requestMessage.Headers.Add("HeaderTest1", "headerValue1");
-                requestMessage.Headers.Add("HeaderTest2", "headerValue2");
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
+            requestMessage.Headers.Add("HeaderTest1", "headerValue1");
+            requestMessage.Headers.Add("HeaderTest2", "headerValue2");
 
-                var result = await httpClient.SendAsync(requestMessage);
+            var result = await httpClient.SendAsync(requestMessage);
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            var resultString = await result.Content.ReadAsStringAsync();
 
-                Assert.Equal("testresponse", resultString);
-            }
+            Assert.Equal("testresponse", resultString);
         }
 
         [Fact]
         public async Task IfHeaders_CustomTwoHeaderConditionsAndHeadersNotPresent_NotFoundReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut
-                    .Get("/testget", (req, args) => "testresponse")
-                    .IfHeaders(headers => headers["HeaderTest1"] == "headerValue1" && headers["HeaderTest2"] == "headerValue2");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut
+                .Get("/testget", (req, args) => "testresponse")
+                .IfHeaders(headers => headers["HeaderTest1"] == "headerValue1" && headers["HeaderTest2"] == "headerValue2");
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
-                requestMessage.Headers.Add("HeaderTest1", "headerValue1");
+            sut.Start();
 
-                var result = await httpClient.SendAsync(requestMessage);
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
+            requestMessage.Headers.Add("HeaderTest1", "headerValue1");
 
-                Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
-            }
+            var result = await httpClient.SendAsync(requestMessage);
+
+            Assert.Equal(HttpStatusCode.NotFound, result.StatusCode);
         }
 
         [Fact]
         public async Task IfHeaders_CustomTwoHeaderConditionsAndBothHeadersPresent_ResponseReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut
-                    .Get("/testget", (req, args) => "testresponse")
-                    .IfHeaders(headers => headers["HeaderTest1"] == "headerValue1" && headers["HeaderTest2"] == "headerValue2");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut
+                .Get("/testget", (req, args) => "testresponse")
+                .IfHeaders(headers => headers["HeaderTest1"] == "headerValue1" && headers["HeaderTest2"] == "headerValue2");
 
-                var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
-                requestMessage.Headers.Add("HeaderTest1", "headerValue1");
-                requestMessage.Headers.Add("HeaderTest2", "headerValue2");
+            sut.Start();
 
-                var result = await httpClient.SendAsync(requestMessage);
+            var requestMessage = new HttpRequestMessage(HttpMethod.Get, new UriBuilder(new Uri(sut.Address)) {Path = "/testget"}.Uri);
+            requestMessage.Headers.Add("HeaderTest1", "headerValue1");
+            requestMessage.Headers.Add("HeaderTest2", "headerValue2");
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            var result = await httpClient.SendAsync(requestMessage);
 
-                Assert.Equal("testresponse", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal("testresponse", resultString);
         }
     }
 }

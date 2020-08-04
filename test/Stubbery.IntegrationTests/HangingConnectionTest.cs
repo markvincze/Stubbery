@@ -15,24 +15,23 @@ namespace Stubbery.IntegrationTests
         {
             var largeText = new string('a', 6000);
 
-            using (var sut = new ApiStub())
+            using var sut = new ApiStub();
+
+            sut.Post("/", (req, args) => "testresponse1");
+
+            sut.Start();
+
+            for (var i = 0; i < 5; i++)
             {
-                sut.Post("/", (req, args) => "testresponse1");
+                var postContent = new StringContent(largeText, Encoding.UTF8, "text/plain");
 
-                sut.Start();
+                var result = await httpClient.PostAsync(sut.Address, postContent);
 
-                for (var i = 0; i < 5; i++)
-                {
-                    var postContent = new StringContent(largeText, Encoding.UTF8, "text/plain");
+                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
-                    var result = await httpClient.PostAsync(sut.Address, postContent);
+                var resultString = await result.Content.ReadAsStringAsync();
 
-                    Assert.Equal(HttpStatusCode.OK, result.StatusCode);
-
-                    var resultString = await result.Content.ReadAsStringAsync();
-
-                    Assert.Equal("testresponse1", resultString);
-                }
+                Assert.Equal("testresponse1", resultString);
             }
         }
     }

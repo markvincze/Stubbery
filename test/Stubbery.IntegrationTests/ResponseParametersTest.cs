@@ -21,206 +21,195 @@ namespace Stubbery.IntegrationTests
         [Fact]
         public void ResponseBody_NullPassed_ArgumentNullException()
         {
-            using (var sut = new ApiStub())
-            {
-                Assert.Throws<ArgumentNullException>(() => sut.Get().Response(null));
-            }
+            using var sut = new ApiStub();
+
+            Assert.Throws<ArgumentNullException>(() => sut.Get().Response(null));
         }
 
         [Fact]
         public void ResponseBody_CalledTwice_InvalidOperationException()
         {
-            using (var sut = new ApiStub())
-            {
-                Assert.Throws<InvalidOperationException>(
-                    () => sut.Get().Response((req, args) => "1").Response((req, args) => "2"));
-            }
+            using var sut = new ApiStub();
+
+            Assert.Throws<InvalidOperationException>(
+                () => sut.Get().Response((req, args) => "1").Response((req, args) => "2"));
         }
 
         [Fact]
         public async Task ResponseBody_BodySet_BodyReturned_StringResponse()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse");
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
-                Assert.Equal("testresponse", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal("testresponse", resultString);
         }
 
         [Fact]
         public async Task ResponseBody_BodySet_BodyReturned_ActionResultResponse()
         {
-            using (var sut = new ApiStub())
-            using (var ms = new MemoryStream())
-            {
-                await ms.WriteAsync(Encoding.UTF8.GetBytes("Test File Data"));
-                ms.Position = 0;
+            using var sut = new ApiStub();
+            using var ms = new MemoryStream();
 
-                sut.Get("/testget", (req, args) => new FileStreamResult(ms, "text/plain"));
+            await ms.WriteAsync(Encoding.UTF8.GetBytes("Test File Data"));
+            ms.Position = 0;
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => new FileStreamResult(ms, "text/plain"));
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                var resultContentType = result.Content.Headers.ContentType.MediaType;
-                var resultFileData = await result.Content.ReadAsStringAsync();
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
-                Assert.Equal("text/plain", resultContentType);
-                Assert.Equal("Test File Data", resultFileData);
-            }
+            var resultContentType = result.Content.Headers.ContentType.MediaType;
+            var resultFileData = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal("text/plain", resultContentType);
+            Assert.Equal("Test File Data", resultFileData);
         }
 
         [Fact]
         public async Task ResponseBody_BodySet_BodyReturned_ObjectResponse()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => new { TestValue = 234, SubObject = new { Value = "Person" } });
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => new { TestValue = 234, SubObject = new { Value = "Person" } });
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
-                var resultObject = JsonConvert.DeserializeObject<JToken>(resultString);
+            var resultString = await result.Content.ReadAsStringAsync();
 
-                Assert.NotNull(resultObject);
-                Assert.Equal(234, resultObject["TestValue"]);
-                Assert.Equal("Person", resultObject["SubObject"]["Value"]);
-            }
+            var resultObject = JsonConvert.DeserializeObject<JToken>(resultString);
+
+            Assert.NotNull(resultObject);
+            Assert.Equal(234, resultObject["TestValue"]);
+            Assert.Equal("Person", resultObject["SubObject"]["Value"]);
         }
 
         [Fact]
         public async Task StatusCode_StatusCodeSet_StatusCodeReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse")
-                    .StatusCode(StatusCodes.Status206PartialContent);
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse")
+                .StatusCode(StatusCodes.Status206PartialContent);
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.PartialContent, result.StatusCode);
-            }
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+
+            Assert.Equal(HttpStatusCode.PartialContent, result.StatusCode);
         }
 
         [Fact]
         public async Task StatusCode_StatusCodeProviderSet_StatusCodeReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse")
-                    .StatusCode((req, args) => args.Query.testquery == "Success" ? StatusCodes.Status200OK : StatusCodes.Status500InternalServerError);
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse")
+                .StatusCode((req, args) => args.Query.testquery == "Success" ? StatusCodes.Status200OK : StatusCodes.Status500InternalServerError);
 
-                var resultSuccess = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Success" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.OK, resultSuccess.StatusCode);
+            var resultSuccess = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Success" }.Uri);
 
-                var resultFailure = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Failure" }.Uri);
+            Assert.Equal(HttpStatusCode.OK, resultSuccess.StatusCode);
 
-                Assert.Equal(HttpStatusCode.InternalServerError, resultFailure.StatusCode);
-            }
+            var resultFailure = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Failure" }.Uri);
+
+            Assert.Equal(HttpStatusCode.InternalServerError, resultFailure.StatusCode);
         }
 
         [Fact]
         public async Task Header_HeadersAdded_HeadersReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse")
-                    .Header("Header1", "HeaderValue1")
-                    .Header("Header2", "HeaderValue2");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse")
+                .Header("Header1", "HeaderValue1")
+                .Header("Header2", "HeaderValue2");
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                Assert.Equal("HeaderValue1", result.Headers.GetValues("Header1").First());
-                Assert.Equal("HeaderValue2", result.Headers.GetValues("Header2").First());
-            }
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+
+            Assert.Equal("HeaderValue1", result.Headers.GetValues("Header1").First());
+            Assert.Equal("HeaderValue2", result.Headers.GetValues("Header2").First());
         }
 
         [Fact]
         public async Task Header_HeaderProviderSet_HeaderReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse")
-                    .Header((req, args) => args.Query.testquery == "Success"
-                        ? ("HeaderSuccess", "HeaderValueSuccess")
-                        : ("HeaderFailure", "HeaderValueFailure"));
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse")
+                .Header((req, args) => args.Query.testquery == "Success"
+                    ? ("HeaderSuccess", "HeaderValueSuccess")
+                    : ("HeaderFailure", "HeaderValueFailure"));
 
-                var resultSuccess = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Success" }.Uri);
+            sut.Start();
 
-                Assert.Equal("HeaderValueSuccess", resultSuccess.Headers.GetValues("HeaderSuccess").First());
+            var resultSuccess = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Success" }.Uri);
 
-                var resultFailure = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Failure" }.Uri);
+            Assert.Equal("HeaderValueSuccess", resultSuccess.Headers.GetValues("HeaderSuccess").First());
 
-                Assert.Equal("HeaderValueFailure", resultFailure.Headers.GetValues("HeaderFailure").First());
-            }
+            var resultFailure = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Failure" }.Uri);
+
+            Assert.Equal("HeaderValueFailure", resultFailure.Headers.GetValues("HeaderFailure").First());
         }
 
         [Fact]
         public async Task Headers_HeadersAdded_HeadersReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse")
-                    .Headers(("Header1", "HeaderValue1"), ("Header2", "HeaderValue2"));
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse")
+                .Headers(("Header1", "HeaderValue1"), ("Header2", "HeaderValue2"));
 
-                var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                Assert.Equal("HeaderValue1", result.Headers.GetValues("Header1").First());
-                Assert.Equal("HeaderValue2", result.Headers.GetValues("Header2").First());
-            }
+            var result = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+
+            Assert.Equal("HeaderValue1", result.Headers.GetValues("Header1").First());
+            Assert.Equal("HeaderValue2", result.Headers.GetValues("Header2").First());
         }
 
         [Fact]
         public async Task Headers_HeadersProviderSet_HeaderReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get("/testget", (req, args) => "testresponse")
-                   .Headers((req, args) => args.Query.testquery == "Success"
-                       ? new[]
-                       {
-                           ("HeaderSuccess1", "HeaderValueSuccess1"),
-                           ("HeaderSuccess2", "HeaderValueSuccess2"),
-                       }
-                       : new[]
-                       {
-                           ("HeaderFailure1", "HeaderValueFailure1"),
-                           ("HeaderFailure2", "HeaderValueFailure2"),
-                       });
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get("/testget", (req, args) => "testresponse")
+                .Headers((req, args) => args.Query.testquery == "Success"
+                    ? new[]
+                    {
+                        ("HeaderSuccess1", "HeaderValueSuccess1"),
+                        ("HeaderSuccess2", "HeaderValueSuccess2"),
+                    }
+                    : new[]
+                    {
+                        ("HeaderFailure1", "HeaderValueFailure1"),
+                        ("HeaderFailure2", "HeaderValueFailure2"),
+                    });
 
-                var resultSuccess = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Success" }.Uri);
+            sut.Start();
 
-                Assert.Equal("HeaderValueSuccess1", resultSuccess.Headers.GetValues("HeaderSuccess1").First());
-                Assert.Equal("HeaderValueSuccess2", resultSuccess.Headers.GetValues("HeaderSuccess2").First());
+            var resultSuccess = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Success" }.Uri);
 
-                var resultFailure = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Failure" }.Uri);
+            Assert.Equal("HeaderValueSuccess1", resultSuccess.Headers.GetValues("HeaderSuccess1").First());
+            Assert.Equal("HeaderValueSuccess2", resultSuccess.Headers.GetValues("HeaderSuccess2").First());
 
-                Assert.Equal("HeaderValueFailure1", resultFailure.Headers.GetValues("HeaderFailure1").First());
-                Assert.Equal("HeaderValueFailure2", resultFailure.Headers.GetValues("HeaderFailure2").First());
-            }
+            var resultFailure = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?testquery=Failure" }.Uri);
+
+            Assert.Equal("HeaderValueFailure1", resultFailure.Headers.GetValues("HeaderFailure1").First());
+            Assert.Equal("HeaderValueFailure2", resultFailure.Headers.GetValues("HeaderFailure2").First());
         }
     }
 }

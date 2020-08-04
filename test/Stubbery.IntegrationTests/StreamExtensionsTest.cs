@@ -18,19 +18,18 @@ namespace Stubbery.IntegrationTests
         [Fact]
         public async Task ReadAsStringAsync_CalledOnStream_StreamContentReturned()
         {
-            using (var ms = new DelayedMemoryStream())
-            {
-                var bytes = Encoding.UTF8.GetBytes("TestString");
+            using var ms = new DelayedMemoryStream();
 
-                ms.Write(bytes, 0, bytes.Length);
+            var bytes = Encoding.UTF8.GetBytes("TestString");
 
-                ms.Position = 0;
+            ms.Write(bytes, 0, bytes.Length);
 
-                // Act
-                var result = await ms.ReadAsStringAsync();
+            ms.Position = 0;
 
-                Assert.Equal("TestString", result);
-            }
+            // Act
+            var result = await ms.ReadAsStringAsync();
+
+            Assert.Equal("TestString", result);
         }
 
         [Fact]
@@ -42,19 +41,18 @@ namespace Stubbery.IntegrationTests
         [Fact]
         public void ReadAsString_CalledOnStream_StreamContentReturned()
         {
-            using (var ms = new MemoryStream())
-            {
-                var bytes = Encoding.UTF8.GetBytes("TestString");
+            using var ms = new MemoryStream();
 
-                ms.Write(bytes, 0, bytes.Length);
+            var bytes = Encoding.UTF8.GetBytes("TestString");
 
-                ms.Position = 0;
+            ms.Write(bytes, 0, bytes.Length);
 
-                // Act
-                var result = ms.ReadAsString();
+            ms.Position = 0;
 
-                Assert.Equal("TestString", result);
-            }
+            // Act
+            var result = ms.ReadAsString();
+
+            Assert.Equal("TestString", result);
         }
 
         private class DelayedMemoryStream : MemoryStream

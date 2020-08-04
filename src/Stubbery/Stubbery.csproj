@@ -8,6 +8,7 @@
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <DebugType>full</DebugType>
     <AssemblyName>Stubbery</AssemblyName>
+    <LangVersion>8.0</LangVersion>
     <PackageId>Stubbery</PackageId>
     <PackageTags>ASP.NET;Stub;Testing</PackageTags>
     <PackageReleaseNotes>Added the capability to configure the response headers dynamically.</PackageReleaseNotes>

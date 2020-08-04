@@ -21,10 +21,9 @@ namespace Stubbery
                 throw new ArgumentNullException(nameof(stream));
             }
 
-            using (var sr = new StreamReader(stream))
-            {
-                return await sr.ReadToEndAsync();
-            }
+            using var sr = new StreamReader(stream);
+
+            return await sr.ReadToEndAsync();
         }
 
         /// <summary>
@@ -39,10 +38,9 @@ namespace Stubbery
                 throw new ArgumentNullException(nameof(stream));
             }
 
-            using (var sr = new StreamReader(stream))
-            {
-                return sr.ReadToEnd();
-            }
+            using var sr = new StreamReader(stream);
+
+            return sr.ReadToEnd();
         }
     }
 }

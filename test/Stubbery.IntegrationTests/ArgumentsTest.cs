@@ -13,164 +13,157 @@ namespace Stubbery.IntegrationTests
         [Fact]
         public async Task Get_CalledSetupRoute_RouteDataAvailable()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get(
-                    "/testget/{myArg}",
-                    (req, args) => $"testresponse arg: {args.Route.myArg}");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get(
+                "/testget/{myArg}",
+                (req, args) => $"testresponse arg: {args.Route.myArg}");
 
-                var result = await httpClient.GetAsync(
-                    new UriBuilder(new Uri(sut.Address)) { Path = "/testget/orange" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            var result = await httpClient.GetAsync(
+                new UriBuilder(new Uri(sut.Address)) { Path = "/testget/orange" }.Uri);
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
-                Assert.Equal("testresponse arg: orange", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal("testresponse arg: orange", resultString);
         }
 
         [Fact]
         public async Task Get_CalledQueryString_QueryParameterAvailable()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get(
-                    "/testget",
-                    (req, args) => $"testresponse arg: {args.Query.myArg}");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get(
+                "/testget",
+                (req, args) => $"testresponse arg: {args.Query.myArg}");
 
-                var result = await httpClient.GetAsync(
-                    new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?myArg=orange" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            var result = await httpClient.GetAsync(
+                new UriBuilder(new Uri(sut.Address)) { Path = "/testget", Query = "?myArg=orange" }.Uri);
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
-                Assert.Equal("testresponse arg: orange", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal("testresponse arg: orange", resultString);
         }
 
         [Fact]
         public async Task Get_MultipleRouteAndQueryParameters_AllParameterAvailable()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get(
-                    "/testget/{arg1}/part/{arg2}",
-                    (req, args) => $"testresponse arg1: {args.Route.arg1} arg2: {args.Route.arg2} qarg1: {args.Query.qarg1} qarg2: {args.Query.qarg2}");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get(
+                "/testget/{arg1}/part/{arg2}",
+                (req, args) => $"testresponse arg1: {args.Route.arg1} arg2: {args.Route.arg2} qarg1: {args.Query.qarg1} qarg2: {args.Query.qarg2}");
 
-                var result = await httpClient.GetAsync(
-                    new UriBuilder(new Uri(sut.Address)) { Path = "/testget/orange/part/apple", Query = "?qarg1=melon&qarg2=pear" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            var result = await httpClient.GetAsync(
+                new UriBuilder(new Uri(sut.Address)) { Path = "/testget/orange/part/apple", Query = "?qarg1=melon&qarg2=pear" }.Uri);
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
-                Assert.Equal("testresponse arg1: orange arg2: apple qarg1: melon qarg2: pear", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal("testresponse arg1: orange arg2: apple qarg1: melon qarg2: pear", resultString);
         }
 
         [Fact]
         public async Task Get_OptionalRouteParameter_ItCanBeOmitted()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get(
-                    "/testget/{arg:string?}",
-                    (req, args) => "testresponse");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get(
+                "/testget/{arg:string?}",
+                (req, args) => "testresponse");
 
-                var result = await httpClient.GetAsync(
-                    new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            var result = await httpClient.GetAsync(
+                new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
-                Assert.Equal("testresponse", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal("testresponse", resultString);
         }
 
         [Fact]
         public async Task Get_RouteParameterWithDefaultValue_DefaultValueReturned()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Get(
-                    "/testget/{arg:string=apple}",
-                    (req, args) => $"testresponse arg: {args.Route.arg}");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Get(
+                "/testget/{arg:string=apple}",
+                (req, args) => $"testresponse arg: {args.Route.arg}");
 
-                var result = await httpClient.GetAsync(
-                    new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            var result = await httpClient.GetAsync(
+                new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
-                Assert.Equal("testresponse arg: apple", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal("testresponse arg: apple", resultString);
         }
 
         [Fact]
         public async Task Post_BodyPassed_BodyAvailable()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Post(
-                    "/testpost",
-                    (req, args) => $"testresponse body: {args.Body.ReadAsString()}");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Post(
+                "/testpost",
+                (req, args) => $"testresponse body: {args.Body.ReadAsString()}");
 
-                var result = await httpClient.PostAsync(
-                    new UriBuilder(new Uri(sut.Address)) { Path = "/testpost" }.Uri,
-                    new StringContent("orange"));
+            sut.Start();
 
-                Assert.Equal(HttpStatusCode.OK, result.StatusCode);
+            var result = await httpClient.PostAsync(
+                new UriBuilder(new Uri(sut.Address)) { Path = "/testpost" }.Uri,
+                new StringContent("orange"));
 
-                var resultString = await result.Content.ReadAsStringAsync();
+            Assert.Equal(HttpStatusCode.OK, result.StatusCode);
 
-                Assert.Equal("testresponse body: orange", resultString);
-            }
+            var resultString = await result.Content.ReadAsStringAsync();
+
+            Assert.Equal("testresponse body: orange", resultString);
         }
 
         [Fact]
         public async Task Post_TwoRequestsWithDifferentBodies_BodiesAreDifferent()
         {
-            using (var sut = new ApiStub())
-            {
-                sut.Post(
-                    "/testpost",
-                    (req, args) => $"testresponse body: {args.Body.ReadAsString()}");
+            using var sut = new ApiStub();
 
-                sut.Start();
+            sut.Post(
+                "/testpost",
+                (req, args) => $"testresponse body: {args.Body.ReadAsString()}");
 
-                var result1 = await httpClient.PostAsync(
-                    new UriBuilder(new Uri(sut.Address)) { Path = "/testpost" }.Uri,
-                    new StringContent("orange"));
+            sut.Start();
 
-                var result2 = await httpClient.PostAsync(
-                    new UriBuilder(new Uri(sut.Address)) { Path = "/testpost" }.Uri,
-                    new StringContent("pear"));
+            var result1 = await httpClient.PostAsync(
+                new UriBuilder(new Uri(sut.Address)) { Path = "/testpost" }.Uri,
+                new StringContent("orange"));
 
-                Assert.Equal(HttpStatusCode.OK, result1.StatusCode);
-                Assert.Equal(HttpStatusCode.OK, result2.StatusCode);
+            var result2 = await httpClient.PostAsync(
+                new UriBuilder(new Uri(sut.Address)) { Path = "/testpost" }.Uri,
+                new StringContent("pear"));
 
-                var resultString1 = await result1.Content.ReadAsStringAsync();
-                var resultString2 = await result2.Content.ReadAsStringAsync();
+            Assert.Equal(HttpStatusCode.OK, result1.StatusCode);
+            Assert.Equal(HttpStatusCode.OK, result2.StatusCode);
 
-                Assert.Equal("testresponse body: orange", resultString1);
-                Assert.Equal("testresponse body: pear", resultString2);
-            }
+            var resultString1 = await result1.Content.ReadAsStringAsync();
+            var resultString2 = await result2.Content.ReadAsStringAsync();
+
+            Assert.Equal("testresponse body: orange", resultString1);
+            Assert.Equal("testresponse body: pear", resultString2);
         }
     }
 }

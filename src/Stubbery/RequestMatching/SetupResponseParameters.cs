@@ -38,22 +38,17 @@ namespace Stubbery.RequestMatching
 
             var response = Responder(httpContext.Request, arguments);
 
-            if (response is string stringResponse)
+            switch (response)
             {
-                await httpContext.Response.WriteAsync(stringResponse);
-                return;
-            }
-
-            if (response is IActionResult actionResultResponse)
-            {
-                ActionContext context = new ActionContext(httpContext, new RouteData(), new ActionDescriptor());
-                await (actionResultResponse).ExecuteResultAsync(context);
-                return;
-            }
-
-            if (response != null)
-            {
-                await httpContext.Response.WriteAsync(JsonConvert.SerializeObject(response));
+                case string stringResponse:
+                    await httpContext.Response.WriteAsync(stringResponse);
+                    break;
+                case IActionResult actionResultResponse:
+                    await actionResultResponse.ExecuteResultAsync(new ActionContext(httpContext, new RouteData(), new ActionDescriptor()));
+                    break;
+                default:
+                    await httpContext.Response.WriteAsync(JsonConvert.SerializeObject(response));
+                    break;
             }
         }
     }
