@@ -1,6 +1,7 @@
-version: 2.0.0.{build}-{branch}
+version: 2.6.0.{build}-{branch}
 
 skip_tags: true
+skip_branch_with_pr: true
 
 image: Visual Studio 2019
 

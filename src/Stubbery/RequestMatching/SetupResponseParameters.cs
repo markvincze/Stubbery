@@ -12,18 +12,13 @@ namespace Stubbery.RequestMatching
     internal class SetupResponseParameters
     {
         public Func<HttpRequest, RequestArguments, int> StatusCodeProvider { get; set; } = (req, args) => StatusCodes.Status200OK;
+        public ICollection<Func<HttpRequest, RequestArguments, (string, string)[]>> HeaderProviders { get; set; } =
+            new List<Func<HttpRequest, RequestArguments, (string, string)[]>>();
 
         public CreateStubResponse Responder { get; set; }
 
-        public List<KeyValuePair<string, string>> Headers { get; } = new List<KeyValuePair<string, string>>();
-
         public async Task SendResponseAsync(HttpContext httpContext)
         {
-            foreach (var header in Headers)
-            {
-                httpContext.Response.Headers[header.Key] = header.Value;
-            }
-
             var routeValues = httpContext.GetRouteValues();
 
             var arguments = new RequestArguments(
@@ -32,6 +27,14 @@ namespace Stubbery.RequestMatching
                 httpContext.Request.Body);
 
             httpContext.Response.StatusCode = StatusCodeProvider(httpContext.Request, arguments);
+
+            foreach (var headerProvider in HeaderProviders) {
+                var headers = headerProvider(httpContext.Request, arguments);
+
+                foreach (var (headerName, headerValue) in headers) {
+                    httpContext.Response.Headers[headerName] = headerValue;
+                }
+            }
 
             var response = Responder(httpContext.Request, arguments);
 
@@ -48,14 +51,10 @@ namespace Stubbery.RequestMatching
                 return;
             }
 
-            if (response is object objectResponse)
+            if (response != null)
             {
-                await httpContext.Response.WriteAsync(JsonConvert.SerializeObject(objectResponse));
-                return;
+                await httpContext.Response.WriteAsync(JsonConvert.SerializeObject(response));
             }
-
-            await httpContext.Response.WriteAsync((string)response);
-            return;
         }
     }
 }

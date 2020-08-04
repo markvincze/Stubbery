@@ -2,15 +2,15 @@
 
   <PropertyGroup>
     <Description>Library for creating Api stubs in .NET.</Description>
-    <Copyright>Copyright © Mark Vincze 2018</Copyright>
-    <VersionPrefix>2.5.0</VersionPrefix>
+    <Copyright>Copyright © Mark Vincze 2020</Copyright>
+    <VersionPrefix>2.6.0</VersionPrefix>
     <Authors>Mark Vincze</Authors>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <DebugType>full</DebugType>
     <AssemblyName>Stubbery</AssemblyName>
     <PackageId>Stubbery</PackageId>
     <PackageTags>ASP.NET;Stub;Testing</PackageTags>
-    <PackageReleaseNotes>Added the IfQueryArg helper method to set up query string conditions.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added the capability to configure the response headers dynamically.</PackageReleaseNotes>
     <PackageProjectUrl>http://markvincze.github.io/Stubbery/</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/markvincze/Stubbery/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>

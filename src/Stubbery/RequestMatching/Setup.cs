@@ -129,16 +129,30 @@ namespace Stubbery.RequestMatching
             return this;
         }
 
-        public ISetup Headers(params KeyValuePair<string, string>[] headers)
+        public ISetup Headers((string, string)[] headers)
         {
-            setupResponse.Headers.AddRange(headers);
+            setupResponse.HeaderProviders.Add((req, args) => headers);
 
             return this;
         }
 
         public ISetup Header(string header, string value)
         {
-            setupResponse.Headers.Add(new KeyValuePair<string, string>(header, value));
+            setupResponse.HeaderProviders.Add((req, args) => new[] { (header, value) });
+
+            return this;
+        }
+
+        public ISetup Header(Func<HttpRequest, RequestArguments, (string, string)> headerProvider)
+        {
+            setupResponse.HeaderProviders.Add((req, args) => new[] { headerProvider(req, args) });
+
+            return this;
+        }
+
+        public ISetup Headers(Func<HttpRequest, RequestArguments, (string, string)[]> headersProvider)
+        {
+            setupResponse.HeaderProviders.Add(headersProvider);
 
             return this;
         }
