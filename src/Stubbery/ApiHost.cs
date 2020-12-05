@@ -23,10 +23,14 @@ namespace Stubbery
 
         public string StartHosting(int? port)
         {
-            var hostingPort = port ?? PickFreeTcpPort();
+            // this one can cause port collission
+            //var hostingPort = port ?? PickFreeTcpPort();
+
+            // this works
+            var hostingPort = port ?? 0;
             var hostBuilder = new WebHostBuilder()
                 .UseKestrel()
-                .UseUrls($"http://localhost:{hostingPort}/")
+                .UseUrls($"http://127.0.0.1:{hostingPort}/")
                 .ConfigureServices(startup.ConfigureServices)
                 .Configure(startup.Configure);
 
@@ -37,7 +41,7 @@ namespace Stubbery
 
             var serverAddresses = webHost.ServerFeatures.Get<IServerAddressesFeature>();
 
-            return serverAddresses.Addresses.First();
+            return serverAddresses.Addresses.First(it => Uri.IsWellFormedUriString(it, UriKind.Absolute));
         }
 
         public void Stop()
@@ -50,15 +54,12 @@ namespace Stubbery
 
             webHost?.Dispose();
         }
-
         private int PickFreeTcpPort()
         {
             var l = new TcpListener(IPAddress.Loopback, 0);
-
             l.Start();
             var port = ((IPEndPoint)l.LocalEndpoint).Port;
             l.Stop();
-
             return port;
         }
     }
