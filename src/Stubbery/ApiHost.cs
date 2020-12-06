@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Linq;
 
 namespace Stubbery
 {
@@ -23,11 +21,9 @@ namespace Stubbery
 
         public string StartHosting(int? port)
         {
-            // this one can cause port collission
-            //var hostingPort = port ?? PickFreeTcpPort();
-
-            // this works
+            // If the port was not specified, we pass in 0, in which case ASP.NET picks a random free port.
             var hostingPort = port ?? 0;
+
             var hostBuilder = new WebHostBuilder()
                 .UseKestrel()
                 .UseUrls($"http://127.0.0.1:{hostingPort}/")
@@ -53,14 +49,6 @@ namespace Stubbery
             }
 
             webHost?.Dispose();
-        }
-        private int PickFreeTcpPort()
-        {
-            var l = new TcpListener(IPAddress.Loopback, 0);
-            l.Start();
-            var port = ((IPEndPoint)l.LocalEndpoint).Port;
-            l.Stop();
-            return port;
         }
     }
 }
