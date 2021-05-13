@@ -157,6 +157,20 @@ namespace Stubbery.RequestMatching
             return this;
         }
 
+        public ISetup Delay(TimeSpan delay)
+        {
+            setupResponse.DelayProvider = (req, args) => delay;
+
+            return this;
+        }
+
+        public ISetup Delay(Func<HttpRequest, RequestArguments, TimeSpan> delayProvider)
+        {
+            setupResponse.DelayProvider = delayProvider;
+
+            return this;
+        }
+
         public async Task<bool> IsMatch(HttpContext httpContext)
         {
             foreach (var orGroup in orConditions.Where(g => g.Value.Count > 0))

@@ -16,6 +16,7 @@ namespace Stubbery.RequestMatching
             new List<Func<HttpRequest, RequestArguments, (string, string)[]>>();
 
         public CreateStubResponse Responder { get; set; }
+        public Func<HttpRequest, RequestArguments, TimeSpan> DelayProvider { get; set; } = null;
 
         public async Task SendResponseAsync(HttpContext httpContext)
         {
@@ -37,6 +38,10 @@ namespace Stubbery.RequestMatching
             }
 
             var response = Responder(httpContext.Request, arguments);
+
+            if (DelayProvider != null) {
+                await Task.Delay(DelayProvider(httpContext.Request, arguments));
+            }
 
             switch (response)
             {

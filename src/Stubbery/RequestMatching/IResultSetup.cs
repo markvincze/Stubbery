@@ -61,5 +61,19 @@ namespace Stubbery.RequestMatching
         /// <param name="headersProvider">The function which provides the headers based on the request.</param>
         /// <returns>The same <see cref="ISetup"/>-instance, so that more parameters can be set fluently.</returns>
         ISetup Headers(Func<HttpRequest, RequestArguments, (string, string)[]> headersProvider);
+
+        /// <summary>
+        /// Introduce a response delay
+        /// </summary>
+        /// <param name="delay">The delay to introduce.</param>
+        /// <returns>The same <see cref="ISetup"/>-instance, so that more parameters can be set fluently.</returns>
+        ISetup Delay(TimeSpan delay);
+
+        /// <summary>
+        /// Introduce a response delay
+        /// </summary>
+        /// <param name="delayProvider">The function which provides the delay based on the request.</param>
+        /// <returns>The same <see cref="ISetup"/>-instance, so that more parameters can be set fluently.</returns>
+        ISetup Delay(Func<HttpRequest, RequestArguments, TimeSpan> delayProvider);
     }
 }

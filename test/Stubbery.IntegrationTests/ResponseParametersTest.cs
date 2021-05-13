@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -210,6 +211,42 @@ namespace Stubbery.IntegrationTests
 
             Assert.Equal("HeaderValueFailure1", resultFailure.Headers.GetValues("HeaderFailure1").First());
             Assert.Equal("HeaderValueFailure2", resultFailure.Headers.GetValues("HeaderFailure2").First());
+        }
+
+        [Fact]
+        public async Task Delay_FixedDelayAdded_DelayIntroduced()
+        {
+            using var sut = new ApiStub();
+
+            const int msDelay = 200;
+            sut.Get("/testget", (req, args) => "testresponse")
+               .Delay(TimeSpan.FromMilliseconds(msDelay));
+
+            sut.Start();
+
+            var sw = Stopwatch.StartNew();
+            await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sw.Stop();
+
+            Assert.InRange(sw.ElapsedMilliseconds, msDelay, 1.5 * msDelay);
+        }
+
+        [Fact]
+        public async Task Delay_FunctionDelayAdded_DelayIntroduced()
+        {
+            using var sut = new ApiStub();
+
+            const int msDelay = 200;
+            sut.Get("/testget", (req, args) => "testresponse")
+               .Delay((req, args) => TimeSpan.FromMilliseconds(msDelay));
+
+            sut.Start();
+
+            var sw = Stopwatch.StartNew();
+            await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
+            sw.Stop();
+
+            Assert.InRange(sw.ElapsedMilliseconds, msDelay, 1.5 * msDelay);
         }
     }
 }
