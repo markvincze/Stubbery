@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Routing.Template;
 
 namespace Stubbery.RequestMatching.Preconditions
 {
@@ -11,6 +12,7 @@ namespace Stubbery.RequestMatching.Preconditions
         public RouteCondition(string route)
         {
             this.route = route.TrimStart('/');
+            TemplateParser.Parse(route);
         }
 
         public async Task<bool> Match(HttpContext context)

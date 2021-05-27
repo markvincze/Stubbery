@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
@@ -32,7 +33,7 @@ namespace Stubbery.RequestMatching
 
             if (!isSuccess)
             {
-                return null;
+                throw new ArgumentException($"unable to parse template {routeTemplate}");
             }
 
             var matcher = new TemplateMatcher(template, GetDefaults(template));
