@@ -28,13 +28,30 @@ namespace Stubbery.RequestMatching
                 }
             }
 
-            var template = TemplateParser.Parse(routeTemplate);
+            var (isSuccess, template) = TryParseTemplate(routeTemplate);
+
+            if (!isSuccess)
+            {
+                return null;
+            }
 
             var matcher = new TemplateMatcher(template, GetDefaults(template));
 
             var values = new RouteValueDictionary();
 
             return matcher.TryMatch(requestPath, values) ? values : null;
+        }
+
+        private static (bool IsSuccess, RouteTemplate Template) TryParseTemplate(string routeTemplate)
+        {
+            try
+            {
+                return (true, TemplateParser.Parse(routeTemplate));
+            }
+            catch
+            {
+                return (false, null);
+            }
         }
 
         private RouteValueDictionary GetDefaults(RouteTemplate parsedTemplate)
