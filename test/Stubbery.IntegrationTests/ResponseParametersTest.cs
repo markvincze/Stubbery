@@ -218,6 +218,7 @@ namespace Stubbery.IntegrationTests
         {
             using var sut = new ApiStub();
 
+            const int approxSystemClockResolutionInMs = 15;
             const int msDelay = 200;
             sut.Get("/testget", (req, args) => "testresponse")
                .Delay(TimeSpan.FromMilliseconds(msDelay));
@@ -228,7 +229,7 @@ namespace Stubbery.IntegrationTests
             await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
             sw.Stop();
 
-            Assert.InRange(sw.ElapsedMilliseconds, msDelay, 1.5 * msDelay);
+            Assert.InRange(sw.ElapsedMilliseconds, msDelay - approxSystemClockResolutionInMs, 1.5 * msDelay);
         }
 
         [Fact]
@@ -236,6 +237,7 @@ namespace Stubbery.IntegrationTests
         {
             using var sut = new ApiStub();
 
+            const int approxSystemClockResolutionInMs = 15;
             const int msDelay = 200;
             sut.Get("/testget", (req, args) => "testresponse")
                .Delay((req, args) => TimeSpan.FromMilliseconds(msDelay));
@@ -246,7 +248,7 @@ namespace Stubbery.IntegrationTests
             await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address)) { Path = "/testget" }.Uri);
             sw.Stop();
 
-            Assert.InRange(sw.ElapsedMilliseconds, msDelay, 1.5 * msDelay);
+            Assert.InRange(sw.ElapsedMilliseconds, msDelay - approxSystemClockResolutionInMs, 1.5 * msDelay);
         }
     }
 }
