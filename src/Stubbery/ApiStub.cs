@@ -85,11 +85,32 @@ namespace Stubbery
         /// The stub is started on a randomly picked free port, so it will be accessible on an url like "http://localhost:51234".
         /// The exact address can be retrieved through the <see cref="Address" /> property.
         /// </remarks>
+        /// <exception cref="InvalidOperationException">The stub has already been started.</exception>"
         public void Start()
         {
             if (state == ApiStubState.Started)
             {
                 throw new InvalidOperationException("The api stub is already started.");
+            }
+
+            address = apiHost.StartHosting(Port);
+
+            state = ApiStubState.Started;
+        }
+
+        /// <summary>
+        /// Ensures that the stub server is started.
+        /// </summary>
+        /// <remarks>
+        /// The stub is started on a randomly picked free port, so it will be accessible on an url like "http://localhost:51234".
+        /// The exact address can be retrieved through the <see cref="Address" /> property.
+        /// If the stub has already been started, then the method returns without doing anything.
+        /// </remarks>
+        public void EnsureStarted()
+        {
+            if (state == ApiStubState.Started)
+            {
+                return;
             }
 
             address = apiHost.StartHosting(Port);
