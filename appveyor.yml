@@ -1,4 +1,4 @@
-version: 2.7.1.{build}-{branch}
+version: 2.8.1.{build}-{branch}
 
 skip_branch_with_pr: true
 
@@ -41,7 +41,7 @@ deploy:
   api_key:
     secure: c2gRFuU9t3CIVBLrSWysBSzQiA3dq5bf63A6uVzpwUU8n2/1/Oyq++aYvs4ebBPM
   on:
-    branch: master
+    branch: main
     appveyor_repo_tag: true
   artifact: /.*\.nupkg/
 
