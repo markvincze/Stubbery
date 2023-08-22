@@ -22,5 +22,15 @@ namespace Stubbery.IntegrationTests
 
             Assert.Throws<InvalidOperationException>(() => sut.Address);
         }
+
+        [Fact]
+        public void EnsureStarted_Called_NoException()
+        {
+            var sut = new ApiStub();
+
+            sut.EnsureStarted();
+            sut.EnsureStarted();
+            sut.EnsureStarted();
+        }
     }
 }

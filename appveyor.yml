@@ -1,8 +1,8 @@
-version: 2.6.1.{build}-{branch}
+version: 2.7.1.{build}-{branch}
 
 skip_branch_with_pr: true
 
-image: Visual Studio 2019
+image: Visual Studio 2022
 
 clone_depth: 1
 
