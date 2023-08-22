@@ -6,7 +6,7 @@ image: Visual Studio 2022
 
 clone_depth: 1
 
-nuget:  
+nuget:
   disable_publish_on_pr: true
 
 environment:
@@ -23,31 +23,31 @@ install:
 configuration: Release
 
 build_script:
-- dotnet --info
-- dotnet restore --no-cache
-- dotnet build --configuration Release --version-suffix %APPVEYOR_BUILD_NUMBER%
-- dotnet pack src/Stubbery/Stubbery.csproj --configuration Release --no-build
+  - dotnet --info
+  - dotnet restore --no-cache
+  - dotnet build --configuration Release --version-suffix %APPVEYOR_BUILD_NUMBER%
+  - dotnet pack src/Stubbery/Stubbery.csproj --configuration Release --no-build
 
 test_script:
-- dotnet test test/Stubbery.IntegrationTests/Stubbery.IntegrationTests.csproj --configuration Release --no-build
-- bash coverage.sh
-- bash coveralls.sh
+  - dotnet test test/Stubbery.IntegrationTests/Stubbery.IntegrationTests.csproj --configuration Release --no-build
+  - bash coverage.sh
+  - bash coveralls.sh
 
 artifacts:
-- path: src/**/*.nupkg
+  - path: src/**/*.nupkg
 
 deploy:
   provider: NuGet
   api_key:
-    secure: c2gRFuU9t3CIVBLrSWysBSzQiA3dq5bf63A6uVzpwUU8n2/1/Oyq++aYvs4ebBPM
+    secure: 7L29UPBvnOGooqZ6XKGHxFgRHMdcP+i1L3tjO59aQ/YhAod3dyXI3IGVrAoCAa82
   on:
     branch: main
     appveyor_repo_tag: true
   artifact: /.*\.nupkg/
 
 after_deploy:
-- git config --global credential.helper store
-- ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
-- git config --global user.email %github_email%
-- git config --global user.name "markvincze"
-- bash releaseDocs.sh
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:github_access_token):x-oauth-basic@github.com`n"
+  - git config --global user.email %github_email%
+  - git config --global user.name "markvincze"
+  - bash releaseDocs.sh
