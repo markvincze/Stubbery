@@ -71,6 +71,19 @@ references:
   isSpec: "True"
   fullName: Stubbery.ApiStub.Dispose
   nameWithType: ApiStub.Dispose
+- uid: Stubbery.ApiStub.EnsureStarted
+  name: EnsureStarted()
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_EnsureStarted
+  commentId: M:Stubbery.ApiStub.EnsureStarted
+  fullName: Stubbery.ApiStub.EnsureStarted()
+  nameWithType: ApiStub.EnsureStarted()
+- uid: Stubbery.ApiStub.EnsureStarted*
+  name: EnsureStarted
+  href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_EnsureStarted_
+  commentId: Overload:Stubbery.ApiStub.EnsureStarted
+  isSpec: "True"
+  fullName: Stubbery.ApiStub.EnsureStarted
+  nameWithType: ApiStub.EnsureStarted
 - uid: Stubbery.ApiStub.Get
   name: Get()
   href: api/Stubbery.ApiStub.html#Stubbery_ApiStub_Get
@@ -360,15 +373,37 @@ references:
   commentId: T:Stubbery.RequestMatching.IResultSetup
   fullName: Stubbery.RequestMatching.IResultSetup
   nameWithType: IResultSetup
+- uid: Stubbery.RequestMatching.IResultSetup.Delay(System.Func{Microsoft.AspNetCore.Http.HttpRequest,Stubbery.RequestArguments,System.TimeSpan})
+  name: Delay(Func<HttpRequest, RequestArguments, TimeSpan>)
+  href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Delay_System_Func_Microsoft_AspNetCore_Http_HttpRequest_Stubbery_RequestArguments_System_TimeSpan__
+  commentId: M:Stubbery.RequestMatching.IResultSetup.Delay(System.Func{Microsoft.AspNetCore.Http.HttpRequest,Stubbery.RequestArguments,System.TimeSpan})
+  name.vb: Delay(Func(Of HttpRequest, RequestArguments, TimeSpan))
+  fullName: Stubbery.RequestMatching.IResultSetup.Delay(System.Func<Microsoft.AspNetCore.Http.HttpRequest, Stubbery.RequestArguments, System.TimeSpan>)
+  fullName.vb: Stubbery.RequestMatching.IResultSetup.Delay(System.Func(Of Microsoft.AspNetCore.Http.HttpRequest, Stubbery.RequestArguments, System.TimeSpan))
+  nameWithType: IResultSetup.Delay(Func<HttpRequest, RequestArguments, TimeSpan>)
+  nameWithType.vb: IResultSetup.Delay(Func(Of HttpRequest, RequestArguments, TimeSpan))
+- uid: Stubbery.RequestMatching.IResultSetup.Delay(System.TimeSpan)
+  name: Delay(TimeSpan)
+  href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Delay_System_TimeSpan_
+  commentId: M:Stubbery.RequestMatching.IResultSetup.Delay(System.TimeSpan)
+  fullName: Stubbery.RequestMatching.IResultSetup.Delay(System.TimeSpan)
+  nameWithType: IResultSetup.Delay(TimeSpan)
+- uid: Stubbery.RequestMatching.IResultSetup.Delay*
+  name: Delay
+  href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Delay_
+  commentId: Overload:Stubbery.RequestMatching.IResultSetup.Delay
+  isSpec: "True"
+  fullName: Stubbery.RequestMatching.IResultSetup.Delay
+  nameWithType: IResultSetup.Delay
 - uid: Stubbery.RequestMatching.IResultSetup.Header(System.Func{Microsoft.AspNetCore.Http.HttpRequest,Stubbery.RequestArguments,System.ValueTuple{System.String,System.String}})
   name: Header(Func<HttpRequest, RequestArguments, (String, String)>)
   href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Header_System_Func_Microsoft_AspNetCore_Http_HttpRequest_Stubbery_RequestArguments_System_ValueTuple_System_String_System_String___
   commentId: M:Stubbery.RequestMatching.IResultSetup.Header(System.Func{Microsoft.AspNetCore.Http.HttpRequest,Stubbery.RequestArguments,System.ValueTuple{System.String,System.String}})
-  name.vb: Header(Func(Of HttpRequest, RequestArguments, (String, String)))
+  name.vb: Header(Func(Of HttpRequest, RequestArguments, (String, String)(Of String, String)))
   fullName: Stubbery.RequestMatching.IResultSetup.Header(System.Func<Microsoft.AspNetCore.Http.HttpRequest, Stubbery.RequestArguments, System.ValueTuple<System.String, System.String>>)
   fullName.vb: Stubbery.RequestMatching.IResultSetup.Header(System.Func(Of Microsoft.AspNetCore.Http.HttpRequest, Stubbery.RequestArguments, System.ValueTuple(Of System.String, System.String)))
   nameWithType: IResultSetup.Header(Func<HttpRequest, RequestArguments, (String, String)>)
-  nameWithType.vb: IResultSetup.Header(Func(Of HttpRequest, RequestArguments, (String, String)))
+  nameWithType.vb: IResultSetup.Header(Func(Of HttpRequest, RequestArguments, (String, String)(Of String, String)))
 - uid: Stubbery.RequestMatching.IResultSetup.Header(System.String,System.String)
   name: Header(String, String)
   href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Header_System_String_System_String_
@@ -386,20 +421,20 @@ references:
   name: Headers(Func<HttpRequest, RequestArguments, (String, String)[]>)
   href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Headers_System_Func_Microsoft_AspNetCore_Http_HttpRequest_Stubbery_RequestArguments_System_ValueTuple_System_String_System_String_____
   commentId: M:Stubbery.RequestMatching.IResultSetup.Headers(System.Func{Microsoft.AspNetCore.Http.HttpRequest,Stubbery.RequestArguments,System.ValueTuple{System.String,System.String}[]})
-  name.vb: Headers(Func(Of HttpRequest, RequestArguments, (String, String)()))
+  name.vb: Headers(Func(Of HttpRequest, RequestArguments, (String, String)(Of String, String)()))
   fullName: Stubbery.RequestMatching.IResultSetup.Headers(System.Func<Microsoft.AspNetCore.Http.HttpRequest, Stubbery.RequestArguments, System.ValueTuple<System.String, System.String>[]>)
   fullName.vb: Stubbery.RequestMatching.IResultSetup.Headers(System.Func(Of Microsoft.AspNetCore.Http.HttpRequest, Stubbery.RequestArguments, System.ValueTuple(Of System.String, System.String)()))
   nameWithType: IResultSetup.Headers(Func<HttpRequest, RequestArguments, (String, String)[]>)
-  nameWithType.vb: IResultSetup.Headers(Func(Of HttpRequest, RequestArguments, (String, String)()))
+  nameWithType.vb: IResultSetup.Headers(Func(Of HttpRequest, RequestArguments, (String, String)(Of String, String)()))
 - uid: Stubbery.RequestMatching.IResultSetup.Headers(System.ValueTuple{System.String,System.String}[])
   name: Headers((String, String)[])
   href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Headers_System_ValueTuple_System_String_System_String____
   commentId: M:Stubbery.RequestMatching.IResultSetup.Headers(System.ValueTuple{System.String,System.String}[])
-  name.vb: Headers((String, String)())
+  name.vb: Headers((String, String)(Of String, String)())
   fullName: Stubbery.RequestMatching.IResultSetup.Headers(System.ValueTuple<System.String, System.String>[])
   fullName.vb: Stubbery.RequestMatching.IResultSetup.Headers(System.ValueTuple(Of System.String, System.String)())
   nameWithType: IResultSetup.Headers((String, String)[])
-  nameWithType.vb: IResultSetup.Headers((String, String)())
+  nameWithType.vb: IResultSetup.Headers((String, String)(Of String, String)())
 - uid: Stubbery.RequestMatching.IResultSetup.Headers*
   name: Headers
   href: api/Stubbery.RequestMatching.IResultSetup.html#Stubbery_RequestMatching_IResultSetup_Headers_
