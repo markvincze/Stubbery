@@ -49,5 +49,16 @@ namespace Stubbery.IntegrationTests
 
             Assert.Equal("testresponse1", resultString);
         }
+
+        [Theory]
+        [InlineData("/testget//two")]
+        [InlineData(":hey/hello:8080?what")]
+        public void MultipleSetups_OneHasWrongRoute_ThrowsException(string route)
+        {
+            using var sut = new ApiStub();
+
+            Assert.Throws<ArgumentException>(() => sut.Get(route, 
+                (req, args) => "doesn't match"));
+        }
     }
 }
