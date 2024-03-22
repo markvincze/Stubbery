@@ -49,5 +49,28 @@ namespace Stubbery.IntegrationTests
 
             Assert.Equal("testresponse1", resultString);
         }
+
+        [Fact]
+        public async Task MultipleSetups_OneHasWrongRoute_OthersStillMatch()
+        {
+            using var sut = new ApiStub();
+
+            sut.Get("/testget/one", (req, args) => "testresponse1");
+            sut.Get("/testget//two", (req, args) => "doesn't match");
+            sut.Get("/testget/three", (req, args) => "testresponse3");
+
+            sut.Start();
+
+            var result3 = await httpClient.GetAsync(new UriBuilder(new Uri(sut.Address))
+            {
+                Path = "/testget/three"
+            }.Uri);
+
+            Assert.Equal(HttpStatusCode.OK, result3.StatusCode);
+
+            var resultString = await result3.Content.ReadAsStringAsync();
+
+            Assert.Equal("testresponse3", resultString);
+        }
     }
 }
